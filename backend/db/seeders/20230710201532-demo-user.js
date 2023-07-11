@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 
 
-const { User } = require('../models');
+const { User, Spot, Review, Booking, ReviewImage, SpotImage } = require('../models');
 const bcrypt = require("bcryptjs");
 
 let options = {};
@@ -41,7 +41,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     options.tableName = 'Users';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
+    await queryInterface.bulkDelete(options, {
       username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
     }, {});
   }
