@@ -15,32 +15,160 @@ router.get("/current", requireAuth, async (req, res, next) => {
       const userSpots = await Spot.findAll({
             where: {
                   ownerId: req.user.id
-            }
-      })
+            },
+            include: [{model: Review}, {model: SpotImage}]
+      });
 
-      return res.json({Spots: userSpots});
+      const userArray = [];
+
+      userSpots.forEach(spot => {
+            userArray.push(spot.toJSON());
+      });
+
+      userArray.forEach(spot => {
+
+            if (spot.Reviews.length) {
+
+                  let aveStars = 0;
+                  const starsArray = [];
+
+                  spot.Reviews.forEach(reviews => {
+
+                        starsArray.push(reviews.stars);
+                  });
+
+                  const initialValue = 0;
+                  aveStars = starsArray.reduce(
+                        (accumulator, currentValue) => accumulator + currentValue,
+                        initialValue
+                  );
+
+                  spot.aveRating = aveStars;
+
+            } else spot.aveRating = "There are no current ratings";
+
+            delete spot.Reviews;
+
+            spot.SpotImages.forEach(images => {
+
+                  if(images.preview === true) {
+                        spot.previewImage = images.url
+                  };
+            });
+
+            if(!spot.previewImage) {
+                  spot.previewImage = "There is no preview image"
+            };
+
+            delete spot.SpotImages;
+
+      });
+
+      return res.json({Spots: userArray});
 });
 
 router.get("/:spotId", async (req, res, next) => {
 
-
       const idSpot = await Spot.findByPk (req.params.spotId, {
-
+            include: [
+                  {model: Review},
+                  {model: SpotImage, attributes: ['id', 'url', 'preview']},
+                  {model: User, as: "Owner", attributes: ['id', 'firstName', 'lastName']}
+            ]
       });
 
-      if (idSpot) {
-            return res.json(idSpot)
-      } else {
+      if(!idSpot){
             res.status(404);
             return res.json({"message": "Spot couldn't be found"});
+      };
+
+      const parsedIdSpot = idSpot.toJSON();
+
+      if (parsedIdSpot.Reviews.length) {
+
+            let aveStars = 0;
+            let reviewCount = 0;
+            const starsArray = [];
+
+            parsedIdSpot.Reviews.forEach(reviews => {
+                  reviewCount++;
+                  starsArray.push(reviews.stars);
+            });
+
+            const initialValue = 0;
+            aveStars = starsArray.reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  initialValue
+            );
+
+            parsedIdSpot.numReviews = reviewCount;
+            parsedIdSpot.aveStarRating = aveStars;
+
+      } else {
+            parsedIdSpot.numReviews = 0;
+            parsedIdSpot.aveStarRating = "There are no current ratings";
       }
+
+      // delete parsedIdSpot.Reviews;
+      const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, aveStarRating } = parsedIdSpot;
+
+      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, numReviews, aveStarRating, SpotImages, Owner};
+
+      return res.json(finalIdSpot);
 });
 
 router.get("/", async (req, res, next) => {
 
-      const allSpots = await Spot.findAll();
+      const allSpots = await Spot.findAll({
+            include: [{model: Review}, {model: SpotImage}]
+      });
 
-      return res.json({Spots: allSpots});
+      const spotsArray = [];
+
+      allSpots.forEach(spot => {
+            spotsArray.push(spot.toJSON());
+      });
+
+      spotsArray.forEach(spot => {
+
+            if (spot.Reviews.length) {
+
+                  let aveStars = 0;
+                  const starsArray = [];
+
+                  spot.Reviews.forEach(reviews => {
+
+                        starsArray.push(reviews.stars);
+                  });
+
+                  const initialValue = 0;
+                        aveStars = starsArray.reduce(
+                              (accumulator, currentValue) => accumulator + currentValue,
+                              initialValue
+                        );
+
+                  spot.aveRating = aveStars;
+
+            } else spot.aveRating = "There are no current ratings";
+
+            delete spot.Reviews;
+
+            spot.SpotImages.forEach(images => {
+
+                  if(images.preview === true) {
+                        spot.previewImage = images.url
+                  };
+            });
+
+            if(!spot.previewImage) {
+                  spot.previewImage = "There is no preview image"
+            };
+
+            delete spot.SpotImages;
+
+      });
+
+      return res.json({Spots: spotsArray});
 });
 
 router.post("/:spotId/images", requireAuth, async (req, res, next) => {
