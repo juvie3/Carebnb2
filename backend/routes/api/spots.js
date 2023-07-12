@@ -196,6 +196,45 @@ router.post("/:spotId/images", requireAuth, async (req, res, next) => {
       }
 });
 
+router.post("/:spotId/reviews", requireAuth, async (req, res, next) => {
+
+      const curSpot = await Spot.findByPk(req.params.spotId, {
+            include: Review
+      });
+
+      if (!curSpot) {
+            res.status(404);
+            return res.json({"message": "Spot couldn't be found"});
+      }
+
+      const curReviewsArray = [];
+
+      curSpot.Reviews.forEach(reviews => {
+            const {userId} = reviews.dataValues;
+            curReviewsArray.push(userId);
+      })
+
+      if (curReviewsArray.includes(req.user.id)){
+            res.status(500);
+            return res.json({"message": "User already has a review for this spot"})
+      }
+
+      if (curSpot){
+            const { review, stars } = req.body;
+
+            const newReview = await Review.create({
+                  userId: req.user.id,
+                  spotId: req.params.spotId,
+                  review,
+                  stars,
+            });
+
+            res.status(201);
+            return res.json(newReview);
+
+      };
+});
+
 router.post("/", requireAuth, async (req, res, next) => {
 
       const { address, city, state, country, lat, lng, name, description, price } = req.body;

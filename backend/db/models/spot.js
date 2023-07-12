@@ -35,7 +35,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       ownerId: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          isNumeric: true
+        }
       },
       address: {
         type: DataTypes.STRING,
@@ -65,8 +68,18 @@ module.exports = (sequelize, DataTypes) => {
           len: [1,30]
         }
       },
-      lat: DataTypes.DECIMAL,
-      lng: DataTypes.DECIMAL,
+      lat: {
+        type: DataTypes.DECIMAL,
+        validate: {
+          isNumeric: true
+        }
+      },
+      lng: {
+        type: DataTypes.DECIMAL,
+        validate: {
+          isNumeric: true
+        }
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -83,7 +96,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       price: {
         type: DataTypes.DECIMAL,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          isNumeric: true
+        }
       }
     },
     {
