@@ -29,21 +29,22 @@ router.get("/current", requireAuth, async (req, res, next) => {
 
             if (spot.Reviews.length) {
 
-                  let aveStars = 0;
+                  let totalStars = 0;
+                  let count = 0
                   const starsArray = [];
 
                   spot.Reviews.forEach(reviews => {
-
+                        count++;
                         starsArray.push(reviews.stars);
                   });
 
                   const initialValue = 0;
-                  aveStars = starsArray.reduce(
+                  totalStars = starsArray.reduce(
                         (accumulator, currentValue) => accumulator + currentValue,
                         initialValue
                   );
 
-                  spot.aveRating = aveStars;
+                  spot.aveRating = totalStars/count;
 
             } else spot.aveRating = "There are no current ratings";
 
@@ -113,7 +114,7 @@ router.get("/:spotId", async (req, res, next) => {
 
       if (parsedIdSpot.Reviews.length) {
 
-            let aveStars = 0;
+            let totalStars = 0;
             let reviewCount = 0;
             const starsArray = [];
 
@@ -123,13 +124,13 @@ router.get("/:spotId", async (req, res, next) => {
             });
 
             const initialValue = 0;
-            aveStars = starsArray.reduce(
+            totalStars = starsArray.reduce(
                   (accumulator, currentValue) => accumulator + currentValue,
                   initialValue
             );
 
             parsedIdSpot.numReviews = reviewCount;
-            parsedIdSpot.aveStarRating = aveStars;
+            parsedIdSpot.aveStarRating = totalStars/reviewCount;
 
       } else {
             parsedIdSpot.numReviews = 0;
@@ -160,21 +161,22 @@ router.get("/", async (req, res, next) => {
 
             if (spot.Reviews.length) {
 
-                  let aveStars = 0;
+                  let totalStars = 0;
+                  let count = 0
                   const starsArray = [];
 
                   spot.Reviews.forEach(reviews => {
-
+                        count++;
                         starsArray.push(reviews.stars);
                   });
 
                   const initialValue = 0;
-                        aveStars = starsArray.reduce(
-                              (accumulator, currentValue) => accumulator + currentValue,
-                              initialValue
-                        );
+                  totalStars = starsArray.reduce(
+                        (accumulator, currentValue) => accumulator + currentValue,
+                        initialValue
+                  );
 
-                  spot.aveRating = aveStars;
+                  spot.aveRating = totalStars/count;
 
             } else spot.aveRating = "There are no current ratings";
 
