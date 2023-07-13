@@ -204,7 +204,11 @@ router.post("/:spotId/images", requireAuth, async (req, res, next) => {
                   spotId: curSpot.id
             });
 
-            return res.json(newSpotImage);
+            const finalSpotImage = await SpotImage.findByPk(newSpotImage.id, {
+                  attributes: ['id', 'url', 'preview']
+            });
+
+            return res.json(finalSpotImage);
 
       } else if (curSpot && curSpot.ownerId !== req.user.id) {
             res.status(403);
