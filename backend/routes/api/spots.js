@@ -67,6 +67,25 @@ router.get("/current", requireAuth, async (req, res, next) => {
       return res.json({Spots: userArray});
 });
 
+router.get("/:spotId/reviews", async (req, res, next) => {
+
+      const curSpotReviews = await Review.findAll({
+            where: {
+                  spotId: req.params.spotId
+            },
+            include: [
+                  {model: User, attributes: ['id', 'firstName', 'lastName']},
+                  {model: ReviewImage, attributes: ['id', 'url']}
+            ]
+      });
+
+      if (curSpotReviews.length) return res.json(curSpotReviews)
+      else {
+            res.status(404);
+            return res.json({"message": "Spot couldn't be found"});
+      };
+});
+
 router.get("/:spotId", async (req, res, next) => {
 
       const idSpot = await Spot.findByPk (req.params.spotId, {
