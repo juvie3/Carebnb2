@@ -222,7 +222,9 @@ router.post("/:spotId/images", requireAuth, async (req, res, next) => {
 
       } else if (curSpot && curSpot.ownerId !== req.user.id) {
             res.status(403);
-            return res.json({"message": "You don't have the right authorization"});
+            return res.json({
+                  "message": "Forbidden"
+                });
       } else {
             res.status(404);
             return res.json({"message": "Spot couldn't be found"});
@@ -314,7 +316,9 @@ router.put("/:spotId", requireAuth, async (req, res, next) => {
 
       } else if (curSpot && curSpot.ownerId !== req.user.id) {
             res.status(403);
-            return res.json({"message": "You don't have the right authorization"});
+            return res.json({
+                  "message": "Forbidden"
+                });
       } else {
             res.status(404);
             return res.json({"message": "Spot couldn't be found"});
@@ -332,7 +336,9 @@ router.delete("/:spotId", requireAuth, async (req, res, next) => {
 
       } else if (curSpot && curSpot.ownerId !== req.user.id) {
             res.status(403);
-            return res.json({"message": "You don't have the right authorization"});
+            return res.json({
+                  "message": "Forbidden"
+                });
 
       } else {
             res.status(404);

@@ -81,7 +81,9 @@ router.post("/:reviewId/images", requireAuth, async (req, res, next) => {
 
       if (curReview.userId !== req.user.id) {
             res.status(403);
-            return res.json({"message": "This is not your review"})
+            return res.json({
+                  "message": "Forbidden"
+                })
       };
 
       const countReviewImages = await ReviewImage.count({
@@ -124,7 +126,9 @@ router.put("/:reviewId", requireAuth, async (req, res, next) => {
 
       if(curReview.userId !== req.user.id) {
             res.status(403);
-            return res.json({"Message": "You did not write this review"})
+            return res.json({
+                  "message": "Forbidden"
+                })
       };
 
             const updatedReview = await curReview.update({
@@ -146,7 +150,9 @@ router.delete("/:reviewId", requireAuth, async (req, res, next) => {
 
       if(curReview.userId !== req.user.id) {
             res.status(403);
-            return res.json({"Message": "You did not write this review"})
+            return res.json({
+                  "message": "Forbidden"
+                })
       };
 
             curReview.destroy();
