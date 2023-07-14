@@ -156,8 +156,12 @@ router.put("/:bookingId", requireAuth, async (req, res, next) => {
             })
       };
 
+      await curBooking.update({
+            startDate,
+            endDate
+      });
 
-      return res.json({'hello':'world'})
+      return res.json(curBooking);
 });
 
 router.delete("/:bookingId", requireAuth, async (req, res, next) => {
