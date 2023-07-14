@@ -508,9 +508,8 @@ router.post("/:spotId/bookings", requireAuth, async (req, res, next) => {
             endDate,
             createdAt,
             updatedAt
-      }
+      };
 
-      // return res.json(newBooking);
       return res.json(confirmedBooking);
 
 });
