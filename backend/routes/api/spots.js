@@ -135,14 +135,11 @@ router.get("/:spotId/bookings", requireAuth, async (req, res, next) => {
             const curSpot = await Spot.findByPk(req.params.spotId, {
                   attributes: [],
                   include: [
-                        // {model: User, as: "Owner", attributes: ["id", "firstName", "lastName"]},
                         {model: Booking,
                               include: [{model: User, attributes: ['id', 'firstName', 'lastName']}]
                         }
-
                   ]
             });
-
 
             const bookingsArray = [];
 
