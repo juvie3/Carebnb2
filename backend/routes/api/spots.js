@@ -79,9 +79,9 @@ router.get("/search", async (req, res, next) => {
                         initialValue
                   );
 
-                  spot.aveRating = totalStars/count;
+                  spot.avgRating = totalStars/count;
 
-            } else spot.aveRating = "There are no current ratings";
+            } else spot.avgRating = "There are no current ratings";
 
             delete spot.Reviews;
 
@@ -137,9 +137,9 @@ router.get("/current", requireAuth, async (req, res, next) => {
                         initialValue
                   );
 
-                  spot.aveRating = totalStars/count;
+                  spot.avgRating = totalStars/count;
 
-            } else spot.aveRating = "There are no current ratings";
+            } else spot.avgRating = "There are no current ratings";
 
             delete spot.Reviews;
 
@@ -365,9 +365,9 @@ router.get("/", async (req, res, next) => {
                         initialValue
                   );
 
-                  spot.aveRating = totalStars/count;
+                  spot.avgRating = totalStars/count;
 
-            } else spot.aveRating = "There are no current ratings";
+            } else spot.avgRating = "There are no current ratings";
 
             delete spot.Reviews;
 
