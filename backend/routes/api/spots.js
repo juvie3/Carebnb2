@@ -87,13 +87,88 @@ router.get("/:spotId/reviews", async (req, res, next) => {
       };
 });
 
-// router.get("/spotId/bookings", requireAuth, async (req, res, next) => {
+router.get("/:spotId/bookings", requireAuth, async (req, res, next) => {
 
-//       const curSpot = await Spot.findByPk(req.params.spotId, {
-//             include: []
-//       });
+      const sspot = await Spot.findByPk(req.params.spotId);
 
-// });
+      if (!sspot) {
+            res.status(404);
+            return res.json({
+                  "message": "Spot couldn't be found"
+                });
+      }
+
+      if (sspot.ownerId !== req.user.id) {
+
+            const curSpot = await Spot.findByPk(req.params.spotId, {
+                  attributes: [],
+                  include: [{model: Booking, attributes: ["spotId", "startDate", "endDate"]}]
+            });
+
+            const bookingsArray = [];
+
+            const thisSpot = curSpot.toJSON();
+
+            const bookingInfo = Object.values(thisSpot);
+
+            bookingInfo.forEach(bookingss => {
+
+                  bookingss.forEach(bookingsss => {
+                        const start = bookingsss.startDate;
+                        const end = bookingsss.endDate;
+
+                        const targetStart = start.getFullYear() + "-" + (start.getMonth()+1) + "-" + start.getDate();
+                        const targetEnd = end.getFullYear() + "-" + (end.getMonth()+1) + "-" + end.getDate();
+
+                        bookingsss.startDate = targetStart;
+                        bookingsss.endDate = targetEnd;
+                        bookingsArray.push(bookingsss);
+                  });
+
+            });
+
+                  return res.json({"Bookings": bookingsArray});
+      };
+
+      if (sspot.ownerId === req.user.id) {
+
+            const curSpot = await Spot.findByPk(req.params.spotId, {
+                  attributes: [],
+                  include: [
+                        {model: User, attributes: ["id", "firstName", "lastName"]},
+                        {model: Booking}
+
+                  ]
+            });
+
+            const bookingsArray = [];
+
+            const thisSpot = curSpot.toJSON();
+
+            const bookingInfo = Object.values(thisSpot);
+
+            bookingInfo.forEach(bookingss => {
+
+                  bookingss.forEach(bookingsss => {
+                        const start = bookingsss.startDate;
+                        const end = bookingsss.endDate;
+
+                        const targetStart = start.getFullYear() + "-" + (start.getMonth()+1) + "-" + start.getDate();
+                        const targetEnd = end.getFullYear() + "-" + (end.getMonth()+1) + "-" + end.getDate();
+
+                        bookingsss.startDate = targetStart;
+                        bookingsss.endDate = targetEnd;
+                        bookingsArray.push(bookingsss);
+                  });
+
+            });
+
+                  return res.json({"Bookings": bookingsArray});
+
+      }
+
+
+});
 
 router.get("/:spotId", async (req, res, next) => {
 
@@ -198,6 +273,132 @@ router.get("/", async (req, res, next) => {
       });
 
       return res.json({Spots: spotsArray});
+});
+
+router.post("/:spotId/bookings", requireAuth, async (req, res, next) => {
+
+      function datesBetween(startD, endD) {
+            const currentD = new Date(startD.getTime());
+            const dates = [];
+            while (currentD <= endD) {
+              dates.push(new Date(currentD));
+              currentD.setDate(currentD.getDate() + 1);
+            };
+            return dates;
+      };
+
+      const { startDate, endDate } = req.body;
+
+      const curSpot = await Spot.findByPk(req.params.spotId);
+
+      if (!curSpot) {
+            res.status(404);
+            return res.json({
+                  "message": "Spot couldn't be found"
+                });
+      };
+
+      if (curSpot.ownerId === req.user.id) {
+            res.status(403);
+            return res.json({"message": "Forbidden"});
+      };
+
+      //=================================================
+      // Find all dates that are booked for this spot
+      //=================================================
+
+      const allBookings = await Booking.findAll({
+            where: {
+                  spotId: curSpot.id
+            }
+      });
+
+      const bookedDatesArray = [];
+
+      allBookings.forEach(bookingss => {
+            const fullBookingInfo = bookingss.toJSON();
+            const sstart = fullBookingInfo.startDate;
+            const eend = fullBookingInfo.endDate;
+
+            const allDates = datesBetween(sstart, eend);
+
+            allDates.forEach(datess => {
+                  bookedDatesArray.push(datess.getTime());
+            });
+      });
+
+      //=================================================
+      // Handling date conflicts
+      //=================================================
+
+      const requestStart = new Date(startDate);
+      const requestEnd = new Date(endDate);
+      const requestedDatesArray = datesBetween(requestStart, requestEnd);
+
+      if (bookedDatesArray.includes(requestStart.getTime())) {
+            res.status(403);
+            return res.json({
+                  "message": "Sorry, this spot is already booked for the specified dates",
+                  "errors": {
+                    "startDate": "Start date conflicts with an existing booking"
+                  }
+            });
+      };
+
+      if (bookedDatesArray.includes(requestEnd.getTime())) {
+            res.status(403);
+            return res.json({
+                  "message": "Sorry, this spot is already booked for the specified dates",
+                  "errors": {
+                        "endDate": "End date conflicts with an existing booking"
+                  }
+            });
+      };
+
+      for (let i = 0; i < requestedDatesArray.length; i++) {
+            let thisDate = requestedDatesArray[i];
+            if (bookedDatesArray.includes(thisDate.getTime())) {
+                  res.status(403);
+                  return res.json({"message": "Sorry, this spot is already booked in the middle of your requested stay"})
+                  break;
+            };
+      };
+
+      const newStart = new Date(startDate);
+      const newEnd = new Date(endDate);
+
+      if (newStart.getTime() >= newEnd.getTime()) {
+            res.status(400);
+            return res.json({
+                  "message": "Bad Request",
+                  "errors": {
+                    "endDate": "endDate cannot be on or before startDate"
+                  }
+            })
+      };
+
+      const newBooking = await Booking.create({
+            spotId: curSpot.id,
+            userId: req.user.id,
+            startDate,
+            endDate
+      });
+
+      const { id, spotId, userId, createdAt, updatedAt } = newBooking;
+
+      const confirmedBooking = {
+            id,
+            spotId,
+            userId,
+            startDate,
+            endDate,
+            createdAt,
+            updatedAt
+      }
+
+      // return res.json(newBooking);
+      return res.json(confirmedBooking);
+
 });
 
 router.post("/:spotId/images", requireAuth, async (req, res, next) => {
