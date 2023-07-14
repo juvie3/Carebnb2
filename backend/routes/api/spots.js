@@ -298,10 +298,10 @@ router.post("/:spotId/bookings", requireAuth, async (req, res, next) => {
                 });
       };
 
-      if (curSpot.ownerId === req.user.id) {
-            res.status(403);
-            return res.json({"message": "Forbidden"});
-      };
+      // if (curSpot.ownerId === req.user.id) {
+      //       res.status(403);
+      //       return res.json({"message": "Forbidden"});
+      // };
 
       //=================================================
       // Find all dates that are booked for this spot
