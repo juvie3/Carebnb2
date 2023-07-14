@@ -135,38 +135,46 @@ router.get("/:spotId/bookings", requireAuth, async (req, res, next) => {
             const curSpot = await Spot.findByPk(req.params.spotId, {
                   attributes: [],
                   include: [
-                        {model: User, attributes: ["id", "firstName", "lastName"]},
-                        {model: Booking}
+                        // {model: User, as: "Owner", attributes: ["id", "firstName", "lastName"]},
+                        {model: Booking,
+                              include: [{model: User, attributes: ['id', 'firstName', 'lastName']}]
+                        }
 
                   ]
             });
+
 
             const bookingsArray = [];
 
             const thisSpot = curSpot.toJSON();
 
-            const bookingInfo = Object.values(thisSpot);
+            const bookingInfo = thisSpot.Bookings;
 
             bookingInfo.forEach(bookingss => {
 
-                  bookingss.forEach(bookingsss => {
-                        const start = bookingsss.startDate;
-                        const end = bookingsss.endDate;
+                  const start = bookingss.startDate;
+                  const end = bookingss.endDate;
 
-                        const targetStart = start.getFullYear() + "-" + (start.getMonth()+1) + "-" + start.getDate();
-                        const targetEnd = end.getFullYear() + "-" + (end.getMonth()+1) + "-" + end.getDate();
+                  const targetStart = start.getFullYear() + "-" + (start.getMonth()+1) + "-" + start.getDate();
+                  const targetEnd = end.getFullYear() + "-" + (end.getMonth()+1) + "-" + end.getDate();
 
-                        bookingsss.startDate = targetStart;
-                        bookingsss.endDate = targetEnd;
-                        bookingsArray.push(bookingsss);
-                  });
+                  const bookingObj = {
+                        User: bookingss.User,
+                        id: bookingss.id,
+                        spotId: bookingss.spotId,
+                        userId: bookingss.userId,
+                        startDate: targetStart,
+                        endDate: targetEnd,
+                        createdAt: bookingss.createdAt,
+                        updatedAt: bookingss.updatedAt
+                  };
+
+                  bookingsArray.push(bookingObj);
 
             });
 
                   return res.json({"Bookings": bookingsArray});
-
       }
-
 
 });
 
@@ -298,10 +306,10 @@ router.post("/:spotId/bookings", requireAuth, async (req, res, next) => {
                 });
       };
 
-      // if (curSpot.ownerId === req.user.id) {
-      //       res.status(403);
-      //       return res.json({"message": "Forbidden"});
-      // };
+      if (curSpot.ownerId === req.user.id) {
+            res.status(403);
+            return res.json({"message": "Forbidden"});
+      };
 
       //=================================================
       // Find all dates that are booked for this spot
