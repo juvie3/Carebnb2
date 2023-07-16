@@ -320,7 +320,7 @@ router.get("/:spotId", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
 
-      let { page, size } = req.query;
+      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
       if (!page) page = 1;
       if (!size) size = 20;
@@ -335,9 +335,31 @@ router.get("/", async (req, res, next) => {
             pagination.offset = 0;
       };
 
+      let filters = {};
+
+      if (minLat !== undefined) {
+            filters.lat = {[Op.gte]:minLat};
+      };
+      if (maxLat !== undefined) {
+            filters.lat = {[Op.lte]:maxLat};
+      };
+      if (minLng !== undefined) {
+            filters.lng = {[Op.gte]:minLng};
+      };
+      if (maxLng !== undefined) {
+            filters.lng = {[Op.lte]:maxLng};
+      };
+      if (minPrice !== undefined && minPrice >= 0) {
+            filters.price = {[Op.gte]:minPrice};
+      };
+      if (maxPrice !== undefined && maxPrice >= 0) {
+            filters.price = {[Op.lte]:maxPrice};
+      };
+
       const allSpots = await Spot.findAll({
             include: [{model: Review}, {model: SpotImage}],
-            ...pagination
+            ...pagination,
+            where: {...filters}
       });
 
       const spotsArray = [];
