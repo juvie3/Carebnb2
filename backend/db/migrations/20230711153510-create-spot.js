@@ -40,10 +40,10 @@ module.exports = {
         allowNull: false
       },
       lat: {
-        type: Sequelize.REAL
+        type: Sequelize.DOUBLE
       },
       lng: {
-        type: Sequelize.REAL
+        type: Sequelize.DOUBLE
       },
       name: {
         type: Sequelize.STRING(256),
