@@ -40,10 +40,10 @@ module.exports = {
         allowNull: false
       },
       lat: {
-        type: Sequelize.DOUBLE-PRECISION
+        type: Sequelize.REAL
       },
       lng: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.REAL
       },
       name: {
         type: Sequelize.STRING(256),
