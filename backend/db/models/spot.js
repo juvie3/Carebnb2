@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       lat: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.DOUBLEPRECISION,
         validate: {
           min: -90,
           max: 90
