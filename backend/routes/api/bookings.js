@@ -129,6 +129,22 @@ router.put("/:bookingId", requireAuth, async (req, res, next) => {
 
       const { startDate, endDate } = req.body;
 
+      //=================================
+      // Dropping leading zero from date
+
+      const startDateArray = startDate.split('-');
+
+      if (startDateArray[2][0] === '0') {
+            startDate = startDateArray[0] + "-" + startDateArray[1] + "-" + startDateArray[2][1];
+      };
+
+      const startEndArray = endDate.split('-');
+
+      if (startEndArray[2][0] === '0') {
+            endDate = startEndArray[0] + "-" + startEndArray[1] + "-" + startEndArray[2][1];
+      };
+      //=================================
+
       function datesBetween(startD, endD) {
             const currentD = new Date(startD.getTime());
             const dates = [];
@@ -239,7 +255,76 @@ router.put("/:bookingId", requireAuth, async (req, res, next) => {
             endDate
       });
 
-      return res.json(curBooking);
+      const { id, spotId, userId, createdAt, updatedAt } = curBooking;
+
+      // ==========================================================
+      // Formatting dates
+      // ==========================================================
+
+      const s = new Date (startDate);
+
+      const sYear = s.getFullYear();
+      const preSMonth = s.getMonth() + 1;
+      const sMonth = preSMonth < 10 ? "0" + preSMonth : preSMonth;
+      const preSDay = s.getDate();
+      const sDay = preSDay < 10 ? "0" + preSDay : preSDay;
+      const sTime = s.toTimeString().substring(0, 8);
+
+      const formatedStartDate = sYear + "-" + sMonth + "-" + sDay;
+
+      //===========================
+
+      const e = new Date (endDate);
+
+      const eYear = e.getFullYear();
+      const preEMonth = e.getMonth() + 1;
+      const eMonth = preEMonth < 10 ? "0" + preEMonth : preEMonth;
+      const preEDay = e.getDate();
+      const eDay = preEDay < 10 ? "0" + preEDay : preEDay;
+      const eTime = e.toTimeString().substring(0, 8);
+
+      const formatedEndDate = eYear + "-" + eMonth + "-" + eDay;
+
+      //===========================
+
+      const c = new Date (createdAt);
+
+      const cYear = c.getFullYear();
+      const preCMonth = c.getMonth() + 1;
+      const cMonth = preCMonth < 10 ? "0" + preCMonth : preCMonth;
+      const preCDay = c.getDate();
+      const cDay = preCDay < 10 ? "0" + preCDay : preCDay;
+      const cTime = c.toTimeString().substring(0, 8);
+
+      const formatedCreatedDate = cYear + "-" + cMonth + "-" + cDay + " " + cTime;
+
+      //===========================
+
+      const u = new Date (updatedAt);
+
+      const uYear = u.getFullYear();
+      const preUMonth = u.getMonth() + 1;
+      const uMonth = preUMonth < 10 ? "0" + preUMonth : preUMonth;
+      const preUDay = u.getDate();
+      const uDay = preUDay < 10 ? "0" + preUDay : preUDay;
+      const uTime = u.toTimeString().substring(0, 8);
+
+      const formatedUpdatedDate = uYear + "-" + uMonth + "-" + uDay + " " + uTime;
+
+      // ==========================================================
+      // ==========================================================
+
+      const updatedBooking = {
+            id,
+            spotId,
+            userId,
+            startDate: formatedStartDate,
+            endDate: formatedEndDate,
+            createdAt: formatedCreatedDate,
+            updatedAt: formatedUpdatedDate
+      };
+
+      return res.json(updatedBooking);
 });
 
 router.delete("/:bookingId", requireAuth, async (req, res, next) => {
