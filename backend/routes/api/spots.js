@@ -380,17 +380,16 @@ router.get("/:spotId", async (req, res, next) => {
             );
 
             parsedIdSpot.numReviews = reviewCount;
-            parsedIdSpot.aveStarRating = totalStars/reviewCount;
+            parsedIdSpot.avgStarRating = totalStars/reviewCount;
 
       } else {
             parsedIdSpot.numReviews = 0;
-            parsedIdSpot.aveStarRating = "There are no current ratings";
+            parsedIdSpot.avgStarRating = "There are no current ratings";
       }
 
-      // delete parsedIdSpot.Reviews;
-      const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, aveStarRating } = parsedIdSpot;
+      const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, avgStarRating } = parsedIdSpot;
 
-      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, numReviews, aveStarRating, SpotImages, Owner};
+      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, numReviews, avgStarRating, SpotImages, Owner};
 
       return res.json(finalIdSpot);
 });
