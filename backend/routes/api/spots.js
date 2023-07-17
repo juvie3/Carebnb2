@@ -389,7 +389,39 @@ router.get("/:spotId", async (req, res, next) => {
 
       const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, avgStarRating } = parsedIdSpot;
 
-      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, numReviews, avgStarRating, SpotImages, Owner};
+
+      // ==========================================================
+      // Formatting dates
+      // ==========================================================
+
+      const c = new Date (createdAt);
+
+      const cYear = c.getFullYear();
+      const preCMonth = c.getMonth() + 1;
+      const cMonth = preCMonth < 10 ? "0" + preCMonth : preCMonth;
+      const preCDay = c.getDate();
+      const cDay = preCDay < 10 ? "0" + preCDay : preCDay;
+      const cTime = c.toTimeString().substring(0, 8);
+
+      const formatedCreatedDate = cYear + "-" + cMonth + "-" + cDay + " " + cTime;
+
+      //===========================
+
+      const u = new Date (updatedAt);
+
+      const uYear = u.getFullYear();
+      const preUMonth = u.getMonth() + 1;
+      const uMonth = preUMonth < 10 ? "0" + preUMonth : preUMonth;
+      const preUDay = u.getDate();
+      const uDay = preUDay < 10 ? "0" + preUDay : preUDay;
+      const uTime = u.toTimeString().substring(0, 8);
+
+      const formatedUpdatedDate = uYear + "-" + uMonth + "-" + uDay + " " + uTime;
+
+      // ==========================================================
+      // ==========================================================
+
+      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt: formatedCreatedDate, updatedAt: formatedUpdatedDate, numReviews, avgStarRating, SpotImages, Owner};
 
       return res.json(finalIdSpot);
 });
