@@ -40,7 +40,7 @@ module.exports = {
         allowNull: false
       },
       lat: {
-        type: Sequelize.DOUBLEPRECISION
+        type: Sequelize.DOUBLE-PRECISION
       },
       lng: {
         type: Sequelize.DECIMAL
