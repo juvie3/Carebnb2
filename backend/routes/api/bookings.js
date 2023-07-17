@@ -22,6 +22,7 @@ router.get("/current", requireAuth, async (req, res, next) => {
       });
 
       const bookingsArray = [];
+      const confirmedBooking = [];
 
       userBookings.forEach(booking => {
             bookingsArray.push(booking.toJSON());
@@ -41,9 +42,86 @@ router.get("/current", requireAuth, async (req, res, next) => {
             };
 
             delete booking.Spot.SpotImages;
-      });
 
-      return res.json({"Bookings": bookingsArray})
+            // ==========================================================
+            // Formatting dates
+            // ==========================================================
+
+            const s = booking.startDate;
+
+            const sYear = s.getFullYear();
+            const preSMonth = s.getMonth() + 1;
+            const sMonth = preSMonth < 10 ? "0" + preSMonth : preSMonth;
+            const preSDay = s.getDate();
+            const sDay = preSDay < 10 ? "0" + preSDay : preSDay;
+            const sTime = s.toTimeString().substring(0, 8);
+
+            const formatedStartDate = sYear + "-" + sMonth + "-" + sDay;
+
+            //===========================
+
+            const e = booking.endDate;
+
+            const eYear = e.getFullYear();
+            const preEMonth = e.getMonth() + 1;
+            const eMonth = preEMonth < 10 ? "0" + preEMonth : preEMonth;
+            const preEDay = e.getDate();
+            const eDay = preEDay < 10 ? "0" + preEDay : preEDay;
+            const eTime = e.toTimeString().substring(0, 8);
+
+            const formatedEndDate = eYear + "-" + eMonth + "-" + eDay;
+
+            //===========================
+
+            const c = booking.createdAt;
+
+            const cYear = c.getFullYear();
+            const preCMonth = c.getMonth() + 1;
+            const cMonth = preCMonth < 10 ? "0" + preCMonth : preCMonth;
+            const preCDay = c.getDate();
+            const cDay = preCDay < 10 ? "0" + preCDay : preCDay;
+            const cTime = c.toTimeString().substring(0, 8);
+
+            const formatedCreatedDate = cYear + "-" + cMonth + "-" + cDay + " " + cTime;
+
+            //===========================
+
+            const u = booking.updatedAt;
+
+            const uYear = u.getFullYear();
+            const preUMonth = u.getMonth() + 1;
+            const uMonth = preUMonth < 10 ? "0" + preUMonth : preUMonth;
+            const preUDay = u.getDate();
+            const uDay = preUDay < 10 ? "0" + preUDay : preUDay;
+            const uTime = u.toTimeString().substring(0, 8);
+
+            const formatedUpdatedDate = uYear + "-" + uMonth + "-" + uDay + " " + uTime;
+
+            // ==========================================================
+            // ==========================================================
+
+            booking.startDate = formatedStartDate;
+            booking.endDate = formatedEndDate;
+            booking.createdAt = formatedCreatedDate;
+            booking.updatedAt = formatedUpdatedDate;
+
+            const { id, spotId, userId, startDate, endDate, createdAt, updatedAt, Spot } = booking;
+
+            const confirmed = {
+                  id,
+                  spotId,
+                  Spot,
+                  userId,
+                  startDate,
+                  endDate,
+                  createdAt,
+                  updatedAt
+            };
+
+            confirmedBooking.push(confirmed);
+       });
+
+      return res.json({"Bookings": confirmedBooking});
 
 });
 
