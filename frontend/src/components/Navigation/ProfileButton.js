@@ -1,10 +1,10 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import OpenModalButton from '../OpenModalButton';
-import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
+import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function ProfileButton({ user }) {
       }
     };
 
-    document.addEventListener('click', closeMenu);
+    document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
@@ -49,7 +49,9 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
+            <li>
+              {user.firstName} {user.lastName}
+            </li>
             <li>{user.email}</li>
             <li>
               <button onClick={logout}>Log Out</button>
@@ -79,12 +81,6 @@ function ProfileButton({ user }) {
 }
 
 export default ProfileButton;
-
-
-
-
-
-
 
 //=====================================================================
 // Below is the code to make login and signup in profile button to render as a menu list and not buttons
