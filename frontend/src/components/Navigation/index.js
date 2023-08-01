@@ -4,23 +4,45 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import logo from './apple-touch-icon.png';
+import magGlass from './search2.png'
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
-    <ul>
-      <li>
+    <header>
+      <nav>
         <NavLink exact to="/">
-          Home
+          <img className="logo" src={logo} />
         </NavLink>
-      </li>
+        <h1 id="carebnb" >carebnb</h1>
+        <div className="topNav">
+          <h4 className="navi" >Anywhere</h4>
+          <h2 className="navi line">|</h2>
+          <h4 className="navi">Any week</h4>
+          <h2 className="navi line">|</h2>
+          <h4 className="navi line">Add guests</h4>
+          <img className="search" src={magGlass} />
+        </div>
+      </nav>
+
+
+
+
+
+
+
       {isLoaded && (
-        <li>
-          <ProfileButton user={sessionUser} />
-        </li>
+        <div className="button-login">
+          <h4 className="login your-home">CareBnB your home</h4>
+          <div className='login login-button'>
+            <ProfileButton  user={sessionUser} />
+          </div>
+
+        </div>
       )}
-    </ul>
+    </header>
   );
 }
 

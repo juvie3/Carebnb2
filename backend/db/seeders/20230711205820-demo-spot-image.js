@@ -15,17 +15,17 @@ module.exports = {
     await SpotImage.bulkCreate([
       {
         spotId: 1,
-        url: "http://www.sandiego.com",
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/modern-houses-1024x683.jpg",
         preview: true
       },
       {
         spotId: 2,
-        url: "http://www.denver.com",
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/modern-day-houses-1024x1024.jpg",
         preview: true
       },
       {
         spotId: 3,
-        url: "http://www.miami.com",
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/mid-century-modern-houses-1024x683.jpg",
         preview: true
       }
     ], { validate: true });
