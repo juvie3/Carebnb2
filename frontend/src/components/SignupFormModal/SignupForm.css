@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+* {
+      font-family: 'Roboto', sans-serif;
+}
+
+#signup-box {
+      display: grid;
+      grid-template-rows: 1fr 3fr;
+      padding-left: 14px;
+      padding-right: 14px;
+      padding-bottom: 14px;
+      width: 300px;
+      justify-content: center;
+}
+
+#sign-up {
+      display: flex;
+      justify-content: center;
+}
+
+#signup-form {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.signup-form-items {
+      width: 295px;
+      height: 25px;
+      border-radius: 10%;
+}
+
+.errorr {
+      color: rgb(255, 90, 95);
+      border: 1px solid lightgrey;;
+}
+
+#sign-up-butt {
+      background-color: rgb(255, 90, 95);
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+}

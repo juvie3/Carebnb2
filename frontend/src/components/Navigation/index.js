@@ -28,11 +28,6 @@ function Navigation({ isLoaded }) {
       </nav>
 
 
-
-
-
-
-
       {isLoaded && (
         <div className="button-login">
           <h4 className="login your-home">CareBnB your home</h4>

@@ -1,12 +1,92 @@
 /* TODO Add site wide styles */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+* {
+      font-family: 'Roboto', sans-serif;
+}
+
 
 /* Classes */
 
-.spots-preview {
+/* .spots-preview {
+      object-fit: contain;
       max-height: 200px;
       border-radius: 15px;
       margin: 10px;
-      /* width: 4.21px; */
+      width: 4.21px;
+}
+ */
+
+ .card-holder {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+ }
+
+
+
+
+/* Id */
+
+#entireCard {
+      /* height: 250px;
+      width: 250px; */
+      display: grid;
+      grid-template-rows: 8fr 2fr;
+
+      margin: 10px;
+
+}
+
+.cardImg img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+}
+
+#cardDetails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 5px;
+}
+
+#leftSideDetails {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+
+}
+
+#rightSideDetails {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+
+}
+
+#cityState {
+      font-size: 16px;
+      font-weight: bolder;
+      display: flex;
+      align-items: center;
+}
+
+#rate {
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+}
+
+#star {
+      height: 13px;
+      margin-right: 5px;
+}
+
+#starRating {
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      /* flex-direction: row-reverse; */
+      justify-content: end;
+      align-items: center;
 }

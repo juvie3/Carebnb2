@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchSpots } from "../../store/spotsReducer"
+import { SpotCard } from "../SpotCard"
 
 
 export const SpotsIndex = () => {
@@ -49,19 +50,25 @@ export const SpotsIndex = () => {
                         <h3 className="filter">Farms</h3>
                   </div>
 
-                  <div>
+                  <section className="card-holder">
+                        {/* <div className="card"> */}
 
                         {
-
-
-                              spots.map(spot => (
-                              <img className='spots-preview' src={spot.previewImage} alt='spot image'/>
+                              spots.map((spot) => (
+                                    <SpotCard spot={spot} key={spot.id} />
                               ))
+
+                              // spots.map(spot => (
+                              // <img className='spots-preview' src={spot.previewImage} alt='spot image'/>
+                              // ))
 
                         }
 
+                        {/* </div> */}
 
-                  </div>
+
+
+                  </section>
 
 
 
