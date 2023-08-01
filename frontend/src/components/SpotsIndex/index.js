@@ -6,6 +6,7 @@ import { SpotCard } from "../SpotCard"
 
 export const SpotsIndex = () => {
       const dispatch = useDispatch()
+
       // const [res, setRes] = useState([])
       // const [spotsObj, setSpotsObj] = useState({})
 
@@ -48,6 +49,7 @@ export const SpotsIndex = () => {
                         <h3 className="filter">Castles</h3>
                         <h3 className="filter">Boats</h3>
                         <h3 className="filter">Farms</h3>
+                        <h3 className="filter">Iconic cities</h3>
                   </div>
 
                   <section className="card-holder">

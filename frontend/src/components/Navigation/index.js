@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import logo from './apple-touch-icon.png';
-import magGlass from './search2.png'
+import magGlass from './search2.png';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -30,7 +30,15 @@ function Navigation({ isLoaded }) {
 
       {isLoaded && (
         <div className="button-login">
-          <h4 className="login your-home">CareBnB your home</h4>
+          {sessionUser ?
+              <h4 className="login create">
+                <NavLink id="create-link" exact to="/spots/new">Create a New Spot</NavLink>
+              </h4> :
+              <h4 className="login your-home">Carebnb your home</h4>
+          }
+
+
+
           <div className='login login-button'>
             <ProfileButton  user={sessionUser} />
           </div>

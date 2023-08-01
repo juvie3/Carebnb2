@@ -1,10 +1,16 @@
 
 export const LOAD_SPOTS = 'spots/loadSpots';
+export const GET_SPOT = 'spots/getSpot'
 
 export const loadSpots = (spots) => ({
       type: LOAD_SPOTS,
       spots
 });
+
+export const getSpot = (spots) => ({
+      type: GET_SPOT,
+      spots
+})
 
 
 /** Thunk Action Creators */
@@ -20,6 +26,19 @@ export const fetchSpots = () => async (dispatch) => {
       }
 }
 
+export const fetchSpotDetails = (spotId) => async (dispatch) => {
+      const res = await fetch(`/api/spots/${spotId}`)
+
+      if (res.ok) {
+            const spot = await res.json();
+            const spots = {}
+            spots.singleSpot = { ...spot }
+            dispatch(getSpot(spots))
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+}
 
 /** Reducer */
 
@@ -28,7 +47,8 @@ const initialState = {};
 export const spotsReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_SPOTS:
-                  console.log("target", action.spots);
+                  return { ...state, ...action.spots};
+            case GET_SPOT:
                   return { ...state, ...action.spots}
             default:
                   return state
