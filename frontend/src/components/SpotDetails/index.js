@@ -46,13 +46,13 @@ export const SpotDetails = () => {
                                           <div id='leftImages'>
                                                 <div className="topImage">
                                                 { spot.SpotImages[0] ?
-                                                <img id='image1' src={spot.SpotImages[0].url} /> :
+                                                <img id='image2' src={spot.SpotImages[0].url} /> :
                                                 <img src={logo} />
                                           }
                                                 </div>
                                                 <div className="bottomImage">
                                                 { spot.SpotImages[0] ?
-                                                <img id='image1' src={spot.SpotImages[0].url} /> :
+                                                <img id='image3' src={spot.SpotImages[0].url} /> :
                                                 <img src={logo} />
                                           }
                                                 </div>
@@ -60,13 +60,13 @@ export const SpotDetails = () => {
                                           <div id='rightImages'>
                                                 <div className="topImage">
                                                 { spot.SpotImages[0] ?
-                                                <img id='image1' src={spot.SpotImages[0].url} /> :
+                                                <img id='image4' src={spot.SpotImages[0].url} /> :
                                                 <img src={logo} />
                                           }
                                                 </div>
                                                 <div className="bottomImage">
                                                 { spot.SpotImages[0] ?
-                                                <img id='image1' src={spot.SpotImages[0].url} /> :
+                                                <img id='image5' src={spot.SpotImages[0].url} /> :
                                                 <img src={logo} />
                                           }
                                                 </div>

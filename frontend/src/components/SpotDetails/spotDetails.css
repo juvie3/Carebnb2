@@ -71,7 +71,38 @@
       height: auto;
       aspect-ratio: 4/3;
       object-fit: cover;
-      border-radius: 3%;
+      border-top-left-radius: 3%;
+      border-bottom-left-radius: 3%;
+}
+
+#image2 {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+}
+
+#image3 {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+}
+
+#image4 {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-top-right-radius: 3%;
+}
+
+#image5 {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-bottom-right-radius: 3%;
 }
 
 #hostRate {
