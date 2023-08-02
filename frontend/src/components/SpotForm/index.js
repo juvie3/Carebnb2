@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { createNewSpot } from '../../store/spotsReducer';
 
 
 export const SpotForm = ({form, formTitle}) => {
@@ -17,6 +18,7 @@ export const SpotForm = ({form, formTitle}) => {
 
       const [errors, setErrors] = useState({});
       const dispatch = useDispatch();
+      const history = useHistory();
 
       const submitForm = async (e) => {
             e.preventDefault();
@@ -24,7 +26,18 @@ export const SpotForm = ({form, formTitle}) => {
 
             form = { ...form, address, city, state, country, lat, lng, name, description, price };
 
-            const newSpot = await dispatch
+console.log('before',form);
+
+            const newSpot = await dispatch(createNewSpot(form))
+            form = newSpot
+
+            console.log('test',form);
+            console.log('er',form.errors);
+            // if (form.errors) {
+            //       setErrors(form.errors)
+            // } else {
+            //       history.push(`/spots/${form.id}`)
+            // }
 
       }
 

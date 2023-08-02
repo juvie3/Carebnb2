@@ -7,11 +7,11 @@ export const CreateSpot = () => {
             city: '',
             state: '',
             country: '',
-            lat: null,
-            lng: null,
+            lat: '',
+            lng: '',
             name: '',
             description: '',
-            price: 0
+            price: ''
 
       }
 

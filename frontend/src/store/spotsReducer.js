@@ -40,6 +40,27 @@ export const fetchSpotDetails = (spotId) => async (dispatch) => {
       }
 }
 
+export const createNewSpot = (spot) => async (dispatch) => {
+      const res = await fetch('/api/spots', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(spot)
+      })
+
+      if (res.ok) {
+            const newSpot = await res.json()
+            const spots = {}
+            spots.singleSpot = { ...newSpot }
+            dispatch(getSpot(spots))
+            return newSpot
+      } else {
+            const errors = await res.json()
+            return errors
+      }
+
+
+}
+
 /** Reducer */
 
 const initialState = {};
