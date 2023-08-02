@@ -81,7 +81,7 @@ router.get("/search", async (req, res, next) => {
 
                   spot.avgRating = totalStars/count;
 
-            } else spot.avgRating = "There are no current ratings";
+            } else spot.avgRating = 0;
 
             delete spot.Reviews;
 
@@ -139,7 +139,7 @@ router.get("/current", requireAuth, async (req, res, next) => {
 
                   spot.avgRating = totalStars/count;
 
-            } else spot.avgRating = "There are no current ratings";
+            } else spot.avgRating = 0;
 
             delete spot.Reviews;
 
@@ -384,7 +384,7 @@ router.get("/:spotId", async (req, res, next) => {
 
       } else {
             parsedIdSpot.numReviews = 0;
-            parsedIdSpot.avgStarRating = "There are no current ratings";
+            parsedIdSpot.avgStarRating = 0;
       }
 
       const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, avgStarRating } = parsedIdSpot;
@@ -509,7 +509,7 @@ router.get("/", async (req, res, next) => {
 
                   spot.avgRating = totalStars/count;
 
-            } else spot.avgRating = "There are no current ratings";
+            } else spot.avgRating = 0;
 
             delete spot.Reviews;
 

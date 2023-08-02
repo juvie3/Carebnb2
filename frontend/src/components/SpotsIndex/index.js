@@ -7,35 +7,18 @@ import { SpotCard } from "../SpotCard"
 export const SpotsIndex = () => {
       const dispatch = useDispatch()
 
-      // const [res, setRes] = useState([])
-      // const [spotsObj, setSpotsObj] = useState({})
-
       const spots = Object.values (useSelector(state => (state.spots ? state.spots : {})))
-//       const tr = Object.values(spots);
-// console.log('silly',tr);
-      // if (spots !== {}) {
-      //       setRes(Object.values(spots))
-            // setSpotsObj(res[0])
-            // console.log('obj',spotsObj);
-            // spotsObj.forEach(spot => {
-            //       console.log(spot)})
-            // const spotsArray = Object.values(spotsObject)
-            // console.log(spotsArray);
-            // for (let spot of spotsArray) {
-            //       console.log(spot);
-            // }
-      // }
+
 
 
       useEffect(() => {
             dispatch(fetchSpots())
       }, [dispatch])
 
-      console.log('finallly',spots);
+
 
 
       if ( spots !== {} && spots !== [] ) {
-
 
             return (
                   <>
@@ -57,6 +40,7 @@ export const SpotsIndex = () => {
 
                         {
                               spots.map((spot) => (
+
                                     <SpotCard spot={spot} key={spot.id} />
                               ))
 

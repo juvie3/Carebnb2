@@ -26,18 +26,17 @@ export const SpotForm = ({form, formTitle}) => {
 
             form = { ...form, address, city, state, country, lat, lng, name, description, price };
 
-console.log('before',form);
+
 
             const newSpot = await dispatch(createNewSpot(form))
             form = newSpot
 
-            console.log('test',form);
-            console.log('er',form.errors);
-            // if (form.errors) {
-            //       setErrors(form.errors)
-            // } else {
-            //       history.push(`/spots/${form.id}`)
-            // }
+
+            if (form.errors) {
+                  setErrors(form.errors)
+            } else {
+                  history.replace(`/spots/${form.singleSpot.id}`)
+            }
 
       }
 

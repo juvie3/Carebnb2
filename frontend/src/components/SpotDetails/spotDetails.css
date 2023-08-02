@@ -94,7 +94,7 @@
       height: auto;
       aspect-ratio: 4/3;
       object-fit: cover;
-      border-top-right-radius: 3%;
+      border-top-right-radius: 6%;
 }
 
 #image5 {
@@ -102,7 +102,7 @@
       height: auto;
       aspect-ratio: 4/3;
       object-fit: cover;
-      border-bottom-right-radius: 3%;
+      border-bottom-right-radius: 6%;
 }
 
 #hostRate {

@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./Navigation.css";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -49,13 +50,17 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <ul id="userInfo">
-            <div className="userInfo-items">{user.username}</div>
+            <div className="userInfo-items">{`Hello, ${user.username}`}</div>
             <div className="userInfo-items">
               {user.firstName} {user.lastName}
             </div>
-            <div className="userInfo-items">{user.email}</div>
-
-              <button onClick={logout}>Log Out</button>
+            <div id='userEmail' className="userInfo-items">{user.email}</div>
+            <div id='manageButt'>
+              <NavLink id='manageLink' exact to='/spots/current'>Manage Spots</NavLink>
+            </div>
+            <div id='logout'>
+              <button id='logoutButt' onClick={logout}>Log Out</button>
+            </div>
 
           </ul>
         ) : (

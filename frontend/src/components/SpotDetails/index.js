@@ -17,16 +17,9 @@ export const SpotDetails = () => {
             dispatch(fetchSpotDetails(spotId))
       }, [dispatch, spotId])
 
-      if (spot) {
-            console.log('det',spot.SpotImages);
-            for (let image of spot.SpotImages) {
-                  console.log('inner', image.url);
-            }
-
-      }
+      if (spot.SpotImages === undefined) return
 
       if (spot) {
-            console.log('own',spot.Owner.firstName);
 
             return (
 
@@ -39,35 +32,35 @@ export const SpotDetails = () => {
                                     <div id='previewImage'>
                                           { spot.SpotImages[0] ?
                                                 <img id='image1' src={spot.SpotImages[0].url} /> :
-                                                <img src={logo} />
+                                                <img id='image1' src={logo} />
                                           }
                                     </div>
                                     <div id='otherImages'>
                                           <div id='leftImages'>
                                                 <div className="topImage">
-                                                { spot.SpotImages[0] ?
-                                                <img id='image2' src={spot.SpotImages[0].url} /> :
-                                                <img src={logo} />
+                                                { spot.SpotImages[1] ?
+                                                <img id='image2' src={spot.SpotImages[1].url} /> :
+                                                <img id='image2' src={logo} />
                                           }
                                                 </div>
                                                 <div className="bottomImage">
-                                                { spot.SpotImages[0] ?
-                                                <img id='image3' src={spot.SpotImages[0].url} /> :
-                                                <img src={logo} />
+                                                { spot.SpotImages[2] ?
+                                                <img id='image3' src={spot.SpotImages[2].url} /> :
+                                                <img id='image3' src={logo} />
                                           }
                                                 </div>
                                           </div>
                                           <div id='rightImages'>
                                                 <div className="topImage">
-                                                { spot.SpotImages[0] ?
-                                                <img id='image4' src={spot.SpotImages[0].url} /> :
-                                                <img src={logo} />
+                                                { spot.SpotImages[3] ?
+                                                <img id='image4' src={spot.SpotImages[3].url} /> :
+                                                <img id='image4' src={logo} />
                                           }
                                                 </div>
                                                 <div className="bottomImage">
-                                                { spot.SpotImages[0] ?
-                                                <img id='image5' src={spot.SpotImages[0].url} /> :
-                                                <img src={logo} />
+                                                { spot.SpotImages[4] ?
+                                                <img id='image5' src={spot.SpotImages[4].url} /> :
+                                                <img id='image5' src={logo} />
                                           }
                                                 </div>
                                           </div>
