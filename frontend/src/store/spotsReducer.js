@@ -1,6 +1,6 @@
 
 export const LOAD_SPOTS = 'spots/loadSpots';
-export const GET_SPOT = 'spots/getSpot'
+export const GET_SPOT = 'spots/getSpot';
 
 export const loadSpots = (spots) => ({
       type: LOAD_SPOTS,

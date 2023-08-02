@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
+
+* {
+      font-family: 'Roboto', sans-serif;
+}
+
+      /* display: grid; */
+      /* flex-direction: row; */
+      /* position: relative; */
+      /* justify-content: center; */
+      /* border: 1px solid lightgrey; */
+
+
+
+#detailsHolder {
+      /* display: grid;
+      grid-template-rows: 1fr 1fr 1fr; */
+      max-width: 1000px;
+      margin-left: 5px;
+}
+
+.spotName {
+      padding-left: 10px;
+}
+
+#imageHolder {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+}
+
+#previewImage {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+}
+
+#otherImages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+}
+
+#leftImages {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+}
+
+#rightImages {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+}
+
+.topImage {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+}
+
+.bottomImage {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+}
+
+#image1 {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 3%;
+}
+
+#hostRate {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+      border-bottom: 2px solid lightgray;
+}
+
+#host {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 30/9;
+      padding-left: 10px;
+}
+
+#rateBox {
+      display: grid;
+      grid-template-rows: 2fr 1fr;
+      padding-top: 10px;
+      padding-right: 10px;
+}
+
+#hostName {
+      font-weight: 300;
+
+}
+
+#desc {
+      font-weight: 100;
+}
+
+#reserveBox {
+      display: grid;
+      grid-template-rows: 1fr fr;
+      padding: 10px;
+      border: 2px solid gray;
+      border-radius: 5%;
+}
+
+#rateStars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+}
+
+#night {
+      font-weight: 500;
+}
+
+#starred {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      font-size: 15px;
+      font-weight: 300;
+}
+
+#reserveButt {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border: 1px solid gray;
+      background-color: rgb(255, 90, 95);
+}
+
+#reserveWord {
+      color: white;
+}

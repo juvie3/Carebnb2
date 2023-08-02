@@ -20,7 +20,11 @@ export const SpotForm = ({form, formTitle}) => {
 
       const submitForm = async (e) => {
             e.preventDefault();
-            setErrors({})
+            setErrors({});
+
+            form = { ...form, address, city, state, country, lat, lng, name, description, price };
+
+            const newSpot = await dispatch
 
       }
 
