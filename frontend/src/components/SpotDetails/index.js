@@ -86,7 +86,7 @@ export const SpotDetails = () => {
                                                             <p id='nightly'>{`$${spot.price} night`}</p>
                                                       </div>
                                                       <div id='starred'>
-                                                            <p>&#9733;{` ${(spot.avgStarRating).toFixed(1)} -- ${spot.numReviews} reviews`}</p>
+                                                            <p>&#9733;{` ${spot.avgStarRating} -- ${spot.numReviews} reviews`}</p>
                                                       </div>
 
                                                 </div>

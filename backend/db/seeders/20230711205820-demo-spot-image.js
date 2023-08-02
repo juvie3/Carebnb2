@@ -27,6 +27,31 @@ module.exports = {
         spotId: 3,
         url: "https://www.home-designing.com/wp-content/uploads/2023/04/mid-century-modern-houses-1024x683.jpg",
         preview: true
+      },
+      {
+        spotId: 4,
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/big-modern-houses-1024x770.jpg",
+        preview: true
+      },
+      {
+        spotId: 5,
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/modern-beach-houses-1024x682.webp",
+        preview: true
+      },
+      {
+        spotId: 6,
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/modern-black-houses-1024x684.jpg",
+        preview: true
+      },
+      {
+        spotId: 7,
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/cute-modern-houses-1024x626.jpg",
+        preview: true
+      },
+      {
+        spotId: 8,
+        url: "https://www.home-designing.com/wp-content/uploads/2023/04/nice-modern-houses-1024x683.jpg",
+        preview: true
       }
     ], { validate: true });
   },

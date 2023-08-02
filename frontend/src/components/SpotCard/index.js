@@ -17,7 +17,7 @@ export const SpotCard = ({spot}) => {
                                     <div id="rate">{`$${spot.price} night`}</div>
                               </div>
                               <div id="rightSideDetails" className="cardDetailsItem">
-                                    <div id="starRating"> <img id="star" src={star}/> {spot.avgRating ? (spot.avgRating).toFixed(1) : null}</div>
+                                    <div id="starRating"> <img id="star" src={star}/> {spot.avgRating}</div>
                                     <div id="blank"></div>
                               </div>
                         </div>
