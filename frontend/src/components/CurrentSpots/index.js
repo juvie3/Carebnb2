@@ -26,10 +26,12 @@ export const CurrentSpots = () => {
 
             return (
                   <>
-                        <h2>Manage Your Spots</h2>
-                        <Link to='/spots/new'>
-                           <button id='create-current-page'>Create a New Spot</button>
-                        </Link>
+                        <div id='manageYourSpot'>
+                              <h2 >Manage Your Spots</h2>
+                              <Link to='/spots/new'>
+                              <button id='create-current-page'>Create a New Spot</button>
+                              </Link>
+                        </div>
 
                         <section className="card-holder">
 
