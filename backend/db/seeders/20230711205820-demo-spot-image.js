@@ -46,22 +46,22 @@ module.exports = {
       {
         spotId: 2,
         url: "https://www.home-designing.com/wp-content/uploads/2022/01/outdoor-sofa.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 2,
         url: "https://www.home-designing.com/wp-content/uploads/2022/01/small-sofa.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 2,
         url: "https://www.home-designing.com/wp-content/uploads/2022/01/wooden-dining-table.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 2,
         url: "https://www.home-designing.com/wp-content/uploads/2022/01/white-kitchen.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 3,
@@ -71,22 +71,22 @@ module.exports = {
       {
         spotId: 3,
         url: "https://www.home-designing.com/wp-content/uploads/2018/10/Modern-outdoor-chairs.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 3,
         url: "https://www.home-designing.com/wp-content/uploads/2018/10/mid-century-modern-living-room.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 3,
         url: "https://www.home-designing.com/wp-content/uploads/2018/10/Wood-dining-set.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 3,
         url: "https://www.home-designing.com/wp-content/uploads/2018/10/Baby-grand-piano.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 4,
@@ -96,22 +96,22 @@ module.exports = {
       {
         spotId: 4,
         url: "https://www.home-designing.com/wp-content/uploads/2018/03/Cantilevered-volume.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 4,
         url: "https://www.home-designing.com/wp-content/uploads/2018/03/Contemporary-home.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 4,
         url: "https://www.home-designing.com/wp-content/uploads/2018/03/Feature-staircase.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 4,
         url: "https://www.home-designing.com/wp-content/uploads/2018/03/Exterior-stone-cladding.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 5,
@@ -121,22 +121,22 @@ module.exports = {
       {
         spotId: 5,
         url: "https://www.home-designing.com/wp-content/uploads/2022/03/luxury-home-exterior.webp",
-        preview: true
+        preview: false
       },
       {
         spotId: 5,
         url: "https://www.home-designing.com/wp-content/uploads/2022/03/modular-sofa.webp",
-        preview: true
+        preview: false
       },
       {
         spotId: 5,
         url: "https://www.home-designing.com/wp-content/uploads/2022/03/dining-room-pendnant-lights.webp",
-        preview: true
+        preview: false
       },
       {
         spotId: 5,
         url: "https://www.home-designing.com/wp-content/uploads/2022/03/four-poster-bed.webp",
-        preview: true
+        preview: false
       },
       {
         spotId: 6,
@@ -146,22 +146,22 @@ module.exports = {
       {
         spotId: 6,
         url: "https://www.home-designing.com/wp-content/uploads/2017/11/antler-chandelier.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 6,
         url: "https://www.home-designing.com/wp-content/uploads/2017/11/modern-brown-interior.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 6,
         url: "https://www.home-designing.com/wp-content/uploads/2017/11/gray-area-rug.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 6,
         url: "https://www.home-designing.com/wp-content/uploads/2017/11/white-tile-marble-floor.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 7,
@@ -171,22 +171,22 @@ module.exports = {
       {
         spotId: 7,
         url: "https://www.home-designing.com/wp-content/uploads/2022/07/modern-architecture.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 7,
         url: "https://www.home-designing.com/wp-content/uploads/2022/07/patio-ideas.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 7,
         url: "https://www.home-designing.com/wp-content/uploads/2022/07/tiled-floor.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 7,
         url: "https://www.home-designing.com/wp-content/uploads/2022/07/unique-garden-ideas.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 8,
@@ -196,22 +196,22 @@ module.exports = {
       {
         spotId: 8,
         url: "https://www.home-designing.com/wp-content/uploads/2023/02/courtyard-design.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 8,
         url: "https://www.home-designing.com/wp-content/uploads/2023/02/beige-sofa.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 8,
         url: "https://www.home-designing.com/wp-content/uploads/2023/02/round-dining-set.jpg",
-        preview: true
+        preview: false
       },
       {
         spotId: 8,
         url: "https://www.home-designing.com/wp-content/uploads/2023/02/home-exterior.jpg",
-        preview: true
+        preview: false
       }
     ], { validate: true });
   },
