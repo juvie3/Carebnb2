@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createNewSpot } from '../../store/spotsReducer';
+import { createNewSpot, fetchUpdateSpot } from '../../store/spotsReducer';
 
 
 export const SpotForm = ({form, formTitle}) => {
@@ -26,16 +26,24 @@ export const SpotForm = ({form, formTitle}) => {
 
             form = { ...form, address, city, state, country, lat, lng, name, description, price };
 
+            if (formTitle === "Update Spot") {
+                  const updatedSpot = await dispatch(fetchUpdateSpot(form))
+                  form = updatedSpot;
+            } else if (formTitle === "Create a New Spot") {
+                  const newSpot = await dispatch(createNewSpot(form))
+                  form = newSpot
+            }
 
-
-            const newSpot = await dispatch(createNewSpot(form))
-            form = newSpot
-
+            console.log('here', form);
 
             if (form.errors) {
                   setErrors(form.errors)
             } else {
-                  history.replace(`/spots/${form.singleSpot.id}`)
+                  if (formTitle === "Update Spot") {
+                        history.replace(`/spots/${form.id}`)
+                  } else {
+                        history.replace(`/spots/${form.singleSpot.id}`)
+                  }
             }
 
       }
