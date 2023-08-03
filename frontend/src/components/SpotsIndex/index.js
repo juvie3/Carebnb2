@@ -34,10 +34,9 @@ export const SpotsIndex = () => {
                   <section className="card-holder">
 
                         {
-                              spots.map((spot) => {
-                                    console.log('test',spot);
-                                   return <SpotCard spot={spot} key={spot.id} />
-                              })
+                              spots.map((spot) => (
+                                   <SpotCard spot={spot} key={spot.id} />
+                              ))
 
                         }
 
