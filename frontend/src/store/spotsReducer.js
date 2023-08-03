@@ -123,7 +123,7 @@ export const spotsReducer = (state = initialState, action) => {
             case LOAD_SPOTS:
                   return { ...action.spots};
             case GET_SPOT:
-                  return { ...state, ...action.spots};
+                  return { ...action.spots};
             case DELETE_SPOT:
                   const newState = { ...state };
                   delete newState[action.spotId];
