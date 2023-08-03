@@ -121,7 +121,7 @@ const initialState = {};
 export const spotsReducer = (state = initialState, action) => {
       switch (action.type) {
             case LOAD_SPOTS:
-                  return { ...state, ...action.spots};
+                  return { ...action.spots};
             case GET_SPOT:
                   return { ...state, ...action.spots};
             case DELETE_SPOT:

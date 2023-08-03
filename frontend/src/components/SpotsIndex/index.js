@@ -9,13 +9,9 @@ export const SpotsIndex = () => {
 
       const spots = Object.values (useSelector(state => (state.spots ? state.spots : {})))
 
-
-
       useEffect(() => {
             dispatch(fetchSpots())
       }, [dispatch])
-
-
 
 
       if ( spots !== {} && spots !== [] ) {
@@ -36,35 +32,17 @@ export const SpotsIndex = () => {
                   </div>
 
                   <section className="card-holder">
-                        {/* <div className="card"> */}
 
                         {
-                              spots.map((spot) => (
-
-                                    <SpotCard spot={spot} key={spot.id} />
-                              ))
-
-                              // spots.map(spot => (
-                              // <img className='spots-preview' src={spot.previewImage} alt='spot image'/>
-                              // ))
+                              spots.map((spot) => {
+                                    console.log('test',spot);
+                                   return <SpotCard spot={spot} key={spot.id} />
+                              })
 
                         }
 
-                        {/* </div> */}
-
-
-
                   </section>
-
-
-
-
-
-
                   </>
-
-
             )
       }
-
 }
