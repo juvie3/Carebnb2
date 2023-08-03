@@ -56,7 +56,7 @@ function ProfileButton({ user }) {
             </div>
             <div id='userEmail' className="userInfo-items">{user.email}</div>
             <div id='manageButt'>
-              <NavLink id='manageLink' exact to='/spots/current'>Manage Spots</NavLink>
+              <NavLink id='manageLink' exact to='/spots/current' onClick={closeMenu}>Manage Spots</NavLink>
             </div>
             <div id='logout'>
               <button id='logoutButt' onClick={logout}>Log Out</button>

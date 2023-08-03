@@ -17,9 +17,11 @@ export const SpotDetails = () => {
             dispatch(fetchSpotDetails(spotId))
       }, [dispatch, spotId])
 
-      if (spot === undefined) return
-
-      if (spot) {
+      if (spot === undefined) {
+            return null
+      } else if (spot.SpotImages === undefined) {
+            return null
+      } else {
 
             return (
 
@@ -113,8 +115,8 @@ export const SpotDetails = () => {
 
             )
 
-      }
 
+      }
 
 
 

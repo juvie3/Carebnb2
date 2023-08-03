@@ -34,8 +34,6 @@ export const SpotForm = ({form, formTitle}) => {
                   form = newSpot
             }
 
-            console.log('here', form);
-
             if (form.errors) {
                   setErrors(form.errors)
             } else {
