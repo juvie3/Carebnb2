@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createNewSpot, fetchUpdateSpot } from '../../store/spotsReducer';
+import { fetchAddSpotImage, fetchCreateNewSpot, fetchUpdateSpot } from '../../store/spotsReducer';
 import './spotForm.css';
 
 
@@ -34,13 +34,43 @@ export const SpotForm = ({form, formTitle}) => {
 
             form = { address, city, state, country, lat, lng, name, description, price };
 
+
             if (formTitle === "Update Spot") {
                   const updatedSpot = await dispatch(fetchUpdateSpot(form))
                   form = updatedSpot;
+
             } else if (formTitle === "Create a new Spot") {
-                  const newSpot = await dispatch(createNewSpot(form))
+                  const newSpot = await dispatch(fetchCreateNewSpot(form))
                   form = newSpot
+
+                  if (previewImage !== '') {
+                        const imageObj = { spotId: form.singleSpot.id, url: previewImage.url, preview: true}
+                        await dispatch(fetchAddSpotImage(imageObj))
+                  }
+
+                  if (image2 !== '') {
+                        const imageObj = { spotId: form.singleSpot.id, url: image2.url, preview: false}
+                        await dispatch(fetchAddSpotImage(imageObj))
+                  }
+
+                  if (image3 !== '') {
+                        const imageObj = { spotId: form.singleSpot.id, url: image3.url, preview: false}
+                        await dispatch(fetchAddSpotImage(imageObj))
+                  }
+
+                  if (image4 !== '') {
+                        const imageObj = { spotId: form.singleSpot.id, url: image4.url, preview: false}
+                        await dispatch(fetchAddSpotImage(imageObj))
+                  }
+
+                  if (image5 !== '') {
+                        const imageObj = { spotId: form.singleSpot.id, url: image5.url, preview: false}
+                        await dispatch(fetchAddSpotImage(imageObj))
+                  }
+
             }
+
+
 
             if (form.errors) {
                   setErrors(form.errors)
@@ -51,6 +81,8 @@ export const SpotForm = ({form, formTitle}) => {
                         history.replace(`/spots/${form.singleSpot.id}`)
                   }
             }
+
+
 
       }
 
