@@ -32,7 +32,7 @@ export const SpotForm = ({form, formTitle}) => {
             e.preventDefault();
             setErrors({});
 
-            form = { address, city, state, country, lat, lng, name, description, price };
+            form = { ...form, address, city, state, country, lat, lng, name, description, price };
 
 
             if (formTitle === "Update Spot") {
