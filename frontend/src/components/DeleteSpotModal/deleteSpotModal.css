@@ -1,5 +1,40 @@
 
 #deleteModal {
-      padding: 15px
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+}
 
+#youSure {
+      text-align: center;
+}
+
+#buttonY {
+      margin-top: 10px;
+      width: 90%;
+      height: 40px;
+      background-color: rgb(255, 90, 95);
+      color: white;
+      font-size: 15px;
+}
+
+#buttonN {
+      width: 90%;
+      height: 40px;
+      background-color:rgb(111, 143, 143);
+      color: white;
+      font-size: 15px;
+      margin-top: 10px;
+}
+
+#buttonY:hover {
+      cursor: pointer;
+      border: 0;
+}
+
+#buttonN:hover {
+      cursor: pointer;
+      border: 0;
 }
