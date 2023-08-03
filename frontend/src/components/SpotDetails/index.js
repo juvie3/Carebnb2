@@ -17,7 +17,7 @@ export const SpotDetails = () => {
             dispatch(fetchSpotDetails(spotId))
       }, [dispatch, spotId])
 
-      if (spot.SpotImages === undefined) return
+      if (spot === undefined) return
 
       if (spot) {
 
