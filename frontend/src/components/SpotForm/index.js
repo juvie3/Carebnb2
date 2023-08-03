@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createNewSpot, fetchUpdateSpot } from '../../store/spotsReducer';
+import './spotForm.css';
 
 
 export const SpotForm = ({form, formTitle}) => {
@@ -29,7 +30,7 @@ export const SpotForm = ({form, formTitle}) => {
             if (formTitle === "Update Spot") {
                   const updatedSpot = await dispatch(fetchUpdateSpot(form))
                   form = updatedSpot;
-            } else if (formTitle === "Create a New Spot") {
+            } else if (formTitle === "Create a new Spot") {
                   const newSpot = await dispatch(createNewSpot(form))
                   form = newSpot
             }
@@ -48,15 +49,19 @@ export const SpotForm = ({form, formTitle}) => {
 
 
       return (
-            <form onSubmit={submitForm}>
+            <form id='form-holder' onSubmit={submitForm}>
+            <div id='form'>
+
                   <h2>{formTitle}</h2>
-                  <h3>Where's your place located?</h3>
-                  <p>Guests will only get your exact address once they book a reservation.</p>
+                  <div id='section1'>
+                        <div id='sec1-1'>Where's your place located?</div>
+                        <div id='sec1-2'>Guests will only get your exact address once they book a reservation.</div>
+                  </div>
 
                   <div id="addressSection">
                         <label>
-                              Country
-                              <input
+                              <div>Country</div>
+                              <input id='formInput'
                                     type='text'
                                     placeholder='Country'
                                     value={country}
@@ -64,8 +69,8 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                         <label>
-                              Street Address
-                              <input
+                              <div>Street Address</div>
+                              <input id='formInput'
                                     type='text'
                                     placeholder='Address'
                                     value={address}
@@ -73,8 +78,8 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                         <label>
-                              City
-                              <input
+                              <div>City</div>
+                              <input id='formInput'
                                     type='text'
                                     placeholder='City'
                                     value={city}
@@ -82,8 +87,8 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                         <label>
-                              State
-                              <input
+                              <div>State</div>
+                              <input id='formInput'
                                     type='text'
                                     placeholder='State'
                                     value={state}
@@ -91,8 +96,8 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                         <label>
-                              Latitude
-                              <input
+                              <div>Latitude</div>
+                              <input id='formInput'
                                     type='number'
                                     placeholder='Latitude'
                                     value={lat}
@@ -100,8 +105,8 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                         <label>
-                              Longitude
-                              <input
+                              <div>Longitude</div>
+                              <input id='formInput'
                                     type='number'
                                     placeholder='Longitude'
                                     value={lng}
@@ -110,50 +115,60 @@ export const SpotForm = ({form, formTitle}) => {
                         </label>
                   </div>
 
-                  <h3>Describe your place to guests</h3>
-                  <p>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</p>
+                  <div id='section2'>
+                        <div id='sec2-1'>Describe your place to guests</div>
+                        <div id='sec2-2'>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</div>
+                  </div>
 
                   <div id="descriptionSection">
-                        <labe>
-                              <input
+                        <label>
+                              <textarea id="descInput"
                                     type='text'
                                     placeholder='Please write at least 30 characters'
                                     value={description}
                                     onChange={(e)=>setDescription(e.target.value)}
                               />
-                        </labe>
+                        </label>
                   </div>
 
-                  <h3>Create a title for your Spot</h3>
-                  <p>Catch guests' attention with a spot title that highlights what makes your place special.</p>
+                  <div id='section3'>
+                        <div id='sec3-1'>Create a title for your Spot</div>
+                        <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
+
+                  </div>
 
                   <div id="nameSection">
-                        <labe>
-                              <input
+                        <label>
+                              <input id="nameInput"
                                     type='text'
                                     placeholder='Name of your spot'
                                     value={name}
                                     onChange={(e)=>setName(e.target.value)}
                               />
-                        </labe>
+                        </label>
                   </div>
 
-                  <h3>Set a base price for your spot</h3>
-                  <p>Competitive pricing can help your listing stand out and rank higher in search results.</p>
+                  <div id='section4'>
+                        <div id='sec4-1'>Set a base price for your spot</div>
+                        <div id='sec4-2'>Competitive pricing can help your listing stand out and rank higher in search results.</div>
+                  </div>
 
                   <div id="priceSection">
-                        <labe>
+                        <label>
                               $
-                              <input
+                              <input id='priceInput'
                                     type='number'
                                     placeholder='Price per night (USD)'
                                     value={price}
                                     onChange={(e)=>setPrice(e.target.value)}
                               />
-                        </labe>
+                        </label>
                   </div>
 
-                  <button type='submit'>{formTitle}</button>
+                  <div id='subButt'>
+                        <button id='formsubButt' type='submit'>{formTitle}</button>
+                  </div>
+            </div>
 
             </form>
       )

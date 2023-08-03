@@ -16,7 +16,7 @@ export const CreateSpot = () => {
       }
 
       return (
-            <SpotForm form={createForm} formTitle="Create a New Spot" />
+            <SpotForm form={createForm} formTitle="Create a new Spot" />
       )
 
 }
