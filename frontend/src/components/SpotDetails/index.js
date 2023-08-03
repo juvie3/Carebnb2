@@ -25,7 +25,7 @@ export const SpotDetails = () => {
 
             return (
 
-
+                  <div id='detailsPage'>
                         <div id='detailsHolder'>
                               <h2 className='spotName'>{spot.name}</h2>
                               <p className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</p>
@@ -106,6 +106,8 @@ export const SpotDetails = () => {
 
 
                         </div>
+
+                  </div>
 
 
 

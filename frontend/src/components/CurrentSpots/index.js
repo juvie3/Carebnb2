@@ -29,7 +29,7 @@ export const CurrentSpots = () => {
                         <div id='manageYourSpot'>
                               <h2 >Manage Your Spots</h2>
                               <Link to='/spots/new'>
-                              <button id='create-current-page'>Create a New Spot</button>
+                              <button id='create-current-page'>Create a new Spot</button>
                               </Link>
                         </div>
 

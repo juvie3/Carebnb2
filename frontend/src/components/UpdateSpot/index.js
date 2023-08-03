@@ -16,7 +16,6 @@ export const UpdateSpot = () => {
             dispatch(fetchSpotDetails(spotId))
       }, [dispatch, spotId])
 
-      console.log('test', spot);
 
       if (spot) {
 

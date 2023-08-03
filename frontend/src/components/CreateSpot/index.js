@@ -11,8 +11,12 @@ export const CreateSpot = () => {
             lng: '',
             name: '',
             description: '',
-            price: ''
-
+            price: '',
+            previewImage: '',
+            image2: '',
+            image3: '',
+            image4: '',
+            image5: ''
       }
 
       return (

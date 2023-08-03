@@ -16,16 +16,23 @@ export const SpotForm = ({form, formTitle}) => {
       const [name, setName] = useState(form?.name);
       const [description, setDescription] = useState(form?.description);
       const [price, setPrice] = useState(form?.price);
+      const [previewImage, setPreviewImage] = useState(form.SpotImages? form.SpotImages[0]? form.SpotImages[0] : '' : '');
+      const [image2, setImage2] = useState(form.SpotImages? form.SpotImages[1]? form.SpotImages[1] : '' : '');
+      const [image3, setImage3] = useState(form.SpotImages? form.SpotImages[2]? form.SpotImages[2] : '' : '');
+      const [image4, setImage4] = useState(form.SpotImages? form.SpotImages[3]? form.SpotImages[3] : '' : '');
+      const [image5, setImage5] = useState(form.SpotImages? form.SpotImages[4]? form.SpotImages[4] : '' : '');
+
 
       const [errors, setErrors] = useState({});
       const dispatch = useDispatch();
       const history = useHistory();
 
+
       const submitForm = async (e) => {
             e.preventDefault();
             setErrors({});
 
-            form = { ...form, address, city, state, country, lat, lng, name, description, price };
+            form = { address, city, state, country, lat, lng, name, description, price };
 
             if (formTitle === "Update Spot") {
                   const updatedSpot = await dispatch(fetchUpdateSpot(form))
@@ -53,11 +60,11 @@ export const SpotForm = ({form, formTitle}) => {
             <div id='form'>
 
                   <h2>{formTitle}</h2>
+
                   <div id='section1'>
                         <div id='sec1-1'>Where's your place located?</div>
                         <div id='sec1-2'>Guests will only get your exact address once they book a reservation.</div>
                   </div>
-
                   <div id="addressSection">
                         <label>
                               <div>Country</div>
@@ -119,7 +126,6 @@ export const SpotForm = ({form, formTitle}) => {
                         <div id='sec2-1'>Describe your place to guests</div>
                         <div id='sec2-2'>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</div>
                   </div>
-
                   <div id="descriptionSection">
                         <label>
                               <textarea id="descInput"
@@ -134,9 +140,7 @@ export const SpotForm = ({form, formTitle}) => {
                   <div id='section3'>
                         <div id='sec3-1'>Create a title for your Spot</div>
                         <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
-
                   </div>
-
                   <div id="nameSection">
                         <label>
                               <input id="nameInput"
@@ -152,7 +156,6 @@ export const SpotForm = ({form, formTitle}) => {
                         <div id='sec4-1'>Set a base price for your spot</div>
                         <div id='sec4-2'>Competitive pricing can help your listing stand out and rank higher in search results.</div>
                   </div>
-
                   <div id="priceSection">
                         <label>
                               $
@@ -164,6 +167,57 @@ export const SpotForm = ({form, formTitle}) => {
                               />
                         </label>
                   </div>
+
+                  <div id='section5'>
+                        <div id='sec5-1'>Liven up your spot with photos</div>
+                        <div id='sec5-2'>Submit a link to at least one photo to publish your spot</div>
+                  </div>
+                  <div id='imageSection'>
+                        <label>
+                              <input className='image-form'
+                                    type='text'
+                                    placeholder='Preview Image URL'
+                                    value={previewImage.url}
+                                    onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
+                              />
+                        </label>
+                        <label>
+                              <input className='image-form'
+                                    type='text'
+                                    placeholder='Image URL'
+                                    value={image2.url}
+                                    onChange={(e)=>setImage2({...image2, url: e.target.value})}
+                              />
+                        </label>
+                        <label>
+                              <input className='image-form'
+                                    type='text'
+                                    placeholder='Image URL'
+                                    value={image3.url}
+                                    onChange={(e)=>setImage3({...image3, url: e.target.value})}
+                              />
+                        </label>
+                        <label>
+                              <input className='image-form'
+                                    type='text'
+                                    placeholder='Image URL'
+                                    value={image4.url}
+                                    onChange={(e)=>setImage4({...image4, url: e.target.value})}
+                              />
+                        </label>
+                        <label>
+                              <input className='image-form'
+                                    type='text'
+                                    placeholder='Image URL'
+                                    value={image5.url}
+                                    onChange={(e)=>setImage5({...image5, url: e.target.value})}
+                              />
+                        </label>
+                  </div>
+
+
+
+
 
                   <div id='subButt'>
                         <button id='formsubButt' type='submit'>{formTitle}</button>
