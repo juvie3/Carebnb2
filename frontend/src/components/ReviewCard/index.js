@@ -36,7 +36,7 @@ export const ReviewCard = ({review}) => {
             return (
                   <div id='review-card-item'>
 
-                        <div id='review-firstname'>{review.User.firstName}</div>
+                        <div id='review-firstname'>{review.User && review.User.firstName}</div>
                         <div id='review-date'>{formatedCreatedDate}</div>
                         <div id='review-review'>{review.review}</div>
                         {

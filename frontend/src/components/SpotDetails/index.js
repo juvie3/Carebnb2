@@ -34,10 +34,7 @@ export const SpotDetails = () => {
               try {
                 const res = await dispatch(fetchReviews(spotId));
                 if (res.status === 404) {
-                  // Handle case when there are no reviews for the spot
                   console.log("No reviews found for the spot with ID:", spotId);
-                } else {
-
                 }
               } catch (error) {
                 console.error("Error fetching reviews:", error);
@@ -59,7 +56,7 @@ export const SpotDetails = () => {
             if (sessionUser.id == spot.ownerId) redLight = true
 
 
-            const flag = reviews.find(review => review.User.id == sessionUser.id )
+            const flag = reviews.find(review => review.User?.id === sessionUser.id)
             if (flag) redLight = true
 
 

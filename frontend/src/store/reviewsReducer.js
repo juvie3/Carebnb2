@@ -61,7 +61,7 @@ export const fetchAddReview = (reviewObj) => async (dispatch) => {
             const brandnewReview = await res.json()
             const reviewDone = {}
             reviewDone[brandnewReview.id] = brandnewReview
-            dispatch(addReview(reviewDone))
+            dispatch(addReview(brandnewReview))
       } else {
             const errors = await res.json()
             return errors
@@ -97,7 +97,7 @@ export const reviewsReducer = (state = initialState, action) => {
             case LOAD_REVIEWS:
                   return { ...action.reviews };
             case ADD_REVIEW:
-                  return { ...action.review };
+                  return { ...state, [action.review.id]: action.review };
             case REMOVE_REVIEW:
                   const newState = { ...state };
                   delete newState[action.reviewId];

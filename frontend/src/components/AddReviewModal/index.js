@@ -3,9 +3,11 @@ import { useModal } from "../../context/Modal"
 import './addReviewModal.css'
 import { useState } from "react";
 import { fetchAddReview } from "../../store/reviewsReducer";
+import { fetchSpotDetails } from "../../store/spotsReducer";
+import { useHistory } from "react-router-dom";
 
 export const AddReviewModal = ({spot}) => {
-
+      const history = useHistory()
 
       const [stars, setStars] = useState()
       const [review, setReview] = useState('')
@@ -20,6 +22,13 @@ export const AddReviewModal = ({spot}) => {
 
             await dispatch(fetchAddReview(reviewObj))
 
+
+            await dispatch(fetchSpotDetails(spot.id))
+
+
+
+            .then(closeModal)
+            // history.push(`/spots/${spot.id}`)
       }
 
       return (
