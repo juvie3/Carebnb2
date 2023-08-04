@@ -13,6 +13,7 @@
 
 #review-review {
       font-weight: 300;
+      margin-bottom: 10px;
 }
 
 #post-review-butt {
@@ -20,5 +21,4 @@
 }
 
 #review-card-item {
-      margin-bottom: 40px;
 }

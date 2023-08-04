@@ -9,6 +9,10 @@ header {
       display: grid;
       grid-template-columns: 6fr 3fr;
       border-bottom: 1px solid lightgrey;
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 3;
 }
 
 nav {
@@ -23,6 +27,7 @@ nav {
       display: inline-block;
       padding-left: 10px;
       font-weight: 500;
+      color: rgb(35, 56, 43);
 }
 
 #main-logo-link {
@@ -72,26 +77,16 @@ nav {
 }
 
 #create-link {
-      color: black;
+      color: rgb(35, 56, 43);
       margin-right: 20px;
-      font-weight: 300;
+      font-weight: 500;
+      font-size: 15px;
       text-decoration: none;
 }
 
 #create-link:hover {
       color:rgb(255, 90, 95);
       cursor: pointer;
-}
-
-.filter-holder {
-      border-bottom: 1px solid lightgrey;
-}
-
-.filter {
-      box-sizing: border-box;
-      display: inline-block;
-      margin-left: 20px;
-      font-weight: lighter;
 }
 
 #carebnb {

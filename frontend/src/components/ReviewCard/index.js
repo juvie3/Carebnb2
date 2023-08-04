@@ -33,26 +33,59 @@ export const ReviewCard = ({review}) => {
 
       if (review) {
 
-            return (
-                  <div id='review-card-item'>
+            if (sessionUser) {
 
-                        <div id='review-firstname'>{review.User? review.User.firstName : sessionUser.firstName}</div>
-                        <div id='review-date'>{formatedCreatedDate}</div>
-                        <div id='review-review'>{review.review}</div>
-                        {
-                              review.userId == sessionUser.id ? <OpenModalButton
-                                    buttonText="Delete"
-                                    modalComponent={<DeleteReviewModal review={review} />}
-                              />
-                              : <p></p>
+                  return (
+                        <div id='review-card-item'>
 
-                        }
+                              <div id='review-firstname'>{review.User? review.User.firstName :  sessionUser.firstName}</div>
+                              <div id='review-date'>{formatedCreatedDate}</div>
+                              <div id='review-review'>{review.review}</div>
+                              {
+                                    review.userId == sessionUser.id ? <OpenModalButton
+                                          buttonText="Delete"
+                                          modalComponent={<DeleteReviewModal review={review} />}
+                                    />
+                                    : <p></p>
 
-                  </div>
+                              }
+
+                        </div>
 
 
 
-            )
+                  )
+
+            } else {
+
+                  return (
+                        <div id='review-card-item'>
+
+                              <div id='review-firstname'>{review.User? review.User.firstName : sessionUser && sessionUser.firstName}</div>
+                              <div id='review-date'>{formatedCreatedDate}</div>
+                              <div id='review-review'>{review.review}</div>
+                              {
+                                    review.userId == sessionUser && sessionUser.id ? <OpenModalButton
+                                          buttonText="Delete"
+                                          modalComponent={<DeleteReviewModal review={review} />}
+                                    />
+                                    : <p></p>
+
+                              }
+
+                        </div>
+
+
+
+                  )
+
+
+
+
+
+
+            }
+
 
       }
 

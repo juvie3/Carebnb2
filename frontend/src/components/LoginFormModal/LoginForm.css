@@ -42,3 +42,17 @@
       font-size: 17px;
       font-weight: bold;
 }
+
+#log-in-butt:hover {
+      cursor: pointer;
+}
+
+#demo-link {
+      text-align: center;
+      margin-top: 5px;
+}
+
+#demo-link:hover {
+      color:rgb(255, 90, 95);
+      cursor: pointer;
+}

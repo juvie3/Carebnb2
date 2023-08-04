@@ -7,6 +7,24 @@
       font-family: 'Roboto', sans-serif;
 }
 
+.filter-holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      border-bottom: 1px solid lightgrey;
+}
+
+/* .filter {
+      box-sizing: border-box;
+      display: inline-block;
+      margin-left: 20px;
+      font-weight: lighter;
+} */
+
+.filter {
+      font-size: 18px;
+      font-weight: 100;
+}
 
 /* Classes */
 

@@ -7,11 +7,13 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./Navigation.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -37,6 +39,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push('/')
     closeMenu();
   };
 
@@ -51,9 +54,9 @@ function ProfileButton({ user }) {
         {user ? (
           <ul id="userInfo">
             <div className="userInfo-items">{`Hello, ${user.username}`}</div>
-            <div className="userInfo-items">
+            {/* <div className="userInfo-items">
               {user.firstName} {user.lastName}
-            </div>
+            </div> */}
             <div id='userEmail' className="userInfo-items">{user.email}</div>
             <div id='manageButt'>
               <NavLink id='manageLink' exact to='/spots/current' onClick={closeMenu}>Manage Spots</NavLink>
