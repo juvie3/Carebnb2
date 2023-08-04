@@ -133,27 +133,6 @@ export const fetchAddSpotImage = (imageobj) => async (dispatch) => {
 
       const testres = res.json()
       console.log('here',testres);
-
-
-      // if (res.ok) {
-      //       const newImage = await res.json()
-
-      //       const secondRes = await csrfFetch(`/api/spots/${imageobj.spotId}`)
-      //       const spot = await secondRes.json();
-      //       const spots = {}
-      //       const imageArray = [ ...spot.SpotImages, newImage ]
-      //       spots = { ...spot, SpotImages: imageArray}
-      //       dispatch(updateSpot(spots))
-
-      //       return newImage;
-
-      //       // const image = { ...newImage, spotId: imageobj.spotId}
-      //       // dispatch(addSpotImage(image))
-      //       // return newImage
-      // } else {
-      //       const errors = await res.json()
-      //       return errors
-      // }
 }
 
 /** Reducer */
@@ -172,8 +151,6 @@ export const spotsReducer = (state = initialState, action) => {
                   return newState;
             case UPDATE_SPOT:
                   return { ...state, [action.spot.id]: action.spot}
-            // case ADD_SPOT_IMAGE:
-            //       return { ...state, [action.image.spotId].: }
             default:
                   return state
       }

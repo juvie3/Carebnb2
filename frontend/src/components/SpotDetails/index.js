@@ -4,18 +4,50 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchSpotDetails } from "../../store/spotsReducer"
 import logo from './airbnb.png'
 import './spotDetails.css'
+import { fetchReviews } from "../../store/reviewsReducer"
+import { ReviewCard } from "../ReviewCard"
+import OpenModalButton from "../OpenModalButton"
+import { AddReviewModal } from "../AddReviewModal"
 
 export const SpotDetails = () => {
       const { spotId } = useParams()
       const dispatch = useDispatch()
 
+
+      const sessionUser = useSelector((state) => state.session.user);
+
       const spot = useSelector( (state) =>
             state.spots ? state.spots.singleSpot : null
+      )
+
+      const allReviews = useSelector( (state) =>
+            state.reviews ? Object.values(state.reviews) : null
       )
 
       useEffect( () => {
             dispatch(fetchSpotDetails(spotId))
       }, [dispatch, spotId])
+
+
+      useEffect(() => {
+            const fetchReviewsData = async () => {
+              try {
+                const res = await dispatch(fetchReviews(spotId));
+                if (res.status === 404) {
+                  // Handle case when there are no reviews for the spot
+                  console.log("No reviews found for the spot with ID:", spotId);
+                } else {
+
+                }
+              } catch (error) {
+                console.error("Error fetching reviews:", error);
+              }
+            };
+            fetchReviewsData();
+      }, [dispatch, spotId]);
+
+      const reviews = allReviews.filter( review => review.spotId == spotId )
+
 
       if (spot === undefined) {
             return null
@@ -23,9 +55,18 @@ export const SpotDetails = () => {
             return null
       } else {
 
+            let redLight = false;
+            if (sessionUser.id == spot.ownerId) redLight = true
+
+
+            const flag = reviews.find(review => review.User.id == sessionUser.id )
+            if (flag) redLight = true
+
+
             return (
 
                   <div id='detailsPage'>
+
                         <div id='detailsHolder'>
                               <h2 className='spotName'>{spot.name}</h2>
                               <p className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</p>
@@ -94,7 +135,51 @@ export const SpotDetails = () => {
 
                                           </div>
                                     </div>
+                              </div>
 
+                              <div id='reviewsHolder'>
+                                    <div id='reviewbar'>
+
+                                          <div id='star-reviews-rh'>
+
+                                                <p>&#9733;{` ${spot.avgStarRating} -- ${spot.numReviews} reviews`}</p>
+
+
+                                          </div>
+
+                                    </div>
+
+                                    <div id='post-review-butt'>
+
+                                          {
+
+                                                redLight===false?
+                                                      <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
+
+
+
+                                          }
+
+
+
+
+                                    </div>
+
+                                    <div id='reviewMap'>
+
+                                          {
+                                                reviews.length > 0 ?
+                                                reviews.map((review) => (
+                                                      <ReviewCard review={review} key={review.id} />
+
+                                                ))
+
+                                                :
+
+                                                <h4>Be the first to post a review!</h4>
+                                          }
+
+                                    </div>
 
 
 
@@ -106,6 +191,16 @@ export const SpotDetails = () => {
 
 
                         </div>
+
+
+
+
+
+
+
+
+
+
 
                   </div>
 

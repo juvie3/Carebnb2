@@ -177,3 +177,27 @@
 #reserveWord {
       color: white;
 }
+
+
+#reviewsHolder {
+      display: grid;
+      grid-template-rows: repeat(1fr);
+      margin-left: 10px;
+      margin-bottom: 50px;
+}
+
+#reviewbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+}
+
+#star-reviews-rh {
+      font-size: 20px;
+      width: 100%;
+}
+
+#reviewMap {
+      display: flex;
+      flex-direction: column;
+}

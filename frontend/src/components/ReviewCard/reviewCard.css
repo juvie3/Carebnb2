@@ -1,0 +1,24 @@
+
+#review-firstname {
+      font-weight: 500;
+      font-size: 17px;
+}
+
+#review-date {
+      color: gray;
+      font-weight: 300;
+      font-size: 15px;
+      margin-bottom: 10px;
+}
+
+#review-review {
+      font-weight: 300;
+}
+
+#post-review-butt {
+      margin-bottom: 20px;
+}
+
+#review-card-item {
+      margin-bottom: 40px;
+}
