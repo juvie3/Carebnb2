@@ -61,7 +61,7 @@ export const fetchAddReview = (reviewObj) => async (dispatch) => {
             const brandnewReview = await res.json()
             const reviewDone = {}
             reviewDone[brandnewReview.id] = brandnewReview
-            dispatch(addReview(brandnewReview))
+            dispatch(fetchReviews(reviewObj.spotId))
       } else {
             const errors = await res.json()
             return errors

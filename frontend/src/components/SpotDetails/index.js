@@ -13,6 +13,10 @@ export const SpotDetails = () => {
       const { spotId } = useParams()
       const dispatch = useDispatch()
 
+      let dollar = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+      });
 
       const sessionUser = useSelector((state) => state.session.user);
 
@@ -116,10 +120,10 @@ export const SpotDetails = () => {
                                           <div id='reserveBox'>
                                                 <div id='rateStars'>
                                                       <div id='night'>
-                                                            <p id='nightly'>{`$${spot.price} night`}</p>
+                                                            <p id='nightly'>{`${dollar.format(spot.price)} night`}</p>
                                                       </div>
                                                       <div id='starred'>
-                                                            <p>&#9733;{` ${spot.avgStarRating} -- ${spot.numReviews} reviews`}</p>
+                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} -- ${spot.numReviews} reviews`}</p>
                                                       </div>
 
                                                 </div>
@@ -139,7 +143,7 @@ export const SpotDetails = () => {
 
                                           <div id='star-reviews-rh'>
 
-                                                <p>&#9733;{` ${spot.avgStarRating} -- ${spot.numReviews} reviews`}</p>
+                                                <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} -- ${spot.numReviews} reviews`}</p>
 
 
                                           </div>

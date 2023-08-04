@@ -130,3 +130,36 @@
 .card-link:hover {
       cursor: pointer;
 }
+
+
+.tooltip-text {
+      visibility: hidden;
+      position: absolute;
+      z-index: 1;
+      width: 100px;
+      color: white;
+      font-size: 12px;
+      background-color: rgb(255, 90, 95);
+      border-radius: 10px;
+      padding: 5px 10px 5px 10px;
+    }
+
+    .hover-text:hover .tooltip-text {
+      visibility: visible;
+    }
+
+    #topTip {
+      top: -30px;
+      left: 50px;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .hover-text:hover #topTip { opacity: 1; }
+
+    .hover-text {
+      position: relative;
+      display: inline-block;
+      /* margin: 40px; */
+      text-align: center;
+    }

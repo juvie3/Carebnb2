@@ -25,6 +25,9 @@ nav {
       font-weight: 500;
 }
 
+#main-logo-link {
+      text-decoration: none;
+}
 
 .logo {
       max-height: 30px;

@@ -16,7 +16,9 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           <img className="logo" src={logo} />
         </NavLink>
-        <h1 id="carebnb" >carebnb</h1>
+        <NavLink id='main-logo-link' exact to="/">
+          <h1 id="carebnb" >carebnb</h1>
+        </NavLink>
         <div className="topNav">
           <h4 className="navi" >Anywhere</h4>
           <h2 className="navi line">|</h2>
