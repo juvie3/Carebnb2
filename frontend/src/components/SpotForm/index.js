@@ -86,177 +86,312 @@ export const SpotForm = ({form, formTitle}) => {
 
       }
 
+      if (formTitle === "Create a new Spot") {
 
-      return (
-            <form id='form-holder' onSubmit={submitForm}>
-            <div id='form'>
+            return (
+                  <form id='form-holder' onSubmit={submitForm}>
+                  <div id='form'>
 
-                  <h2>{formTitle}</h2>
+                        <h2>{formTitle}</h2>
 
-                  <div id='section1'>
-                        <div id='sec1-1'>Where's your place located?</div>
-                        <div id='sec1-2'>Guests will only get your exact address once they book a reservation.</div>
+                        <div id='section1'>
+                              <div id='sec1-1'>Where's your place located?</div>
+                              <div id='sec1-2'>Guests will only get your exact address once they book a reservation.</div>
+                        </div>
+                        <div id="addressSection">
+                              <label>
+                                    <div>Country</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='Country'
+                                          value={country}
+                                          onChange={(e)=>setCountry(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Street Address</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='Address'
+                                          value={address}
+                                          onChange={(e)=>setAddress(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>City</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='City'
+                                          value={city}
+                                          onChange={(e)=>setCity(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>State</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='State'
+                                          value={state}
+                                          onChange={(e)=>setState(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Latitude</div>
+                                    <input id='formInput'
+                                          type='number'
+                                          placeholder='Latitude'
+                                          value={lat}
+                                          onChange={(e)=>setLat(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Longitude</div>
+                                    <input id='formInput'
+                                          type='number'
+                                          placeholder='Longitude'
+                                          value={lng}
+                                          onChange={(e)=>setLng(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section2'>
+                              <div id='sec2-1'>Describe your place to guests</div>
+                              <div id='sec2-2'>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</div>
+                        </div>
+                        <div id="descriptionSection">
+                              <label>
+                                    <textarea id="descInput"
+                                          type='text'
+                                          placeholder='Please write at least 30 characters'
+                                          value={description}
+                                          onChange={(e)=>setDescription(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section3'>
+                              <div id='sec3-1'>Create a title for your Spot</div>
+                              <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
+                        </div>
+                        <div id="nameSection">
+                              <label>
+                                    <input id="nameInput"
+                                          type='text'
+                                          placeholder='Name of your spot'
+                                          value={name}
+                                          onChange={(e)=>setName(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section4'>
+                              <div id='sec4-1'>Set a base price for your spot</div>
+                              <div id='sec4-2'>Competitive pricing can help your listing stand out and rank higher in search results.</div>
+                        </div>
+                        <div id="priceSection">
+                              <label>
+                                    $
+                                    <input id='priceInput'
+                                          type='number'
+                                          placeholder='Price per night (USD)'
+                                          value={price}
+                                          onChange={(e)=>setPrice(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section5'>
+                              <div id='sec5-1'>Liven up your spot with photos</div>
+                              <div id='sec5-2'>Submit a link to at least one photo to publish your spot</div>
+                        </div>
+                        <div id='imageSection'>
+                              <label>
+                                    <input className='image-form'
+                                          type='text'
+                                          placeholder='Preview Image URL'
+                                          value={previewImage.url}
+                                          onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
+                                    />
+                              </label>
+                              <label>
+                                    <input className='image-form'
+                                          type='text'
+                                          placeholder='Image URL'
+                                          value={image2.url}
+                                          onChange={(e)=>setImage2({...image2, url: e.target.value})}
+                                    />
+                              </label>
+                              <label>
+                                    <input className='image-form'
+                                          type='text'
+                                          placeholder='Image URL'
+                                          value={image3.url}
+                                          onChange={(e)=>setImage3({...image3, url: e.target.value})}
+                                    />
+                              </label>
+                              <label>
+                                    <input className='image-form'
+                                          type='text'
+                                          placeholder='Image URL'
+                                          value={image4.url}
+                                          onChange={(e)=>setImage4({...image4, url: e.target.value})}
+                                    />
+                              </label>
+                              <label>
+                                    <input className='image-form'
+                                          type='text'
+                                          placeholder='Image URL'
+                                          value={image5.url}
+                                          onChange={(e)=>setImage5({...image5, url: e.target.value})}
+                                    />
+                              </label>
+                        </div>
+
+
+
+
+
+                        <div id='subButt'>
+                              <button id='formsubButt' type='submit'>{formTitle}</button>
+                        </div>
                   </div>
-                  <div id="addressSection">
-                        <label>
-                              <div>Country</div>
-                              <input id='formInput'
-                                    type='text'
-                                    placeholder='Country'
-                                    value={country}
-                                    onChange={(e)=>setCountry(e.target.value)}
-                              />
-                        </label>
-                        <label>
-                              <div>Street Address</div>
-                              <input id='formInput'
-                                    type='text'
-                                    placeholder='Address'
-                                    value={address}
-                                    onChange={(e)=>setAddress(e.target.value)}
-                              />
-                        </label>
-                        <label>
-                              <div>City</div>
-                              <input id='formInput'
-                                    type='text'
-                                    placeholder='City'
-                                    value={city}
-                                    onChange={(e)=>setCity(e.target.value)}
-                              />
-                        </label>
-                        <label>
-                              <div>State</div>
-                              <input id='formInput'
-                                    type='text'
-                                    placeholder='State'
-                                    value={state}
-                                    onChange={(e)=>setState(e.target.value)}
-                              />
-                        </label>
-                        <label>
-                              <div>Latitude</div>
-                              <input id='formInput'
-                                    type='number'
-                                    placeholder='Latitude'
-                                    value={lat}
-                                    onChange={(e)=>setLat(e.target.value)}
-                              />
-                        </label>
-                        <label>
-                              <div>Longitude</div>
-                              <input id='formInput'
-                                    type='number'
-                                    placeholder='Longitude'
-                                    value={lng}
-                                    onChange={(e)=>setLng(e.target.value)}
-                              />
-                        </label>
-                  </div>
 
-                  <div id='section2'>
-                        <div id='sec2-1'>Describe your place to guests</div>
-                        <div id='sec2-2'>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</div>
-                  </div>
-                  <div id="descriptionSection">
-                        <label>
-                              <textarea id="descInput"
-                                    type='text'
-                                    placeholder='Please write at least 30 characters'
-                                    value={description}
-                                    onChange={(e)=>setDescription(e.target.value)}
-                              />
-                        </label>
-                  </div>
+                  </form>
+            )
 
-                  <div id='section3'>
-                        <div id='sec3-1'>Create a title for your Spot</div>
-                        <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
-                  </div>
-                  <div id="nameSection">
-                        <label>
-                              <input id="nameInput"
-                                    type='text'
-                                    placeholder='Name of your spot'
-                                    value={name}
-                                    onChange={(e)=>setName(e.target.value)}
-                              />
-                        </label>
-                  </div>
+      } else {
 
-                  <div id='section4'>
-                        <div id='sec4-1'>Set a base price for your spot</div>
-                        <div id='sec4-2'>Competitive pricing can help your listing stand out and rank higher in search results.</div>
-                  </div>
-                  <div id="priceSection">
-                        <label>
-                              $
-                              <input id='priceInput'
-                                    type='number'
-                                    placeholder='Price per night (USD)'
-                                    value={price}
-                                    onChange={(e)=>setPrice(e.target.value)}
-                              />
-                        </label>
-                  </div>
+            return (
+                  <form id='form-holder' onSubmit={submitForm}>
+                  <div id='form'>
 
-                  <div id='section5'>
-                        <div id='sec5-1'>Liven up your spot with photos</div>
-                        <div id='sec5-2'>Submit a link to at least one photo to publish your spot</div>
-                  </div>
-                  <div id='imageSection'>
-                        <label>
-                              <input className='image-form'
-                                    type='text'
-                                    placeholder='Preview Image URL'
-                                    value={previewImage.url}
-                                    onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
-                              />
-                        </label>
-                        <label>
-                              <input className='image-form'
-                                    type='text'
-                                    placeholder='Image URL'
-                                    value={image2.url}
-                                    onChange={(e)=>setImage2({...image2, url: e.target.value})}
-                              />
-                        </label>
-                        <label>
-                              <input className='image-form'
-                                    type='text'
-                                    placeholder='Image URL'
-                                    value={image3.url}
-                                    onChange={(e)=>setImage3({...image3, url: e.target.value})}
-                              />
-                        </label>
-                        <label>
-                              <input className='image-form'
-                                    type='text'
-                                    placeholder='Image URL'
-                                    value={image4.url}
-                                    onChange={(e)=>setImage4({...image4, url: e.target.value})}
-                              />
-                        </label>
-                        <label>
-                              <input className='image-form'
-                                    type='text'
-                                    placeholder='Image URL'
-                                    value={image5.url}
-                                    onChange={(e)=>setImage5({...image5, url: e.target.value})}
-                              />
-                        </label>
-                  </div>
+                        <h2>{formTitle}</h2>
+
+                        <div id='section1'>
+                              <div id='sec1-1'>Where's your place located?</div>
+                              <div id='sec1-2'>Guests will only get your exact address once they book a reservation.</div>
+                        </div>
+                        <div id="addressSection">
+                              <label>
+                                    <div>Country</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='Country'
+                                          value={country}
+                                          onChange={(e)=>setCountry(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Street Address</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='Address'
+                                          value={address}
+                                          onChange={(e)=>setAddress(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>City</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='City'
+                                          value={city}
+                                          onChange={(e)=>setCity(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>State</div>
+                                    <input id='formInput'
+                                          type='text'
+                                          placeholder='State'
+                                          value={state}
+                                          onChange={(e)=>setState(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Latitude</div>
+                                    <input id='formInput'
+                                          type='number'
+                                          placeholder='Latitude'
+                                          value={lat}
+                                          onChange={(e)=>setLat(e.target.value)}
+                                    />
+                              </label>
+                              <label>
+                                    <div>Longitude</div>
+                                    <input id='formInput'
+                                          type='number'
+                                          placeholder='Longitude'
+                                          value={lng}
+                                          onChange={(e)=>setLng(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section2'>
+                              <div id='sec2-1'>Describe your place to guests</div>
+                              <div id='sec2-2'>Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</div>
+                        </div>
+                        <div id="descriptionSection">
+                              <label>
+                                    <textarea id="descInput"
+                                          type='text'
+                                          placeholder='Please write at least 30 characters'
+                                          value={description}
+                                          onChange={(e)=>setDescription(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section3'>
+                              <div id='sec3-1'>Create a title for your Spot</div>
+                              <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
+                        </div>
+                        <div id="nameSection">
+                              <label>
+                                    <input id="nameInput"
+                                          type='text'
+                                          placeholder='Name of your spot'
+                                          value={name}
+                                          onChange={(e)=>setName(e.target.value)}
+                                    />
+                              </label>
+                        </div>
+
+                        <div id='section4'>
+                              <div id='sec4-1'>Set a base price for your spot</div>
+                              <div id='sec4-2'>Competitive pricing can help your listing stand out and rank higher in search results.</div>
+                        </div>
+                        <div id="priceSection">
+                              <label>
+                                    $
+                                    <input id='priceInput'
+                                          type='number'
+                                          placeholder='Price per night (USD)'
+                                          value={price}
+                                          onChange={(e)=>setPrice(e.target.value)}
+                                    />
+                              </label>
+                        </div>
 
 
 
 
 
-                  <div id='subButt'>
-                        <button id='formsubButt' type='submit'>{formTitle}</button>
-                  </div>
-            </div>
 
-            </form>
-      )
+
+                        <div id='subButt'>
+                              <button id='formsubButt' type='submit'>{formTitle}</button>
+                        </div>
+                  </div>
+
+                  </form>
+            )
+
+
+
+      }
+
 
 }
