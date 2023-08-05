@@ -1,10 +1,7 @@
 .star-cb-group {
-      /* remove inline-block whitespace */
       font-size: 0;
-      /* flip the order so we can use the + and ~ combinators */
       unicode-bidi: bidi-override;
       direction: rtl;
-      /* the hidden clearer */
     }
     .star-cb-group * {
       font-size: 1rem;
@@ -13,7 +10,6 @@
       display: none;
     }
     .star-cb-group > input + label {
-      /* only enough room for the star */
       display: inline-block;
       overflow: hidden;
       text-indent: 9999px;
@@ -48,6 +44,7 @@
       content: "★";
       color: rgb(255, 90, 95);
       text-shadow: 0 0 1px #333;
+      cursor: pointer;
     }
 
     #reviewInput {
@@ -65,13 +62,32 @@
 
     #thisDangButton {
       margin-top: 10px;
-      width: 300px;
+      width: 200px;
       height: 40px;
       background-color: rgb(255, 90, 95);
-      color: white
+      color: white;
     }
 
     #thisDangButton:hover {
       color:rgb(255, 90, 95);
       background-color: slategray;
+      cursor: pointer;
+    }
+
+    #thisDangButton:disabled {
+      color: lightgray;
+      background-color: white;
+      cursor: auto;
+    }
+
+    #starsBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #star-word {
+      color: slategrey
     }

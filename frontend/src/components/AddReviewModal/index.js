@@ -41,22 +41,23 @@ export const AddReviewModal = ({spot}) => {
                   onChange={(e)=>setReview(e.target.value)}
             />
             <form>
-                  <fieldset>
-                  <span class="star-cb-group">
-                        <input type="radio" id="rating-5" name="rating" value="5" onChange={e=>setStars(e.target.value)} />
+                  <fieldset id='starsBox'>
+                  <div class="star-cb-group">
+                        <input type="radio" className="starClass" id="rating-5" name="rating" value="5" onChange={e=>setStars(e.target.value)} />
                         <label for="rating-5">5</label>
-                        <input type="radio" id="rating-4" name="rating" value="4" onChange={e=>setStars(e.target.value)} />
+                        <input type="radio" className="starClass" id="rating-4" name="rating" value="4" onChange={e=>setStars(e.target.value)} />
                         <label for="rating-4">4</label>
-                        <input type="radio" id="rating-3" name="rating" value="3" onChange={e=>setStars(e.target.value)} />
+                        <input type="radio" className="starClass" id="rating-3" name="rating" value="3" onChange={e=>setStars(e.target.value)} />
                         <label for="rating-3">3</label>
-                        <input type="radio" id="rating-2" name="rating" value="2"  onChange={e=>setStars(e.target.value)} />
+                        <input type="radio" className="starClass" id="rating-2" name="rating" value="2"  onChange={e=>setStars(e.target.value)} />
                         <label for="rating-2">2</label>
-                        <input type="radio" id="rating-1" name="rating" value="1"  onChange={e=>setStars(e.target.value)} />
+                        <input type="radio" className="starClass" id="rating-1" name="rating" value="1"  onChange={e=>setStars(e.target.value)} />
                         <label for="rating-1">1</label>
-                  </span>
+                  </div>
+                  <div id='star-word'>Stars</div>
                   </fieldset>
             </form>
-            <button id='thisDangButton' onClick={submitReview}>Submit Your Review</button>
+            <button disabled={review.length<10} id='thisDangButton' onClick={submitReview}>Submit Your Review</button>
 
 
             </div>
