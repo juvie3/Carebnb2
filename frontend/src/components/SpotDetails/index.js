@@ -168,12 +168,12 @@ export const SpotDetails = () => {
                                                             }
 
                                                       </div>
+
                                                       <div id='reserveButt'>
                                                             <OpenModalMenuItem
                                                                   itemText="Reserve"
                                                                   modalComponent={<ComingModal/>}
                                                             />
-                                                            {/* <p id='reserveWord'>Reserve</p> */}
                                                       </div>
 
                                                 </div>
@@ -374,8 +374,12 @@ export const SpotDetails = () => {
                                                             }
 
                                                       </div>
+
                                                       <div id='reserveButt'>
-                                                            <p id='reserveWord'>Reserve</p>
+                                                            <OpenModalMenuItem
+                                                                  itemText="Reserve"
+                                                                  modalComponent={<ComingModal/>}
+                                                            />
                                                       </div>
 
                                                 </div>

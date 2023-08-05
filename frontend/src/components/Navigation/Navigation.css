@@ -112,6 +112,7 @@ nav {
       box-shadow: 0px 1px 7px 1px lightgray;
       padding: 10px;
       font-weight: 300;
+      border: 1px solid rgb(255, 90, 95);
 }
 
 #profile {
