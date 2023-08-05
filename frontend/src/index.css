@@ -37,7 +37,8 @@
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      border-bottom: 1px solid lightgrey;
+      border-bottom: 1px solid rgb(235, 235, 235);
+      height: 70px;
 }
 
 /* .filter {
@@ -47,9 +48,33 @@
       font-weight: lighter;
 } */
 
-.filter {
-      font-size: 18px;
-      font-weight: 100;
+
+.filterBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: .6;
+}
+
+.filterBox:hover {
+      cursor: not-allowed;
+}
+
+.filter-icon {
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+
+}
+
+.filter-word {
+      /* border: 1px solid red; */
+      padding-top: 3px;
+      font-size: 13px;
+      font-weight: 500;
 }
 
 /* Classes */
