@@ -115,12 +115,12 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.email && <p className="errorr">{errors.email}</p>}
-        {errors.username && <p className="errorr">{errors.username}</p>}
-        {errors.firstName && <p className="errorr">{errors.firstName}</p>}
-        {errors.lastName && <p className="errorr">{errors.lastName}</p>}
-        {errors.password && <p className="errorr">{errors.password}</p>}
-        {errors.confirmPassword && <p className="errorr">{errors.confirmPassword}</p>}
+        {errors.email && <div className="errorr-signup">{errors.email}</div>}
+        {errors.username && <div className="errorr-signup">{errors.username}</div>}
+        {errors.firstName && <div className="errorr-signup">{errors.firstName}</div>}
+        {errors.lastName && <div className="errorr-signup">{errors.lastName}</div>}
+        {errors.password && <div className="errorr-signup">{errors.password}</div>}
+        {errors.confirmPassword && <div className="errorr-signup">{errors.confirmPassword}</div>}
         <button disabled={!firstName || !lastName || !email || !username || !password || !confirmPassword} id="sign-up-butt" type="submit">{`S   u   b   m   i   t`}</button>
       </form>
     </div>

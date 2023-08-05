@@ -32,7 +32,7 @@
       border-radius: 10%;
 }
 
-.errorr {
+.errorr-login {
       color: rgb(255, 90, 95)
 }
 
@@ -45,6 +45,11 @@
 
 #log-in-butt:hover {
       cursor: pointer;
+}
+
+#log-in-butt:disabled {
+      background-color: lightgrey;
+      cursor: auto;
 }
 
 #demo-link {

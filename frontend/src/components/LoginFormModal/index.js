@@ -38,6 +38,9 @@ function LoginFormModal() {
         });
     };
 
+    console.log('cred', credential);
+    console.log('pas', password);
+
   return (
     <div id="login-box">
       <h1 id="log-in">Log In</h1>
@@ -62,8 +65,8 @@ function LoginFormModal() {
             required
           />
         </label>
-        {errors.credential && <p className="errorr">{errors.credential}</p>}
-        <button id="log-in-butt" type="submit">{`S   u   b   m   i   t`}</button>
+        {errors.credential && <div className="errorr-login">{errors.credential}</div>}
+        <button disabled={credential.length < 4 || password.length < 6} id="log-in-butt" type="submit" >{`S   u   b   m   i   t`}</button>
         <div onClick={demoLogIn} id='demo-link'>Demo User</div>
       </form>
     </div>

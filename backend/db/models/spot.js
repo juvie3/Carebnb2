@@ -90,12 +90,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,1234]
+          len: [30,1234]
         }
       },
       price: {
         type: DataTypes.REAL,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          isNumeric: true
+        }
       }
     },
     {
