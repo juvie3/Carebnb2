@@ -42,3 +42,7 @@
       font-weight: bold;
 
 }
+
+#sign-up-butt:disabled {
+      background-color: lightgrey;
+}
