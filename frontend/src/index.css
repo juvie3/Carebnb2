@@ -7,6 +7,32 @@
       font-family: 'Roboto', sans-serif;
 }
 
+#modalButtons {
+      color: white;
+      background-color: rgb(255, 90, 95);
+      border: none;
+}
+
+#modalButtons:hover {
+      cursor: pointer;
+}
+
+#modalItem {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border: 1px solid white;
+      box-shadow: 0px 1px 7px 1px lightgray;
+      background-color: rgb(255, 90, 95);
+      height: 40px;
+}
+
+#modalItem:hover {
+      cursor: pointer;
+}
+
 .filter-holder {
       display: flex;
       flex-direction: row;

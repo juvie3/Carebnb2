@@ -174,13 +174,13 @@
       font-weight: 300;
 }
 
-#reserveButt {
+/* #reserveButt {
       display: flex;
       flex-direction: row;
       justify-content: center;
       border: 1px solid gray;
       background-color: rgb(255, 90, 95);
-}
+} */
 
 #reserveWord {
       color: white;

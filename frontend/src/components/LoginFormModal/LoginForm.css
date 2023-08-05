@@ -49,7 +49,7 @@
 
 #log-in-butt:disabled {
       background-color: lightgrey;
-      cursor: auto;
+      cursor: not-allowed;
 }
 
 #demo-link {

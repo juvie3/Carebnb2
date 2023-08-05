@@ -39,9 +39,13 @@
       color: white;
       font-size: 17px;
       font-weight: bold;
+}
 
+#sign-up-butt {
+      cursor: pointer;
 }
 
 #sign-up-butt:disabled {
       background-color: lightgrey;
+      cursor: not-allowed;
 }

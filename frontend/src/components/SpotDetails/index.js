@@ -7,7 +7,9 @@ import './spotDetails.css'
 import { fetchReviews } from "../../store/reviewsReducer"
 import { ReviewCard } from "../ReviewCard"
 import OpenModalButton from "../OpenModalButton"
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem'
 import { AddReviewModal } from "../AddReviewModal"
+import { ComingModal } from "../ComingModal"
 
 export const SpotDetails = () => {
       const { spotId } = useParams()
@@ -17,6 +19,13 @@ export const SpotDetails = () => {
             style: 'currency',
             currency: 'USD',
       });
+
+      // const setOffModal = () => {
+
+      //       OpenModalButton (modalComponent=<ComingModal/>)
+
+
+      // }
 
       const sessionUser = useSelector((state) => state.session.user);
 
@@ -160,7 +169,11 @@ export const SpotDetails = () => {
 
                                                       </div>
                                                       <div id='reserveButt'>
-                                                            <p id='reserveWord'>Reserve</p>
+                                                            <OpenModalMenuItem
+                                                                  itemText="Reserve"
+                                                                  modalComponent={<ComingModal/>}
+                                                            />
+                                                            {/* <p id='reserveWord'>Reserve</p> */}
                                                       </div>
 
                                                 </div>
