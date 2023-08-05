@@ -49,6 +49,8 @@ export const SpotDetails = () => {
 
       const reviews = allReviews.filter( review => review.spotId == spotId )
 
+      reviews.reverse()
+
 
       if (spot === undefined) {
             return null
