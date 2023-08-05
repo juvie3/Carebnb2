@@ -8,6 +8,7 @@ import SignupFormModal from "../SignupFormModal";
 import "./Navigation.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
+import profileIcon from './profile-icon.png'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -47,8 +48,9 @@ function ProfileButton({ user }) {
 
   return (
     <div id="profile">
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button id='prof-butt' onClick={openMenu}>
+        <img id='profile-icon' src={profileIcon} />
+        {/* <i className="fas fa-user-circle" /> */}
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
