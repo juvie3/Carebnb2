@@ -92,234 +92,259 @@ export const SpotDetails = () => {
                         <div id='detailsPage'>
 
                               <div id='detailsHolder'>
-                                    <h2 className='spotName'>{spot.name}</h2>
-                                    <p className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</p>
+                                    <div id='detailsP1'>
 
-                                    <div id='imageHolder'>
-                                          <div id='previewImage'>
+                                          <h2 className='spotName'>{spot.name}</h2>
+                                          <div id='cityStateCountry' className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
-                                                {     spot.SpotImages[0] ?
-
-                                                      <OpenModalPhotoPR
-                                                      modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
-                                                      image={spot.SpotImages[0].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image1' src={logo} />
-                                                }
-                                          </div>
-                                          <div id='otherImages'>
-                                                <div id='leftImages'>
-                                                      <div className="topImage">
-
-
-                                                {
-
-
-                                                      spot.SpotImages[1] ?
-
-                                                      <OpenModalPhoto
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
-                                                            image={spot.SpotImages[1].url}
-                                                      />
-
-
-                                                      // <img id='image2' src={spot.SpotImages[1].url} />
-
-                                                      :
-
-                                                      <img id='image2' src={logo} />
-
-
-
-
-
-                                                }
-
-
-                                                      </div>
-                                                      <div className="bottomImage">
-
-
-                                                {
-
-                                                      spot.SpotImages[2] ?
-
-                                                      <OpenModalPhoto
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
-                                                            image={spot.SpotImages[2].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image3' src={logo} />
-
-                                                }
-
-                                                      </div>
-                                                </div>
-                                                <div id='rightImages'>
-                                                      <div className="topImage">
-
-                                                {
-                                                      spot.SpotImages[3] ?
-
-                                                      <OpenModalPhotoTR
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
-                                                            image={spot.SpotImages[3].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image4' src={logo} />
-                                                }
-                                                      </div>
-                                                      <div className="bottomImage">
-
-                                                {
-                                                      spot.SpotImages[4] ?
-
-                                                      <OpenModalPhotoBR
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
-                                                            image={spot.SpotImages[4].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image5' src={logo} />
-                                                }
-                                                      </div>
-                                                </div>
-                                          </div>
                                     </div>
 
-                                    <div id='hostRate'>
-                                          <div id='host'>
-                                                <h2 id='hostName'>{`Hosted by ${spot.Owner.firstName} ${spot.Owner.lastName}`}</h2>
-                                                <p id='desc'>{spot.description}</p>
+                                    <div id='detailsP2'>
+
+                                          <div id='imageHolder'>
+                                                <div id='previewImage'>
+
+                                                      {     spot.SpotImages[0] ?
+
+                                                            <OpenModalPhotoPR
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
+                                                            image={spot.SpotImages[0].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image1' src={logo} />
+                                                      }
+                                                </div>
+                                                <div id='otherImages'>
+                                                      <div id='leftImages'>
+                                                            <div className="topImage">
+
+
+                                                      {
+
+
+                                                            spot.SpotImages[1] ?
+
+                                                            <OpenModalPhoto
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
+                                                                  image={spot.SpotImages[1].url}
+                                                            />
+
+
+                                                            // <img id='image2' src={spot.SpotImages[1].url} />
+
+                                                            :
+
+                                                            <img id='image2' src={logo} />
+
+
+
+
+
+                                                      }
+
+
+                                                            </div>
+                                                            <div className="bottomImage">
+
+
+                                                      {
+
+                                                            spot.SpotImages[2] ?
+
+                                                            <OpenModalPhoto
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
+                                                                  image={spot.SpotImages[2].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image3' src={logo} />
+
+                                                      }
+
+                                                            </div>
+                                                      </div>
+                                                      <div id='rightImages'>
+                                                            <div className="topImage">
+
+                                                      {
+                                                            spot.SpotImages[3] ?
+
+                                                            <OpenModalPhotoTR
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
+                                                                  image={spot.SpotImages[3].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image4' src={logo} />
+                                                      }
+                                                            </div>
+                                                            <div className="bottomImage">
+
+                                                      {
+                                                            spot.SpotImages[4] ?
+
+                                                            <OpenModalPhotoBR
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
+                                                                  image={spot.SpotImages[4].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image5' src={logo} />
+                                                      }
+                                                            </div>
+                                                      </div>
+                                                </div>
                                           </div>
-                                          <div id='rateBox'>
-                                                <div id='reserveBox'>
-                                                      <div id='rateStars'>
-                                                            <div id='night'>
-                                                                  <p id='nightly'>{`${dollar.format(spot.price)} night`}</p>
+
+                                    </div>
+
+                                    <div id='detailsP3'>
+
+                                          <div id='detailsP3-left'>
+
+                                                <div id='hostRate'>
+                                                      <div id='host'>
+                                                            <h2 id='hostName'>{`Hosted by ${spot.Owner.firstName} ${spot.Owner.lastName}`}</h2>
+                                                            <p id='desc'>{spot.description}</p>
+                                                      </div>
+                                                </div>
+
+                                                <div id='reviewsHolder'>
+                                                      <div id='reviewbarAndButt'>
+
+                                                            <div id='reviewbar'>
+
+                                                                  <div id='star-reviews-rh'>
+
+                                                                  {
+
+                                                                        spot.numReviews == 0 ?
+                                                                        <p>&#9733;{` New`}</p>
+                                                                        :
+                                                                        spot.numReviews == 1 ?
+                                                                        <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
+                                                                        :
+                                                                        <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
+
+                                                                  }
+
+
+                                                                  </div>
+
                                                             </div>
 
+                                                            <div id='post-review-butt'>
+
+                                                                  {
+
+                                                                        redLight===false?
+                                                                              <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
+
+
+
+                                                                  }
+
+
+
+
+                                                            </div>
+
+
+                                                      </div>
+
+                                                      <div id='reviewMap'>
+
                                                             {
-                                                                  spot.numReviews == 0 ?
+                                                                  reviews.length > 0 ?
+                                                                  reviews.map((review) => (
+                                                                        <ReviewCard review={review} key={review.id} />
 
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` New`}
-                                                                              </p>
-                                                                        </div>
+                                                                  ))
 
-                                                                        :
+                                                                  :
 
-                                                                  spot.numReviews == 1 ?
-
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}
-                                                                              </p>
-                                                                        </div>
-
-                                                                        :
-
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}
-                                                                              </p>
-                                                                        </div>
-
-
-
+                                                                  sessionUser.id == spot.ownerId ?
+                                                                  <p></p>
+                                                                  :
+                                                                  <h4>Be the first to post a review!</h4>
                                                             }
 
                                                       </div>
+                                                </div>
+                                          </div>
 
-                                                      <div id='reserveButt'>
-                                                            <OpenModalMenuItem
-                                                                  itemText="Reserve"
-                                                                  modalComponent={<ComingModal/>}
-                                                            />
+                                          <div id='detailsP3-right'>
+
+                                                <div id='rateBox'>
+                                                            <div id='reserveBox'>
+                                                                  <div id='rateStars'>
+                                                                        <div id='night'>
+                                                                              <p id='nightly'>{`${dollar.format(spot.price)} night`}</p>
+                                                                        </div>
+
+                                                                        {
+                                                                              spot.numReviews == 0 ?
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` New`}
+                                                                                          </p>
+                                                                                    </div>
+
+                                                                                    :
+
+                                                                              spot.numReviews == 1 ?
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}
+                                                                                          </p>
+                                                                                    </div>
+
+                                                                                    :
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}
+                                                                                          </p>
+                                                                                    </div>
+
+
+
+                                                                        }
+
+                                                                  </div>
+
+                                                                  <div id='reserveButt'>
+                                                                        <OpenModalMenuItem
+                                                                              itemText="Reserve"
+                                                                              modalComponent={<ComingModal/>}
+                                                                        />
+                                                                  </div>
+
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
                                                       </div>
 
-                                                </div>
-                                                <div>
-
-                                                </div>
                                           </div>
-                                    </div>
-
-                                    <div id='reviewsHolder'>
-                                          <div id='reviewbarAndButt'>
-
-                                                <div id='reviewbar'>
-
-                                                      <div id='star-reviews-rh'>
-
-                                                      {
-
-                                                            spot.numReviews == 0 ?
-                                                            <p>&#9733;{` New`}</p>
-                                                            :
-                                                            spot.numReviews == 1 ?
-                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
-                                                            :
-                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
-
-                                                      }
-
-
-                                                      </div>
-
-                                                </div>
-
-                                                <div id='post-review-butt'>
-
-                                                      {
-
-                                                            redLight===false?
-                                                                  <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
-
-
-
-                                                      }
-
-
-
-
-                                                </div>
-
-
-                                          </div>
-
-                                          <div id='reviewMap'>
-
-                                                {
-                                                      reviews.length > 0 ?
-                                                      reviews.map((review) => (
-                                                            <ReviewCard review={review} key={review.id} />
-
-                                                      ))
-
-                                                      :
-
-                                                      sessionUser.id == spot.ownerId ?
-                                                      <p></p>
-                                                      :
-                                                      <h4>Be the first to post a review!</h4>
-                                                }
-
-                                          </div>
-
 
 
                                     </div>
+
+
+
+
+
+
+
 
                                     <div id='googleMaps'>
 
-
+                                                <div id="whereYouBe">Where you'll be</div>
                                                 <MapContainer spot={spot}/>
 
 
@@ -372,232 +397,258 @@ export const SpotDetails = () => {
                         <div id='detailsPage'>
 
                               <div id='detailsHolder'>
-                                    <h2 className='spotName'>{spot.name}</h2>
-                                    <p className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</p>
+                                    <div id='detailsP1'>
 
-                                    <div id='imageHolder'>
-                                          <div id='previewImage'>
-
-                                          {     spot.SpotImages[0] ?
-
-                                                <OpenModalPhotoPR
-                                                modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
-                                                image={spot.SpotImages[0].url}
-                                                />
-
-                                                :
-
-                                                <img id='image1' src={logo} />
-                                          }
-
-                                          </div>
-                                          <div id='otherImages'>
-                                                <div id='leftImages'>
-                                                      <div className="topImage">
-
-                                                      {
+                                          <h2 className='spotName'>{spot.name}</h2>
+                                          <div id='cityStateCountry' className='spotName'>{`${spot.city}, ${spot.state}, ${spot.country}`}</div>
 
 
-                                                            spot.SpotImages[1] ?
-
-                                                            <OpenModalPhoto
-                                                                  modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
-                                                                  image={spot.SpotImages[1].url}
-                                                            />
-
-
-                                                            // <img id='image2' src={spot.SpotImages[1].url} />
-
-                                                            :
-
-                                                            <img id='image2' src={logo} />
-
-
-
-
-
-                                                      }
-
-
-                                                            </div>
-                                                            <div className="bottomImage">
-
-
-                                                      {
-
-                                                            spot.SpotImages[2] ?
-
-                                                            <OpenModalPhoto
-                                                                  modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
-                                                                  image={spot.SpotImages[2].url}
-                                                            />
-
-                                                            :
-
-                                                            <img id='image3' src={logo} />
-
-                                                      }
-
-                                                      </div>
-                                                </div>
-                                                <div id='rightImages'>
-                                                      <div className="topImage">
-
-                                                      {
-                                                      spot.SpotImages[3] ?
-
-                                                      <OpenModalPhotoTR
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
-                                                            image={spot.SpotImages[3].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image4' src={logo} />
-                                                }
-                                                      </div>
-                                                      <div className="bottomImage">
-
-                                                {
-                                                      spot.SpotImages[4] ?
-
-                                                      <OpenModalPhotoBR
-                                                            modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
-                                                            image={spot.SpotImages[4].url}
-                                                      />
-
-                                                      :
-
-                                                      <img id='image5' src={logo} />
-                                                }
-                                                      </div>
-                                                </div>
-                                          </div>
                                     </div>
 
-                                    <div id='hostRate'>
-                                          <div id='host'>
-                                                <h2 id='hostName'>{`Hosted by ${spot.Owner.firstName} ${spot.Owner.lastName}`}</h2>
-                                                <p id='desc'>{spot.description}</p>
-                                          </div>
-                                          <div id='rateBox'>
-                                                <div id='reserveBox'>
-                                                      <div id='rateStars'>
-                                                            <div id='night'>
-                                                                  <p id='nightly'>{`${dollar.format(spot.price)} night`}</p>
-                                                            </div>
+                                    <div id='detailsP2'>
 
+                                          <div id='imageHolder'>
+                                                <div id='previewImage'>
+
+                                                {     spot.SpotImages[0] ?
+
+                                                      <OpenModalPhotoPR
+                                                      modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
+                                                      image={spot.SpotImages[0].url}
+                                                      />
+
+                                                      :
+
+                                                      <img id='image1' src={logo} />
+                                                }
+
+                                                </div>
+                                                <div id='otherImages'>
+                                                      <div id='leftImages'>
+                                                            <div className="topImage">
 
                                                             {
-                                                                  spot.numReviews == 0 ?
 
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` New`}
-                                                                              </p>
-                                                                        </div>
 
-                                                                        :
+                                                                  spot.SpotImages[1] ?
 
-                                                                  spot.numReviews == 1 ?
+                                                                  <OpenModalPhoto
+                                                                        modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
+                                                                        image={spot.SpotImages[1].url}
+                                                                  />
 
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}
-                                                                              </p>
-                                                                        </div>
 
-                                                                        :
+                                                                  // <img id='image2' src={spot.SpotImages[1].url} />
 
-                                                                        <div id='starred'>
-                                                                              <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}
-                                                                              </p>
-                                                                        </div>
+                                                                  :
+
+                                                                  <img id='image2' src={logo} />
+
+
 
 
 
                                                             }
 
-                                                      </div>
 
-                                                      <div id='reserveButt'>
-                                                            <OpenModalMenuItem
-                                                                  itemText="Reserve"
-                                                                  modalComponent={<ComingModal/>}
+                                                                  </div>
+                                                                  <div className="bottomImage">
+
+
+                                                            {
+
+                                                                  spot.SpotImages[2] ?
+
+                                                                  <OpenModalPhoto
+                                                                        modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
+                                                                        image={spot.SpotImages[2].url}
+                                                                  />
+
+                                                                  :
+
+                                                                  <img id='image3' src={logo} />
+
+                                                            }
+
+                                                            </div>
+                                                      </div>
+                                                      <div id='rightImages'>
+                                                            <div className="topImage">
+
+                                                            {
+                                                            spot.SpotImages[3] ?
+
+                                                            <OpenModalPhotoTR
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
+                                                                  image={spot.SpotImages[3].url}
                                                             />
+
+                                                            :
+
+                                                            <img id='image4' src={logo} />
+                                                      }
+                                                            </div>
+                                                            <div className="bottomImage">
+
+                                                      {
+                                                            spot.SpotImages[4] ?
+
+                                                            <OpenModalPhotoBR
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
+                                                                  image={spot.SpotImages[4].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image5' src={logo} />
+                                                      }
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          </div>
+
+                                    </div>
+
+                                    <div id='detailsP3'>
+
+                                          <div id='detailsP3-left'>
+
+                                                <div id='hostRate'>
+                                                      <div id='host'>
+                                                            <h2 id='hostName'>{`Hosted by ${spot.Owner.firstName} ${spot.Owner.lastName}`}</h2>
+                                                            <p id='desc'>{spot.description}</p>
                                                       </div>
 
                                                 </div>
-                                                <div>
 
-                                                </div>
-                                          </div>
-                                    </div>
+                                                <div id='reviewsHolder'>
+                                                      <div id='reviewbarAndButt'>
 
-                                    <div id='reviewsHolder'>
-                                          <div id='reviewbarAndButt'>
+                                                            <div id='reviewbar'>
 
-                                                <div id='reviewbar'>
+                                                                  <div id='star-reviews-rh'>
 
-                                                      <div id='star-reviews-rh'>
+                                                                  {
 
-                                                      {
+                                                                        spot.numReviews == 0 ?
+                                                                        <p>&#9733;{` New`}</p>
+                                                                        :
+                                                                        spot.numReviews == 1 ?
+                                                                        <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
+                                                                        :
+                                                                        <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
 
-                                                            spot.numReviews == 0 ?
-                                                            <p>&#9733;{` New`}</p>
-                                                            :
-                                                            spot.numReviews == 1 ?
-                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
-                                                            :
-                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
+                                                                  }
 
-                                                      }
 
+                                                                  </div>
+
+                                                            </div>
+
+                                                            <div id='post-review-butt'>
+
+                                                                  {
+
+                                                                        redLight===false?
+                                                                              <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
+
+
+
+                                                                  }
+
+
+
+
+                                                            </div>
+
+
+                                                      </div>
+
+                                                      <div id='reviewMap'>
+
+                                                            {
+                                                                  reviews.length > 0 ?
+                                                                  reviews.map((review) => (
+                                                                        <ReviewCard review={review} key={review.id} />
+
+                                                                  ))
+
+                                                                  :
+
+                                                                  <h4>Be the first to post a review!</h4>
+                                                            }
 
                                                       </div>
 
                                                 </div>
 
-                                                <div id='post-review-butt'>
-
-                                                      {
-
-                                                            redLight===false?
-                                                                  <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
 
 
+                                          </div>
 
-                                                      }
+                                                <div id='detailsP3-right'>
 
+                                                      <div id='rateBox'>
+                                                            <div id='reserveBox'>
+                                                                  <div id='rateStars'>
+                                                                        <div id='night'>
+                                                                              <p id='nightly'>{`${dollar.format(spot.price)} night`}</p>
+                                                                        </div>
+
+
+                                                                        {
+                                                                              spot.numReviews == 0 ?
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` New`}
+                                                                                          </p>
+                                                                                    </div>
+
+                                                                                    :
+
+                                                                              spot.numReviews == 1 ?
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}
+                                                                                          </p>
+                                                                                    </div>
+
+                                                                                    :
+
+                                                                                    <div id='starred'>
+                                                                                          <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}
+                                                                                          </p>
+                                                                                    </div>
+
+
+
+                                                                        }
+
+                                                                  </div>
+
+                                                                  <div id='reserveButt'>
+                                                                        <OpenModalMenuItem
+                                                                              itemText="Reserve"
+                                                                              modalComponent={<ComingModal/>}
+                                                                        />
+                                                                  </div>
+
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                      </div>
 
 
 
                                                 </div>
 
-
-                                          </div>
-
-                                          <div id='reviewMap'>
-
-                                                {
-                                                      reviews.length > 0 ?
-                                                      reviews.map((review) => (
-                                                            <ReviewCard review={review} key={review.id} />
-
-                                                      ))
-
-                                                      :
-
-                                                      <h4>Be the first to post a review!</h4>
-                                                }
-
-                                          </div>
-
-
-
                                     </div>
+
 
                                     <div id='googleMaps'>
 
-
+                                                <div id="whereYouBe">Where you'll be</div>
                                                 <MapContainer spot={spot}/>
 
 
