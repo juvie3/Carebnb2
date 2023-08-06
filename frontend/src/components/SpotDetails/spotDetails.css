@@ -195,6 +195,14 @@
       margin-bottom: 50px;
 }
 
+#reviewbarAndButt {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+}
+
 #reviewbar {
       display: flex;
       flex-direction: row;

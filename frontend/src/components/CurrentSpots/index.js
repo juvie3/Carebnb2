@@ -28,9 +28,18 @@ export const CurrentSpots = () => {
                   <>
                         <div id='manageYourSpot'>
                               <h2 >Manage Your Spots</h2>
-                              <Link to='/spots/new'>
-                              <button id='create-current-page'>Create a new Spot</button>
-                              </Link>
+
+                              {
+                                    spots.length < 1 ?
+                                          <Link to='/spots/new'>
+                                          <button id='create-current-page'>Create a new Spot</button>
+                                          </Link>
+                                          :
+                                          <p></p>
+
+                              }
+
+
                         </div>
 
                         <section className="card-holder">
@@ -42,7 +51,7 @@ export const CurrentSpots = () => {
                                           <SpotCard spot={spot} key={spot.id} />
                                           <NavLink exact to={`/spots/update/${spot.id}`}  >
 
-                                          <button>Update</button>
+                                          <button id='updateButtManPage'>Update</button>
 
                                           </NavLink>
 

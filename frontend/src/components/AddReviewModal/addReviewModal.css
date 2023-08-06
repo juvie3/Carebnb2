@@ -75,9 +75,9 @@
     }
 
     #thisDangButton:disabled {
-      color: lightgray;
-      background-color: white;
-      cursor: auto;
+      background-color: lightgray;
+      color: white;
+      cursor: not-allowed;
     }
 
     #starsBox {

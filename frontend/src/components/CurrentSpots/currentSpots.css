@@ -1,4 +1,31 @@
 
 #manageYourSpot {
       padding-left: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem
+
+}
+
+#create-current-page {
+      background-color: rgb(255, 90, 95);
+      color: white;
+      border: none;
+}
+
+#create-current-page:hover {
+      cursor: pointer;
+}
+
+#updateButtManPage {
+      color: white;
+      background-color: rgb(255, 90, 95);
+      border: none;
+      margin-right: 5px;
+}
+
+#updateButtManPage:hover {
+      cursor: pointer;
 }

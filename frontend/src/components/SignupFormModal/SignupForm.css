@@ -45,7 +45,14 @@
       cursor: pointer;
 }
 
+#sign-up-butt:hover {
+      color:rgb(255, 90, 95);
+      background-color: slategray;
+      cursor: pointer;
+}
+
 #sign-up-butt:disabled {
       background-color: lightgrey;
       cursor: not-allowed;
+      color: white
 }

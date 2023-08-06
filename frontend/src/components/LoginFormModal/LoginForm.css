@@ -44,12 +44,15 @@
 }
 
 #log-in-butt:hover {
+      color:rgb(255, 90, 95);
+      background-color: slategray;
       cursor: pointer;
 }
 
 #log-in-butt:disabled {
       background-color: lightgrey;
       cursor: not-allowed;
+      color: white
 }
 
 #demo-link {
