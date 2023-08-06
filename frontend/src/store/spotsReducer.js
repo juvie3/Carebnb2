@@ -123,7 +123,6 @@ export const fetchUpdateSpot = (spot) => async (dispatch) => {
 export const fetchAddSpotImage = (imageobj) => async (dispatch) => {
 
       const imageObj = { url: imageobj.url, preview: imageobj.preview}
-      console.log('\n\n=======================\n' , imageobj);
 
       const res = await csrfFetch(`/api/spots/${imageobj.spotId}/images`, {
             method: "POST",
@@ -131,8 +130,6 @@ export const fetchAddSpotImage = (imageobj) => async (dispatch) => {
             body: JSON.stringify(imageObj),
       })
 
-      const testres = res.json()
-      console.log('here',testres);
 }
 
 /** Reducer */

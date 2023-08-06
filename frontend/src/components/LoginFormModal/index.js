@@ -38,9 +38,6 @@ function LoginFormModal() {
         });
     };
 
-    console.log('cred', credential);
-    console.log('pas', password);
-
   return (
     <div id="login-box">
       <h1 id="log-in">Log In</h1>

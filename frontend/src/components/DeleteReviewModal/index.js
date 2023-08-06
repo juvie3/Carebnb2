@@ -10,8 +10,6 @@ export const DeleteReviewModal = ({review}) => {
       const { closeModal } = useModal();
       const dispatch = useDispatch();
 
-      console.log('testtttt', review);
-
       const deleteReview = async () => {
            await dispatch(fetchRemoveReview(review.id))
            await dispatch(fetchSpotDetails(review.spotId))
