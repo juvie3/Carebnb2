@@ -235,41 +235,48 @@ export const SpotForm = ({form, formTitle}) => {
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Preview Image URL'
+                                          placeholder='Preview Image URL ending in .png .jpg or .jpeg (Required)'
                                           value={previewImage.url}
                                           onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
+                                          pattern='^(?=.*\.(png|jpg|jpeg)$)[a-zA-Z0-9]+\.(png|jpg|jpeg)$'
+                                          required
                                     />
                               </label>
+                              <span id='prevImgErr'>Required</span>
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image2.url}
                                           onChange={(e)=>setImage2({...image2, url: e.target.value})}
+                                          pattern='^(?=.*\.(png|jpg|jpeg)$)[a-zA-Z0-9]+\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image3.url}
                                           onChange={(e)=>setImage3({...image3, url: e.target.value})}
+                                          pattern='^(?=.*\.(png|jpg|jpeg)$)[a-zA-Z0-9]+\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image4.url}
                                           onChange={(e)=>setImage4({...image4, url: e.target.value})}
+                                          pattern='^(?=.*\.(png|jpg|jpeg)$)[a-zA-Z0-9]+\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image5.url}
                                           onChange={(e)=>setImage5({...image5, url: e.target.value})}
+                                          pattern='^(?=.*\.(png|jpg|jpeg)$)[a-zA-Z0-9]+\.(png|jpg|jpeg)$'
                                     />
                               </label>
                         </div>

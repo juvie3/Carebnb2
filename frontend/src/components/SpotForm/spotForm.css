@@ -200,3 +200,13 @@ h2 {
       color: rgb(255, 90, 95);
       font-size: 15px;
 }
+
+span {
+      color: rgb(255, 90, 95);
+      font-size: 12px;
+      display: none;
+}
+
+input:invalid ~ span{
+      display: block;
+}
