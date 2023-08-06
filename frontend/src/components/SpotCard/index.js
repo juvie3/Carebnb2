@@ -8,7 +8,6 @@ export const SpotCard = ({spot}) => {
             currency: 'USD',
       });
 
-      console.log('yohehe',spot);
 
       return (
 

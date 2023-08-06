@@ -10,6 +10,7 @@ import OpenModalButton from "../OpenModalButton"
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem'
 import { AddReviewModal } from "../AddReviewModal"
 import { ComingModal } from "../ComingModal"
+import MapContainer from "../Maps"
 
 export const SpotDetails = () => {
       const { spotId } = useParams()
@@ -60,6 +61,7 @@ export const SpotDetails = () => {
 
       reviews.reverse()
 
+      console.log(spot, '\n\n=======================\n');
 
       if (spot === undefined) {
             return null
@@ -249,7 +251,16 @@ export const SpotDetails = () => {
 
                                     </div>
 
+                                    <div id='googleMaps'>
 
+
+                                                <MapContainer spot={spot}/>
+
+
+
+
+
+                                    </div>
 
 
 
@@ -457,6 +468,16 @@ export const SpotDetails = () => {
 
                                     </div>
 
+                                    <div id='googleMaps'>
+
+
+                                                <MapContainer spot={spot}/>
+
+
+
+
+
+                                    </div>
 
 
 
