@@ -18,6 +18,25 @@
 
 <!--!!END_ADD -->
 
+## Intro
+
+Thank you for taking the time to look at my project. This was my first attempt to implement the skills I learned about full-stack development. In this App Academy assignment, I had to clone an established website, and I chose Airbnb. I started by creating a backend database developed with SQLite3 and stored as PostgresSQL on Render.com. My backend server was written using Express and an Object-Relational Mapper (Sequalize) to bridge it to the database. And my frontend was written exclusively using the React and Redux libraries. Also, no CSS framework was utilized: the style for the website was written in plain CSS. In development, Javascript was the language, and Node was my platform.
+
+### If you want to check it out, just head over to Render: https://carebnb2.onrender.com
+
+Please allow a few minutes for the server to start up. Again, thank you so very much; I truly do appreciate your time.
+
+### Technologies Used:
+- React
+- Redux
+- Express
+- SQLite3
+- Sequalize
+- PostgresSQL
+- Node
+- Languages: Javascript, JSX, HTML, CSS
+
+
 ## API Documentation
 
 ## USER AUTHENTICATION/AUTHORIZATION

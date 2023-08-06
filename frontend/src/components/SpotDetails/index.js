@@ -11,6 +11,11 @@ import OpenModalMenuItem from '../Navigation/OpenModalMenuItem'
 import { AddReviewModal } from "../AddReviewModal"
 import { ComingModal } from "../ComingModal"
 import MapContainer from "../Maps"
+import OpenModalPhoto from "../OpenModalPhoto"
+import OpenModalPhotoTR from "../OpenModalPhotoTR"
+import OpenModalPhotoBR from "../OpenModalPhotoBR"
+import OpenModalPhotoPR from "../OpenModalPhotoPR"
+import { PhotoModal } from "../PhotoModal"
 
 export const SpotDetails = () => {
       const { spotId } = useParams()
@@ -92,36 +97,97 @@ export const SpotDetails = () => {
 
                                     <div id='imageHolder'>
                                           <div id='previewImage'>
-                                                { spot.SpotImages[0] ?
-                                                      <img id='image1' src={spot.SpotImages[0].url} /> :
+
+                                                {     spot.SpotImages[0] ?
+
+                                                      <OpenModalPhotoPR
+                                                      modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
+                                                      image={spot.SpotImages[0].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image1' src={logo} />
                                                 }
                                           </div>
                                           <div id='otherImages'>
                                                 <div id='leftImages'>
                                                       <div className="topImage">
-                                                      { spot.SpotImages[1] ?
-                                                      <img id='image2' src={spot.SpotImages[1].url} /> :
+
+
+                                                {
+
+
+                                                      spot.SpotImages[1] ?
+
+                                                      <OpenModalPhoto
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
+                                                            image={spot.SpotImages[1].url}
+                                                      />
+
+
+                                                      // <img id='image2' src={spot.SpotImages[1].url} />
+
+                                                      :
+
                                                       <img id='image2' src={logo} />
+
+
+
+
+
                                                 }
+
+
                                                       </div>
                                                       <div className="bottomImage">
-                                                      { spot.SpotImages[2] ?
-                                                      <img id='image3' src={spot.SpotImages[2].url} /> :
+
+
+                                                {
+
+                                                      spot.SpotImages[2] ?
+
+                                                      <OpenModalPhoto
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
+                                                            image={spot.SpotImages[2].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image3' src={logo} />
+
                                                 }
+
                                                       </div>
                                                 </div>
                                                 <div id='rightImages'>
                                                       <div className="topImage">
-                                                      { spot.SpotImages[3] ?
-                                                      <img id='image4' src={spot.SpotImages[3].url} /> :
+
+                                                {
+                                                      spot.SpotImages[3] ?
+
+                                                      <OpenModalPhotoTR
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
+                                                            image={spot.SpotImages[3].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image4' src={logo} />
                                                 }
                                                       </div>
                                                       <div className="bottomImage">
-                                                      { spot.SpotImages[4] ?
-                                                      <img id='image5' src={spot.SpotImages[4].url} /> :
+
+                                                {
+                                                      spot.SpotImages[4] ?
+
+                                                      <OpenModalPhotoBR
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
+                                                            image={spot.SpotImages[4].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image5' src={logo} />
                                                 }
                                                       </div>
@@ -311,36 +377,97 @@ export const SpotDetails = () => {
 
                                     <div id='imageHolder'>
                                           <div id='previewImage'>
-                                                { spot.SpotImages[0] ?
-                                                      <img id='image1' src={spot.SpotImages[0].url} /> :
-                                                      <img id='image1' src={logo} />
-                                                }
+
+                                          {     spot.SpotImages[0] ?
+
+                                                <OpenModalPhotoPR
+                                                modalComponent={<PhotoModal src={spot.SpotImages[0].url} />}
+                                                image={spot.SpotImages[0].url}
+                                                />
+
+                                                :
+
+                                                <img id='image1' src={logo} />
+                                          }
+
                                           </div>
                                           <div id='otherImages'>
                                                 <div id='leftImages'>
                                                       <div className="topImage">
-                                                      { spot.SpotImages[1] ?
-                                                      <img id='image2' src={spot.SpotImages[1].url} /> :
-                                                      <img id='image2' src={logo} />
-                                                }
-                                                      </div>
-                                                      <div className="bottomImage">
-                                                      { spot.SpotImages[2] ?
-                                                      <img id='image3' src={spot.SpotImages[2].url} /> :
-                                                      <img id='image3' src={logo} />
-                                                }
+
+                                                      {
+
+
+                                                            spot.SpotImages[1] ?
+
+                                                            <OpenModalPhoto
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[1].url} />}
+                                                                  image={spot.SpotImages[1].url}
+                                                            />
+
+
+                                                            // <img id='image2' src={spot.SpotImages[1].url} />
+
+                                                            :
+
+                                                            <img id='image2' src={logo} />
+
+
+
+
+
+                                                      }
+
+
+                                                            </div>
+                                                            <div className="bottomImage">
+
+
+                                                      {
+
+                                                            spot.SpotImages[2] ?
+
+                                                            <OpenModalPhoto
+                                                                  modalComponent={<PhotoModal src={spot.SpotImages[2].url} />}
+                                                                  image={spot.SpotImages[2].url}
+                                                            />
+
+                                                            :
+
+                                                            <img id='image3' src={logo} />
+
+                                                      }
+
                                                       </div>
                                                 </div>
                                                 <div id='rightImages'>
                                                       <div className="topImage">
-                                                      { spot.SpotImages[3] ?
-                                                      <img id='image4' src={spot.SpotImages[3].url} /> :
+
+                                                      {
+                                                      spot.SpotImages[3] ?
+
+                                                      <OpenModalPhotoTR
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[3].url} />}
+                                                            image={spot.SpotImages[3].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image4' src={logo} />
                                                 }
                                                       </div>
                                                       <div className="bottomImage">
-                                                      { spot.SpotImages[4] ?
-                                                      <img id='image5' src={spot.SpotImages[4].url} /> :
+
+                                                {
+                                                      spot.SpotImages[4] ?
+
+                                                      <OpenModalPhotoBR
+                                                            modalComponent={<PhotoModal src={spot.SpotImages[4].url} />}
+                                                            image={spot.SpotImages[4].url}
+                                                      />
+
+                                                      :
+
                                                       <img id='image5' src={logo} />
                                                 }
                                                       </div>
