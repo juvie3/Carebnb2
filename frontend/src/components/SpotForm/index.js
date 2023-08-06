@@ -236,7 +236,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Preview Image URL ending in .png .jpg or .jpeg (Required)'
                                           value={previewImage.url}
                                           onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
-                                          pattern='^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?(\.png|\.jpg|\.jpeg)$'
+                                          pattern='.*\.(png|jpg|jpeg)$'
                                           required
                                     />
                               </label>
@@ -246,7 +246,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image2.url}
                                           onChange={(e)=>setImage2({...image2, url: e.target.value})}
-                                          pattern='^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?(\.png|\.jpg|\.jpeg)$'
+                                          pattern='.*\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
@@ -255,7 +255,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image3.url}
                                           onChange={(e)=>setImage3({...image3, url: e.target.value})}
-                                          pattern='^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?(\.png|\.jpg|\.jpeg)$'
+                                          pattern='.*\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
@@ -264,7 +264,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image4.url}
                                           onChange={(e)=>setImage4({...image4, url: e.target.value})}
-                                          pattern='^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?(\.png|\.jpg|\.jpeg)$'
+                                          pattern='.*\.(png|jpg|jpeg)$'
                                     />
                               </label>
                               <label>
@@ -273,7 +273,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Image URL ending in .png .jpg or .jpeg (option)'
                                           value={image5.url}
                                           onChange={(e)=>setImage5({...image5, url: e.target.value})}
-                                          pattern='^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?(\.png|\.jpg|\.jpeg)$'
+                                          pattern='.*\.(png|jpg|jpeg)$'
                                     />
                               </label>
                         </div>
