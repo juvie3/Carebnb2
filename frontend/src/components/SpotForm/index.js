@@ -157,9 +157,10 @@ export const SpotForm = ({form, formTitle}) => {
                                     {errorMessages.lat && <div className="errorr-spot">Please keep "latitude" range between -90 and 90</div>}
                                     <input id='formInput'
                                           type='number'
-                                          placeholder='Latitude (optional)'
+                                          placeholder='Latitude'
                                           value={lat}
                                           onChange={(e)=>setLat(e.target.value)}
+                                          required
                                     />
                               </label>
 
@@ -168,9 +169,10 @@ export const SpotForm = ({form, formTitle}) => {
                                     {errorMessages.lng && <div className="errorr-spot">Please keep "longitude" range between -180 and 180</div>}
                                     <input id='formInput'
                                           type='number'
-                                          placeholder='Longitude (optional)'
+                                          placeholder='Longitude'
                                           value={lng}
                                           onChange={(e)=>setLng(e.target.value)}
+                                          required
                                     />
                               </label>
 
@@ -193,7 +195,7 @@ export const SpotForm = ({form, formTitle}) => {
                         </div>
 
                         <div id='section3'>
-                              <div id='sec3-1'>Create a title for your Spot</div>
+                              <div id='sec3-1'>Create a title for your spot</div>
                               <div id='sec3-2'>Catch guests' attention with a spot title that highlights what makes your place special.</div>
                         </div>
                         <div id="nameSection">
@@ -243,7 +245,7 @@ export const SpotForm = ({form, formTitle}) => {
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (optional)'
                                           value={image2.url}
                                           onChange={(e)=>setImage2({...image2, url: e.target.value})}
                                           pattern='.*\.(png|jpg|jpeg)$'
@@ -252,7 +254,7 @@ export const SpotForm = ({form, formTitle}) => {
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (optional)'
                                           value={image3.url}
                                           onChange={(e)=>setImage3({...image3, url: e.target.value})}
                                           pattern='.*\.(png|jpg|jpeg)$'
@@ -261,7 +263,7 @@ export const SpotForm = ({form, formTitle}) => {
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (optional)'
                                           value={image4.url}
                                           onChange={(e)=>setImage4({...image4, url: e.target.value})}
                                           pattern='.*\.(png|jpg|jpeg)$'
@@ -270,7 +272,7 @@ export const SpotForm = ({form, formTitle}) => {
                               <label>
                                     <input className='image-form'
                                           type='text'
-                                          placeholder='Image URL ending in .png .jpg or .jpeg (option)'
+                                          placeholder='Image URL ending in .png .jpg or .jpeg (optional)'
                                           value={image5.url}
                                           onChange={(e)=>setImage5({...image5, url: e.target.value})}
                                           pattern='.*\.(png|jpg|jpeg)$'
@@ -283,7 +285,7 @@ export const SpotForm = ({form, formTitle}) => {
 
 
                         <div id='subButt'>
-                              <button id='formsubButt' type='submit'>{formTitle}</button>
+                              <button id='formsubButt' disabled={!country} type='submit'>Create Spot</button>
                         </div>
                   </div>
 
@@ -296,7 +298,7 @@ export const SpotForm = ({form, formTitle}) => {
                   <form id='form-holder' onSubmit={submitForm}>
                   <div id='form'>
 
-                        <h2>{formTitle}</h2>
+                        <h2>Update your Spot</h2>
 
                         <div id='section1'>
                               <div id='sec1-1'>Where's your place located?</div>
@@ -412,7 +414,7 @@ export const SpotForm = ({form, formTitle}) => {
 
 
                         <div id='subButt'>
-                              <button id='formsubButt' type='submit'>{formTitle}</button>
+                              <button id='formsubButt' type='submit'>Update your Spot</button>
                         </div>
                   </div>
 

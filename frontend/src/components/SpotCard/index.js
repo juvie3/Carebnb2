@@ -8,6 +8,8 @@ export const SpotCard = ({spot}) => {
             currency: 'USD',
       });
 
+      console.log('yohehe',spot);
+
       return (
 
             <div className='hover-text' id="entireCard">
@@ -22,7 +24,22 @@ export const SpotCard = ({spot}) => {
                                     <div id="rate">{`${dollar.format(spot.price)} night`}</div>
                               </div>
                               <div id="rightSideDetails" className="cardDetailsItem">
-                                    <div id="starRating"> <img id="star" src={star}/> {spot.avgRating && (spot.avgRating).toPrecision(2)}</div>
+                                    <div id="starRating"> <img id="star" src={star}/>
+
+
+
+                                    {
+                                          spot.avgRating && spot.avgRating > 0 ? (spot.avgRating).toPrecision(2) : <div id='newWordIndex'>New</div>
+
+
+                                    }
+
+
+
+                                    </div>
+
+
+
                                     <div id="blank"></div>
                               </div>
                         </div>

@@ -188,6 +188,12 @@ h2 {
       cursor: pointer;
 }
 
+#formsubButt:disabled {
+      background-color: lightgray;
+      cursor: not-allowed;
+      color: white;
+}
+
 #subButt {
       display: flex;
       flex-direction: row;

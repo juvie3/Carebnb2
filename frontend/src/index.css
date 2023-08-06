@@ -232,3 +232,7 @@
       /* margin: 40px; */
       text-align: center;
     }
+
+    #newWordIndex {
+      font-size: 12px;
+    }

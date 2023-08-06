@@ -16,9 +16,9 @@ export const DeleteSpotModal = ({spot}) => {
       return (
             <div id='deleteModal' >
                   <h2>Confirm Delete</h2>
-                  <div id='youSure' >Are you sure you want to remove this spot from the listings?</div>
-                  <button id='buttonY' onClick={deleteSpot}>Yes - Delete Spot</button>
-                  <button id='buttonN' onClick={closeModal}>No - Keep Spot</button>
+                  <div id='youSure' >Are you sure you want to remove this spot?</div>
+                  <button id='buttonY' onClick={deleteSpot}>{`Yes (Delete Spot)`}</button>
+                  <button id='buttonN' onClick={closeModal}>{`No (Keep Spot)`}</button>
 
 
             </div>

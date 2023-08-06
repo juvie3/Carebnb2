@@ -57,7 +57,7 @@ export const AddReviewModal = ({spot}) => {
                   <div id='star-word'>Stars</div>
                   </fieldset>
             </form>
-            <button disabled={review.length<10} id='thisDangButton' onClick={submitReview}>Submit Your Review</button>
+            <button disabled={review.length<10 || !stars} id='thisDangButton' onClick={submitReview}>Submit Your Review</button>
 
 
             </div>
