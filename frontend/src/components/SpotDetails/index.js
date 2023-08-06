@@ -395,39 +395,44 @@ export const SpotDetails = () => {
                                     </div>
 
                                     <div id='reviewsHolder'>
-                                          <div id='reviewbar'>
+                                          <div id='reviewbarAndButt'>
 
-                                                <div id='star-reviews-rh'>
+                                                <div id='reviewbar'>
 
-                                                {
+                                                      <div id='star-reviews-rh'>
 
-                                                      spot.numReviews == 0 ?
-                                                      <p>&#9733;{` New`}</p>
-                                                      :
-                                                      spot.numReviews == 1 ?
-                                                      <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
-                                                      :
-                                                      <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
+                                                      {
 
-                                                }
+                                                            spot.numReviews == 0 ?
+                                                            <p>&#9733;{` New`}</p>
+                                                            :
+                                                            spot.numReviews == 1 ?
+                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} review`}</p>
+                                                            :
+                                                            <p>&#9733;{` ${spot.avgStarRating && (spot.avgStarRating).toFixed(1)} • ${spot.numReviews} reviews`}</p>
 
+                                                      }
+
+
+                                                      </div>
 
                                                 </div>
 
-                                          </div>
+                                                <div id='post-review-butt'>
 
-                                          <div id='post-review-butt'>
+                                                      {
 
-                                                {
-
-                                                      redLight===false?
-                                                            <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
+                                                            redLight===false?
+                                                                  <OpenModalButton buttonText="Post Your Review" modalComponent={<AddReviewModal spot={spot} />} /> : <p></p>
 
 
 
-                                                }
+                                                      }
 
 
+
+
+                                                </div>
 
 
                                           </div>
