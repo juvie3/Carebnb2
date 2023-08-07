@@ -108,6 +108,54 @@ module.exports = {
         name: "Inner Sanctuary",
         description: "Discover modern elegance in the heart of Los Angeles at our Airbnb with an enchanting inner courtyard. This architectural gem exudes style and sophistication, with sleek lines and contemporary design. The central courtyard serves as a tranquil oasis, where you can relax and unwind amidst lush greenery and soothing water features. Inside, the home offers luxurious amenities, spacious living areas, and a fully equipped gourmet kitchen. Located in a prime neighborhood, you'll have easy access to LA's iconic attractions, trendy dining spots, and vibrant nightlife. Experience the best of LA living - book now for an unforgettable stay!",
         price: 150.00
+      },
+      {
+        ownerId: 3,
+        address: "100 Nowhere Road",
+        city: "Vancouver",
+        state: "BC",
+        country: "Canada",
+        lat: 49.282729,
+        lng: -123.120738,
+        name: "Isolated Wonder",
+        description: "Escape to a modern retreat in Vancouver, embraced by nature and lakes. This stylish Airbnb offers serene views, contemporary design, and spacious living areas. Immerse yourself in the surrounding greenery, explore nearby lakes, and experience the best of city and nature living. Book now for an unforgettable getaway!",
+        price: 65.00
+      },
+      {
+        ownerId: 1,
+        address: "432 Green Ivy St",
+        city: "Austin",
+        state: "Texas",
+        country: "USA",
+        lat: 30.267153,
+        lng: -97.743061,
+        name: "Lush Oasis",
+        description: "Welcome to our serene oasis in Austin, Texas! Nestled amidst lush greenery, our spacious and inviting house is the perfect retreat for nature enthusiasts and urban explorers alike. With ample room to stretch out and unwind, this home offers a seamless blend of comfort and elegance. Whether you're savoring the tranquil surroundings from the private patio or exploring the vibrant city, our Airbnb promises an unforgettable stay. Embrace the beauty of nature while enjoying the convenience of Austin's vibrant scene. Book now for an extraordinary escape!",
+        price: 45.00
+      },
+      {
+        ownerId: 2,
+        address: "541 Ice Fire Rd",
+        city: "Lake",
+        state: "Queenstown",
+        country: "New Zealand",
+        lat: -45.031162,
+        lng: 168.662644,
+        name: "Breathtaking Mountain Lake Views",
+        description: "Experience contemporary luxury in Queenstown, New Zealand! Our modern Airbnb is perfectly situated beside a breathtaking lake, offering stunning mountain views that will leave you in awe. The house is a masterpiece of design, with sleek interiors and top-notch amenities to ensure your utmost comfort. Whether you're sipping wine on the expansive deck or exploring the enchanting surroundings, this is a dream getaway. Indulge in the serenity of the lake, bask in the beauty of the mountains, and create memories to last a lifetime. Book now for an unforgettable escape to Queenstown's paradise!",
+        price: 125.00
+      },
+      {
+        ownerId: 3,
+        address: "910 Carnival Ave",
+        city: "Rio",
+        state: "Rio de Janeiro",
+        country: "Brazil",
+        lat: -22.906847,
+        lng: -43.172896,
+        name: "Sea Views and Stone Walls",
+        description: "Welcome to our luxurious and modern Airbnb in Rio de Janeiro, where opulence meets the majestic beauty of the ocean! Perched atop a cliff, this exquisite house offers unrivaled panoramic views of the azure waters and sandy shores. Indulge in a seamless blend of comfort and sophistication with sleek interiors and top-of-the-line amenities. Sip cocktails on the private terrace while watching the sunset paint the sky in hues of orange and pink. Located in the heart of Rio, you'll have easy access to the city's vibrant culture and iconic landmarks. Treat yourself to a once-in-a-lifetime experience in this oceanfront paradise. Book now and immerse yourself in Rio's allure!",
+        price: 275.00
       }
     ], { validate: true });
   },

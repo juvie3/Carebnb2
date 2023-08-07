@@ -212,6 +212,106 @@ module.exports = {
         spotId: 8,
         url: "https://www.home-designing.com/wp-content/uploads/2023/02/home-exterior.jpg",
         preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/04/modern-architecture.jpg",
+        preview: true
+      },
+      {
+        spotId: 9,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/04/luxury-house.jpg",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/04/luxury-living-room.jpg",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/04/dining-room-pendant-light.jpg",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/04/terrace-design.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/02/modern-home-exterior.jpg",
+        preview: true
+      },
+      {
+        spotId: 10,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/02/circular-courtyard.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/02/wooden-dining-table-1.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/02/freestanding-bathtub-3.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://www.home-designing.com/wp-content/uploads/2022/02/pivot-door.jpg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://www.home-designing.com/wp-content/uploads/2021/12/large-area-rug.jpg",
+        preview: true
+      },
+      {
+        spotId: 11,
+        url: "https://www.home-designing.com/wp-content/uploads/2021/12/kitchen-island-3.jpg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://www.home-designing.com/wp-content/uploads/2021/12/kitchen-bar-stools-1.jpg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://www.home-designing.com/wp-content/uploads/2021/12/luxurious-bedroom.jpg",
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: "https://www.home-designing.com/wp-content/uploads/2021/12/freestanding-bathtub-2.jpg",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://www.home-designing.com/wp-content/uploads/2019/11/luxury-home-with-pool.jpg",
+        preview: true
+      },
+      {
+        spotId: 12,
+        url: "https://www.home-designing.com/wp-content/uploads/2019/11/outdoor-chaise-lounge-chairs.jpg",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://www.home-designing.com/wp-content/uploads/2019/11/modern-house-exterior.jpg",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://www.home-designing.com/wp-content/uploads/2019/11/hot-tub.jpg",
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: "https://www.home-designing.com/wp-content/uploads/2019/11/courtyard.jpg",
+        preview: false
       }
     ], { validate: true });
   },

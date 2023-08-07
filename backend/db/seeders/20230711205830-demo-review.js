@@ -60,6 +60,30 @@ module.exports = {
         userId: 2,
         review: "I really enjoyed my stays, and I can't wait to come back!",
         stars: 5
+      },
+      {
+        spotId: 9,
+        userId: 1,
+        review: "What can you say? Just look at the photos! It did not disappoint!",
+        stars: 5
+      },
+      {
+        spotId: 10,
+        userId: 3,
+        review: "Never been to this part of the United States before, but this stay made it worth it! Really enjoyed my time there!",
+        stars: 4
+      },
+      {
+        spotId: 11,
+        userId: 1,
+        review: "It was a long flight to get there, but having a place like that was incredible!! Worth every penny!",
+        stars: 5
+      },
+      {
+        spotId: 12,
+        userId: 2,
+        review: "My family went to visit friends in Brazil, and this place was more than I could have asked for! It was heaven, and I was so sad to leave it all behind!",
+        stars: 5
       }
     ], { validate: true });
   },
