@@ -66,8 +66,6 @@ export const SpotDetails = () => {
 
       reviews.reverse()
 
-      console.log(spot, '\n\n=======================\n');
-
       if (spot === undefined) {
             return null
       } else if (spot.SpotImages === undefined) {

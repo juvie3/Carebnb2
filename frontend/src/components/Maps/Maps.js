@@ -7,11 +7,6 @@ const containerStyle = {
   height: '400px',
 };
 
-// const center = {
-//   lat: 32.7174202,
-//   lng: -117.1627728,
-// };
-
 const Maps = ({ apiKey }) => {
 
       const { key, lat, lng } = apiKey
