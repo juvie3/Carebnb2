@@ -238,7 +238,7 @@ export const SpotForm = ({form, formTitle}) => {
                                           placeholder='Preview Image URL ending in .png .jpg or .jpeg (Required)'
                                           value={previewImage.url}
                                           onChange={(e)=>setPreviewImage({...previewImage, url: e.target.value})}
-                                          pattern='.*\.(png|jpg|jpeg)$'
+                                          pattern='^http.*\.(png|jpg|jpeg)$'
                                           required
                                     />
                               </label>
