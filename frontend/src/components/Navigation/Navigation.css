@@ -66,10 +66,39 @@ nav {
       margin-left: 20px;
       box-shadow: 0px 1px 7px 1px lightgray;
       margin-bottom: 7px;
+      position: fixed;
+      left: 47.8%;
+      transform: translateX(-50%);
+      background-color: white;
 }
+
+@media (max-width: 876px) {
+      .topNav {
+            visibility: hidden;
+            position: absolute;
+      }
+ }
+
+ @media (max-width: 770px) {
+      .c-link {
+            visibility: hidden;
+            position: absolute;
+      }
+ }
+
+ @media (max-width: 810px) {
+      .h-link {
+            visibility: hidden;
+            position: absolute;
+      }
+ }
 
 .topNav:hover {
       cursor: not-allowed;
+}
+
+#anywhere {
+      margin-left: -5px;
 }
 
 .search {
@@ -77,7 +106,8 @@ nav {
       padding: 7px;
       background-color: rgb(255, 90, 95);
       border-radius: 50px;
-      margin-left: 10px;
+      margin-left: 15px;
+      margin-right: -12px;
 }
 
 .line {

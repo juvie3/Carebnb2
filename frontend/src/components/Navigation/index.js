@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
           <h1 id="carebnb" >carebnb</h1>
         </NavLink>
         <div className="topNav">
-          <h4 className="navi" >Anywhere</h4>
+          <h4 id='anywhere' className="navi" >Anywhere</h4>
           <h2 className="navi line">|</h2>
           <h4 className="navi">Any week</h4>
           <h2 className="navi line">|</h2>
@@ -33,10 +33,10 @@ function Navigation({ isLoaded }) {
       {isLoaded && (
         <div className="button-login">
           {sessionUser ?
-              <h4 className="login create">
+              <h4 className="login create c-link">
                 <NavLink id="create-link" exact to="/spots/new">Create a New Spot</NavLink>
               </h4> :
-              <h4 className="login your-home">Carebnb your home</h4>
+              <h4 className="login your-home h-link">Carebnb your home</h4>
           }
 
 

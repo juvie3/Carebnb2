@@ -48,6 +48,30 @@
       padding-top: 5px;
 }
 
+@media (max-width: 567px) {
+      .filter-holder {
+            /* visibility: hidden;
+            position: absolute; */
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            /* overflow-wrap: normal; */
+            /* justify-content: space-evenly; */
+            border-top: 1px solid rgb(235, 235, 235);
+            height: 70px;
+            position: sticky;
+            top: 60px;
+            z-index: 1;
+            background-color: white;
+            opacity: 0.9;
+            margin-bottom: -10px;
+            padding-top: 5px;
+      }
+ }
+
 /* .filter {
       box-sizing: border-box;
       display: inline-block;
@@ -82,6 +106,7 @@
       padding-top: 3px;
       font-size: 13px;
       font-weight: 500;
+      white-space: nowrap;
 }
 
 /* Classes */
