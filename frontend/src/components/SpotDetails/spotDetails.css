@@ -369,8 +369,11 @@
 @media (max-width: 901px) {
       #detailsHolder {
             width: 95%;
+            margin-left: 70px;
       }
+}
 
+@media (max-width: 775px) {
       #desc {
             width: 95%;
       }
