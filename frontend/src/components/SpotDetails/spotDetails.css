@@ -365,3 +365,13 @@
       font-weight: 700;
       padding-bottom: 10px;
 }
+
+@media (max-width: 901px) {
+      #detailsHolder {
+            width: 95%;
+      }
+
+      #desc {
+            width: 95%;
+      }
+}
