@@ -369,7 +369,7 @@
 @media (max-width: 901px) {
       #detailsHolder {
             width: 95%;
-            margin-left: 70px;
+            padding-left: 70px;
       }
 }
 
