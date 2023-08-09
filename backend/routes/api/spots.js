@@ -387,7 +387,7 @@ router.get("/:spotId", async (req, res, next) => {
             parsedIdSpot.avgStarRating = 0;
       }
 
-      const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, avgStarRating } = parsedIdSpot;
+      const { id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt, updatedAt, SpotImages, Owner, numReviews, avgStarRating, category } = parsedIdSpot;
 
 
       // ==========================================================
@@ -421,14 +421,14 @@ router.get("/:spotId", async (req, res, next) => {
       // ==========================================================
       // ==========================================================
 
-      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, createdAt: formatedCreatedDate, updatedAt: formatedUpdatedDate, numReviews, avgStarRating, SpotImages, Owner};
+      const finalIdSpot = {id, ownerId, address, city, state, country,lat, lng, name, description, price, category, createdAt: formatedCreatedDate, updatedAt: formatedUpdatedDate, numReviews, avgStarRating, SpotImages, Owner};
 
       return res.json(finalIdSpot);
 });
 
 router.get("/", async (req, res, next) => {
 
-      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice, type } = req.query;
 
       if (!page) page = 1;
       if (!size) size = 20;
@@ -475,6 +475,9 @@ router.get("/", async (req, res, next) => {
       if (maxPrice !== undefined && maxPrice >= 0) {
             filters.price = {[Op.lte]:maxPrice};
       };
+      if (type !== undefined) {
+            filters.category = type;
+      }
 
       const allSpots = await Spot.findAll({
             include: [{model: Review}, {model: SpotImage}],
@@ -801,7 +804,7 @@ router.post("/:spotId/reviews", requireAuth, async (req, res, next) => {
 
 router.post("/", requireAuth, async (req, res, next) => {
 
-      const { address, city, state, country, lat, lng, name, description, price } = req.body;
+      const { address, city, state, country, lat, lng, name, description, price, category } = req.body;
 
       const newSpot = await Spot.create({
             address,
@@ -813,6 +816,7 @@ router.post("/", requireAuth, async (req, res, next) => {
             name,
             description,
             price,
+            category,
             ownerId: req.user.id
       });
 
@@ -823,7 +827,7 @@ router.post("/", requireAuth, async (req, res, next) => {
 
 router.put("/:spotId", requireAuth, async (req, res, next) => {
 
-      const { address, city, state, country, lat, lng, name, description, price } = req.body;
+      const { address, city, state, country, lat, lng, name, description, price, category } = req.body;
 
       const curSpot = await Spot.findByPk(req.params.spotId)
 
@@ -838,7 +842,8 @@ router.put("/:spotId", requireAuth, async (req, res, next) => {
                   lng,
                   name,
                   description,
-                  price
+                  price,
+                  category
             });
 
             return res.json(updatedSpot);

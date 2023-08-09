@@ -89,7 +89,7 @@
 }
 
 .filterBox:hover {
-      cursor: not-allowed;
+      cursor: pointer;
 }
 
 .filter-icon {
@@ -160,6 +160,7 @@
 
 #entireCard {
       display: grid;
+      margin-bottom: 3px;
 }
 
 #cardImage {
@@ -238,13 +239,16 @@
 .tooltip-text {
       visibility: hidden;
       position: absolute;
-      z-index: 1;
-      width: 100px;
+      width: max-content;
+      max-width: 100%;
       color: white;
       font-size: 12px;
       background-color: rgb(255, 90, 95);
       border-radius: 10px;
       padding: 5px 10px 5px 10px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      top: .5rem;
     }
 
     .hover-text:hover .tooltip-text {
@@ -252,10 +256,10 @@
     }
 
     #topTip {
-      top: -20px;
-      left: 60px;
+      /* top: -20px; */
+      /* left: 60px; */
       opacity: 0;
-      transition: opacity 0.5s;
+      transition: opacity 0.75s;
     }
 
     .hover-text:hover #topTip { opacity: 1; }
@@ -269,4 +273,68 @@
 
     #newWordIndex {
       font-size: 12px;
+    }
+
+    #filter-reset {
+      color:rgb(255, 90, 95);
+      margin-top: 10px;
+      border-top: 1px solid rgb(255, 90, 95);
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: -14px;
+      padding-top: 2px;
+    }
+
+    #filter-reset:hover {
+      cursor: pointer;
+    }
+
+    #cabin-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #beachfront-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #tiny-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #mansion-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #lakefront-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #treehouse-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #castle-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #boat-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #farm-line {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    #iconic-line {
+      border: 1px solid;
+      width: 100%;
     }

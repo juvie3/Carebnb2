@@ -312,6 +312,106 @@ module.exports = {
         spotId: 12,
         url: "https://www.home-designing.com/wp-content/uploads/2019/11/courtyard.jpg",
         preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-52380618/original/1eecf1ae-cc6b-4128-b2db-1104b401edb4.jpeg",
+        preview: true
+      },
+      {
+        spotId: 13,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-52380618/original/de27cb09-4483-42b4-b4ec-ff210af6f3ea.jpeg",
+        preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-52380618/original/d99cfb35-b220-4686-9e43-ea6d58a51094.jpeg",
+        preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-52380618/original/c240a9d3-8841-4537-8c7c-9095afd7effe.jpeg",
+        preview: false
+      },
+      {
+        spotId: 13,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-52380618/original/d7733035-4883-4def-bdea-c9a1ffdb9eed.jpeg",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-35484995/original/04ce5de7-5828-4353-870d-3971af6e50b1.jpeg",
+        preview: true
+      },
+      {
+        spotId: 14,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-35484995/original/80f1d07e-e409-47d4-9760-365855e05699.jpeg",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-35484995/original/e5fd09b6-2f88-4f0a-a533-34d75890ac6d.jpeg",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://a0.muscache.com/im/pictures/6c497de0-523a-4dab-8d96-6a92febf4558.jpg",
+        preview: false
+      },
+      {
+        spotId: 14,
+        url: "https://a0.muscache.com/im/pictures/114314cd-30fa-4654-a392-49eb5e774ca8.jpg",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-616473242380750899/original/92dbd162-b07b-4818-b386-9b66edd05717.jpeg",
+        preview: true
+      },
+      {
+        spotId: 15,
+        url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-616473242380750899/original/dabda650-52b8-4964-9f0d-f82ac7ae184f.jpeg",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-616473242380750899/original/7d9f0dec-ec68-4757-aa95-5c03cd5c8fe5.jpeg",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-616473242380750899/original/dd616f51-7e90-4b35-9777-10ebe846d4a6.jpeg",
+        preview: false
+      },
+      {
+        spotId: 15,
+        url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-616473242380750899/original/44a21b2e-a4f0-4f05-baaa-88dcc30130f5.jpeg",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a5/87/26/paolyn-houseboat.jpg?w=1200&h=-1&s=1",
+        preview: true
+      },
+      {
+        spotId: 16,
+        url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/20/fa/41/71/bamboo-suite.jpg?w=1200&h=-1&s=1",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/20/fa/41/62/bamboo-suite.jpg?w=1200&h=-1&s=1",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/20/fa/3f/a2/glass-houseboat-bedroom.jpg?w=1200&h=-1&s=1",
+        preview: false
+      },
+      {
+        spotId: 16,
+        url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/b4/b1/e4/paolyn-houseboats-coron.jpg?w=1100&h=-1&s=1",
+        preview: false
       }
     ], { validate: true });
   },

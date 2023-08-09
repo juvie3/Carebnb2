@@ -99,6 +99,13 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           isNumeric: true
         }
+      },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,30]
+        }
       }
     },
     {

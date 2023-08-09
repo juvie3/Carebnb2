@@ -84,6 +84,30 @@ module.exports = {
         userId: 2,
         review: "My family went to visit friends in Brazil, and this place was more than I could have asked for! It was heaven, and I was so sad to leave it all behind!",
         stars: 5
+      },
+      {
+        spotId: 13,
+        userId: 2,
+        review: "I know it's cheesy, but we booked this place for our honeymoon...and it did not disappoint! Oh, and the honeymoon was great, as well!",
+        stars: 5
+      },
+      {
+        spotId: 14,
+        userId: 1,
+        review: "My wife and I had a lovely weekend getaway at this place. I recommend them highly. We look forward to coming back.",
+        stars: 4
+      },
+      {
+        spotId: 15,
+        userId: 2,
+        review: "The attention to detail and uniqueness of The Castle make it a great place to stay! We played golf for 3 days during our stay, and this was a convenient location minutes from Whistling Straits. The Castle even has it's own golf simulator! And of course, the outdoor spa and fire pit were a welcoming retreat after 18 holes. Would definitely repeat!",
+        stars: 5
+      },
+      {
+        spotId: 16,
+        userId: 3,
+        review: "I am a travel photographer and vlogger who travels internationally once a month. This place far exceeded my expectations! If Carebnb allowed me to give a higher rating I would. From the stunning views of the crystal-clear waters to the excellent service provided by the friendly staff, every moment spent on the houseboat was sheer perfection. We had an amazing time lounging on the deck of our room, we snorkeled in the most beautiful coral reefs just outside of our deck, and took a private tour. There was so much to do and the food and service was exceptional. A true gem in the heart of paradise.",
+        stars: 5
       }
     ], { validate: true });
   },

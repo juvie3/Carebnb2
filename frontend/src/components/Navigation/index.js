@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
   return (
     <header>
       <nav>
-        <NavLink exact to="/">
+        <NavLink exact to="/" >
           <img className="logo" src={logo} />
         </NavLink>
         <NavLink id='main-logo-link' exact to="/">

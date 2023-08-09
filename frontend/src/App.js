@@ -21,6 +21,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Switch>
+        {/* <Route path='/spots?type=cabin' component={SpotsIndex} /> */}
         <Route exact path='/' component={SpotsIndex} />
         <Route exact path='/spots/new' component={CreateSpot} />
         <Route exact path='/spots/current' component={CurrentSpots} />

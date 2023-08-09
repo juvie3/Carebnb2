@@ -12,6 +12,7 @@ export const CreateSpot = () => {
             name: '',
             description: '',
             price: '',
+            category: '',
             previewImage: '',
             image2: '',
             image3: '',

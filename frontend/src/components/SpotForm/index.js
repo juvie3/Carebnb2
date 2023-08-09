@@ -16,6 +16,7 @@ export const SpotForm = ({form, formTitle}) => {
       const [name, setName] = useState(form?.name);
       const [description, setDescription] = useState(form?.description);
       const [price, setPrice] = useState(form?.price);
+      const [category, setCategory] = useState(form?.category);
       const [previewImage, setPreviewImage] = useState(form.SpotImages? form.SpotImages[0]? form.SpotImages[0] : '' : '');
       const [image2, setImage2] = useState(form.SpotImages? form.SpotImages[1]? form.SpotImages[1] : '' : '');
       const [image3, setImage3] = useState(form.SpotImages? form.SpotImages[2]? form.SpotImages[2] : '' : '');
@@ -32,7 +33,7 @@ export const SpotForm = ({form, formTitle}) => {
             e.preventDefault();
             setErrorMessages({});
 
-            form = { ...form, address, city, state, country, lat, lng, name, description, price };
+            form = { ...form, address, city, state, country, lat, lng, name, description, price, category };
 
 
             if (formTitle === "Update Spot") {
@@ -176,6 +177,29 @@ export const SpotForm = ({form, formTitle}) => {
                                     />
                               </label>
 
+                              {/* <label> Category
+                                    <input id='formInput'
+                                          className='category-input'
+                                          list='spot-category'
+                                          placeholder='Please choose one of these categories:'
+                                          required
+                                          value={category}
+                                          onChange={(e)=>setCategory(e.target.value)}
+                                    />
+                                          <datalist id='spot-category'>
+                                                <option value='Cabin'/>
+                                                <option value='Beachfront'/>
+                                                <option value='Tiny home'/>
+                                                <option value='Mansion'/>
+                                                <option value='Lakefront'/>
+                                                <option value='Treehouse'/>
+                                                <option value='Castle'/>
+                                                <option value='Boat'/>
+                                                <option value='Farm'/>
+                                                <option value='Iconic City'/>
+                                          </datalist>
+                              </label> */}
+
                         </div>
 
                         <div id='section2'>
@@ -191,6 +215,21 @@ export const SpotForm = ({form, formTitle}) => {
                                           value={description}
                                           onChange={(e)=>setDescription(e.target.value)}
                                     />
+                              </label>
+                              <label>
+                                    <select id='formInput' className='cat-input' value={category} onChange={(e)=>setCategory(e.target.value)}>
+                                          <option value=''>Choose a Category:</option>
+                                          <option value='cabin'>Cabin</option>
+                                          <option value='beachfront'>Beachfront</option>
+                                          <option value='tiny'>Tiny Home</option>
+                                          <option value='mansion'>Mansion</option>
+                                          <option value='lakefront'>Lakefront</option>
+                                          <option value='treehouse'>Treehouse</option>
+                                          <option value='castle'>Castle</option>
+                                          <option value='boat'>Boat</option>
+                                          <option value='farm'>Farm</option>
+                                          <option value='iconic'>Iconic City</option>
+                                    </select>
                               </label>
                         </div>
 
@@ -285,8 +324,10 @@ export const SpotForm = ({form, formTitle}) => {
 
 
                         <div id='subButt'>
-                              <button id='formsubButt' disabled={!country} type='submit'>Create Spot</button>
+                              <button id='formsubButt' disabled={category !== 'cabin' && category !== 'beachfront' && category !== 'tiny' && category !== 'mansion' && category !== 'lakefront' && category !== 'treehouse' && category !== 'castle' && category !== 'boat' && category !== 'farm' && category !== 'iconic'} type='submit'>Create Spot</button>
+                              <div id='butt-explain'>(Choose a given category before you can submit)</div>
                         </div>
+
                   </div>
 
                   </form>
@@ -373,6 +414,21 @@ export const SpotForm = ({form, formTitle}) => {
                                           value={description}
                                           onChange={(e)=>setDescription(e.target.value)}
                                     />
+                              </label>
+                              <label>
+                                    <select id='formInput' className='cat-input' value={category} onChange={(e)=>setCategory(e.target.value)}>
+                                          <option value=''>Choose a Category:</option>
+                                          <option value='cabin'>Cabin</option>
+                                          <option value='beachfront'>Beachfront</option>
+                                          <option value='tiny'>Tiny Home</option>
+                                          <option value='mansion'>Mansion</option>
+                                          <option value='lakefront'>Lakefront</option>
+                                          <option value='treehouse'>Treehouse</option>
+                                          <option value='castle'>Castle</option>
+                                          <option value='boat'>Boat</option>
+                                          <option value='farm'>Farm</option>
+                                          <option value='iconic'>Iconic City</option>
+                                    </select>
                               </label>
                         </div>
 
