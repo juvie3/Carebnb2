@@ -265,6 +265,13 @@
       margin-bottom: -17px;
 }
 
+@media (max-width: 902px) {
+      #rateBox {
+            visibility: hidden;
+            position: absolute;
+      }
+}
+
 #googleMaps {
       margin-bottom: 25px;
 }
