@@ -428,7 +428,7 @@ router.get("/:spotId", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
 
-      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice, type } = req.query;
+      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice, type, city, state, country} = req.query;
 
       if (!page) page = 1;
       if (!size) size = 20;
@@ -477,6 +477,15 @@ router.get("/", async (req, res, next) => {
       };
       if (type !== undefined) {
             filters.category = type;
+      };
+      if (city !== undefined) {
+            filters.city = city;
+      };
+      if (state !== undefined) {
+            filters.state = state;
+      };
+      if (country !== undefined) {
+            filters.country = country;
       }
 
       const allSpots = await Spot.findAll({

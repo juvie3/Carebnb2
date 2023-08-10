@@ -9,6 +9,7 @@ import { SpotDetails } from "./components/SpotDetails";
 import { CreateSpot } from "./components/CreateSpot";
 import { CurrentSpots } from "./components/CurrentSpots";
 import { UpdateSpot } from "./components/UpdateSpot";
+import { SpotsFiltered } from "./components/SpotsFiltered";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,8 +22,8 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Switch>
-        {/* <Route path='/spots?type=cabin' component={SpotsIndex} /> */}
         <Route exact path='/' component={SpotsIndex} />
+        <Route path='/spots/filtered/:query' component={SpotsFiltered} />
         <Route exact path='/spots/new' component={CreateSpot} />
         <Route exact path='/spots/current' component={CurrentSpots} />
         <Route exact path='/spots/update/:spotId' component={UpdateSpot} />

@@ -13,18 +13,19 @@ import castle from './castle.jpeg'
 import boat from './boats.jpeg'
 import farm from './farms.jpeg'
 import cities from './cities.jpeg'
+import { useParams } from "react-router-dom"
 
 
-export const SpotsIndex = () => {
-
+export const SpotsFiltered = () => {
       const dispatch = useDispatch()
+      const { query } = useParams()
       const [filter, setFilter] = useState('')
 
       const spots = Object.values (useSelector(state => (state.spots ? state.spots : {})))
 
       useEffect(() => {
-            dispatch(fetchSpots())
-      }, [dispatch])
+            dispatch(fetchSpots(query))
+      }, [dispatch, query])
 
 
       if ( spots !== {} && spots !== [] ) {
@@ -127,7 +128,12 @@ export const SpotsIndex = () => {
 
                   {
                         filter === "" ? null :
-                        <div id='filter-reset' onClick={(e)=>setFilter('')}>See All Spots</div>
+                        <>
+                        <div id='filter-reset' className="back-to-results" onClick={(e)=>setFilter('')}>Back to Search Results</div>
+                        <NavLink id='resetFilterFiltered' exact to='/'>
+                              <div id='filter-reset' onClick={(e)=>setFilter('')}>See All Spots</div>
+                        </NavLink>
+                        </>
 
                   }
 
@@ -148,5 +154,5 @@ export const SpotsIndex = () => {
                   </section>
                   </>
             )
-      }
+      } else return null
 }

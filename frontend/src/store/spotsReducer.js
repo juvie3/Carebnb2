@@ -34,15 +34,29 @@ export const addSpotImage = (image) => ({
 
 /** Thunk Action Creators */
 
-export const fetchSpots = () => async (dispatch) => {
-      const res = await csrfFetch('/api/spots');
+export const fetchSpots = (query) => async (dispatch) => {
 
-      if (res.ok) {
-            const allSpots = await res.json();
-            const spots = {}
-            allSpots.Spots.forEach(spot => spots[spot.id] = spot)
-            dispatch (loadSpots(spots));
+      if (query) {
+            const res = await csrfFetch(`/api/spots?${query}`)
+
+            if (res.ok) {
+                  const allSpots = await res.json();
+                  const spots = {}
+                  allSpots.Spots.forEach(spot => spots[spot.id] = spot)
+                  dispatch (loadSpots(spots));
+            }
+
+      } else {
+            const res = await csrfFetch('/api/spots')
+
+            if (res.ok) {
+                  const allSpots = await res.json();
+                  const spots = {}
+                  allSpots.Spots.forEach(spot => spots[spot.id] = spot)
+                  dispatch (loadSpots(spots));
+            }
       }
+
 }
 
 export const fetchSpotDetails = (spotId) => async (dispatch) => {

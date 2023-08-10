@@ -338,3 +338,11 @@
       border: 1px solid;
       width: 100%;
     }
+
+    #resetFilterFiltered {
+      text-decoration: none;
+    }
+
+    .back-to-results {
+      padding-bottom: 5px;
+    }

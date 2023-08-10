@@ -93,13 +93,6 @@ nav {
       }
  }
 
-.topNav:hover {
-      cursor: not-allowed;
-}
-
-#anywhere {
-      margin-left: -5px;
-}
 
 .search {
       max-height: 15px;
@@ -239,4 +232,31 @@ nav {
       justify-content: flex-end;
       align-items: center;
       padding-right: 10px;
+}
+
+#citySearch {
+      border: none;
+      outline: none;
+      height: 100%;
+      font-size: 16px;
+      text-align: center;
+      width: 125px;
+}
+
+#stateSearch {
+      border: none;
+      outline: none;
+      height: 100%;
+      font-size: 16px;
+      text-align: center;
+      width: 125px;
+}
+
+#countrySearch {
+      border: none;
+      outline: none;
+      height: 100%;
+      font-size: 16px;
+      text-align: center;
+      width: 125px;
 }

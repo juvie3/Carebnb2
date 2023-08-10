@@ -1,5 +1,5 @@
 // frontend/src/components/Navigation/index.js
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
@@ -8,7 +8,31 @@ import logo from './apple-touch-icon.png';
 import magGlass from './search2.png';
 
 function Navigation({ isLoaded }) {
+  const [cityVal, setCityVal] = useState('')
+  const [stateVal, setStateVal] = useState('')
+  const [countryVal, setCountryVal] = useState('')
   const sessionUser = useSelector((state) => state.session.user);
+
+  const reset = () => {
+    setCityVal('')
+    setStateVal('')
+    setCountryVal('')
+  }
+
+  let query = '';
+
+  if (cityVal) query = `city=${cityVal}`
+
+  if (cityVal && stateVal) query = `${query}&&state=${stateVal}`
+
+  if (!cityVal && stateVal) query = `state=${stateVal}`
+
+  if ((cityVal || stateVal) && countryVal) query = `${query}&&country=${countryVal}`
+
+  if (!cityVal && !stateVal && countryVal) query = `country=${countryVal}`
+
+
+  const temp = 'city=Denver'
 
   return (
     <header>
@@ -20,12 +44,38 @@ function Navigation({ isLoaded }) {
           <h1 id="carebnb" >carebnb</h1>
         </NavLink>
         <div className="topNav">
-          <h4 id='anywhere' className="navi" >Anywhere</h4>
+          <input id='citySearch' className="navi"
+                  type="text"
+                  value={cityVal}
+                  placeholder="Any City"
+                  onChange={(e)=>setCityVal(e.target.value)}
+            />
           <h2 className="navi line">|</h2>
-          <h4 className="navi">Any week</h4>
+          <input id='stateSearch' className="navi"
+                  type="text"
+                  value={stateVal}
+                  placeholder="Any State"
+                  onChange={(e)=>setStateVal(e.target.value)}
+            />
           <h2 className="navi line">|</h2>
-          <h4 className="navi line">Add guests</h4>
-          <img className="search" src={magGlass} />
+          <input id='countrySearch' className="navi"
+                  type="text"
+                  value={countryVal}
+                  placeholder="Any Country"
+                  onChange={(e)=>setCountryVal(e.target.value)}
+            />
+
+          {
+            !cityVal && !stateVal && !countryVal ?
+            <NavLink to={`/`}>
+              <img className="search" src={magGlass} onClick={reset}/>
+            </NavLink>
+            :
+            <NavLink to={`/spots/filtered/${query}`}>
+              <img className="search" src={magGlass} onClick={reset}/>
+            </NavLink>
+          }
+
         </div>
       </nav>
 
