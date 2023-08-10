@@ -205,7 +205,7 @@ module.exports = {
         lng: -87.747309,
         name: "Castle Vineyard",
         description: "For travelers who want an exclusive taste of Tuscany without the hassle of jetting across an ocean, The Castle Vineyard is the place to stay. The dramatic, spellbinding stone castle proudly overlooks over twenty acres of idyllic rolling hills and a gorgeous, working vineyard. Once inside, the interior does nothing to dispel the magic.",
-        price: 15.00,
+        price: 1500.00,
         category: 'castle'
       },
       {

@@ -140,6 +140,7 @@ export const SpotsFiltered = () => {
 
                   <section className="card-holder">
 
+                  <h1>Search Results:</h1>
 
 
                         {
