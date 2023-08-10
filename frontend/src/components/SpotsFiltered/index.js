@@ -129,7 +129,7 @@ export const SpotsFiltered = () => {
                   {
                         filter === "" ? null :
                         <>
-                        <div id='filter-reset' className="back-to-results" onClick={(e)=>setFilter('')}>Back to Search Results</div>
+                        <div className="back-to-results" onClick={(e)=>setFilter('')}>Back to Search Results</div>
                         <NavLink id='resetFilterFiltered' exact to='/'>
                               <div id='filter-reset' onClick={(e)=>setFilter('')}>See All Spots</div>
                         </NavLink>
@@ -140,7 +140,7 @@ export const SpotsFiltered = () => {
 
                   <section className="card-holder">
 
-                  <h1>Search Results:</h1>
+                  <h1 id='search-results'>Search Results:</h1>
 
 
                         {

@@ -260,6 +260,7 @@
       /* left: 60px; */
       opacity: 0;
       transition: opacity 0.5s;
+      font-size: 14px;
     }
 
     .hover-text:hover #topTip { opacity: 1; }
@@ -276,13 +277,29 @@
     }
 
     #filter-reset {
-      color:rgb(255, 90, 95);
-      margin-top: 10px;
+      color: white;
+      margin-top: 8px;
       border-top: 1px solid rgb(255, 90, 95);
       text-align: center;
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: -14px;
+      /* padding-top: 2px; */
+      background-color: rgb(255, 90, 95);
+    }
+
+    .back-to-results {
+      padding-bottom: 5px;
+      background-color: slategray;
+      color: white;
+      margin-top: 8px;
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: -12px;
       padding-top: 2px;
+    }
+
+    .back-to-results:hover {
+      cursor: pointer;
     }
 
     #filter-reset:hover {
@@ -343,6 +360,6 @@
       text-decoration: none;
     }
 
-    .back-to-results {
-      padding-bottom: 5px;
+    #search-results {
+      text-align: center;
     }
