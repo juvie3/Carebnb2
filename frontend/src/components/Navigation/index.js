@@ -6,17 +6,28 @@ import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import logo from './apple-touch-icon.png';
 import magGlass from './search2.png';
+import { useHistory } from "react-router-dom";
 
 function Navigation({ isLoaded }) {
   const [cityVal, setCityVal] = useState('')
   const [stateVal, setStateVal] = useState('')
   const [countryVal, setCountryVal] = useState('')
   const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory()
 
   const reset = () => {
     setCityVal('')
     setStateVal('')
     setCountryVal('')
+  }
+
+  const resetEnter = () => {
+    if (!cityVal && !stateVal && !countryVal) {
+      history.push('/')
+    } else {
+      history.push(`/spots/filtered/${query}`)
+      reset()
+    }
   }
 
   let query = '';
@@ -49,6 +60,9 @@ function Navigation({ isLoaded }) {
                   value={cityVal}
                   placeholder="Any City"
                   onChange={(e)=>setCityVal(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' ?
+                      resetEnter() : false
+                  }
             />
           <h2 className="navi line">|</h2>
           <input id='stateSearch' className="navi"
@@ -56,6 +70,9 @@ function Navigation({ isLoaded }) {
                   value={stateVal}
                   placeholder="Any State"
                   onChange={(e)=>setStateVal(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' ?
+                      resetEnter() : false
+                  }
             />
           <h2 className="navi line">|</h2>
           <input id='countrySearch' className="navi"
@@ -63,6 +80,9 @@ function Navigation({ isLoaded }) {
                   value={countryVal}
                   placeholder="Any Country"
                   onChange={(e)=>setCountryVal(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' ?
+                      resetEnter() : false
+                  }
             />
 
           {

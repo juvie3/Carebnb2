@@ -10,98 +10,98 @@ const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
-router.get("/search", async (req, res, next) => {
+// router.get("/search", async (req, res, next) => {
 
-      let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+//       let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
-      if (!page) page = 1;
-      if (!size) size = 20;
+//       if (!page) page = 1;
+//       if (!size) size = 20;
 
-      let pagination = {};
+//       let pagination = {};
 
-      if (size >= 1 && page >= 1 && size <= 20 && page <= 10) {
-            pagination.limit = size;
-            pagination.offset = size * (page - 1)
-      } else {
-            pagination.limit = 20;
-            pagination.offset = 0;
-      };
+//       if (size >= 1 && page >= 1 && size <= 20 && page <= 10) {
+//             pagination.limit = size;
+//             pagination.offset = size * (page - 1)
+//       } else {
+//             pagination.limit = 20;
+//             pagination.offset = 0;
+//       };
 
-      let filters = {};
+//       let filters = {};
 
-      if (minLat !== undefined) {
-            filters.lat = {[Op.gte]:minLat};
-      };
-      if (maxLat !== undefined) {
-            filters.lat = {[Op.lte]:maxLat};
-      };
-      if (minLng !== undefined) {
-            filters.lng = {[Op.gte]:minLng};
-      };
-      if (maxLng !== undefined) {
-            filters.lng = {[Op.lte]:maxLng};
-      };
-      if (minPrice !== undefined && minPrice >= 0) {
-            filters.price = {[Op.gte]:minPrice};
-      };
-      if (maxPrice !== undefined && maxPrice >= 0) {
-            filters.price = {[Op.lte]:maxPrice};
-      };
+//       if (minLat !== undefined) {
+//             filters.lat = {[Op.gte]:minLat};
+//       };
+//       if (maxLat !== undefined) {
+//             filters.lat = {[Op.lte]:maxLat};
+//       };
+//       if (minLng !== undefined) {
+//             filters.lng = {[Op.gte]:minLng};
+//       };
+//       if (maxLng !== undefined) {
+//             filters.lng = {[Op.lte]:maxLng};
+//       };
+//       if (minPrice !== undefined && minPrice >= 0) {
+//             filters.price = {[Op.gte]:minPrice};
+//       };
+//       if (maxPrice !== undefined && maxPrice >= 0) {
+//             filters.price = {[Op.lte]:maxPrice};
+//       };
 
-      const allSpots = await Spot.findAll({
-            include: [{model: Review}, {model: SpotImage}],
-            ...pagination,
-            where: {...filters}
-      });
+//       const allSpots = await Spot.findAll({
+//             include: [{model: Review}, {model: SpotImage}],
+//             ...pagination,
+//             where: {...filters}
+//       });
 
-      const spotsArray = [];
+//       const spotsArray = [];
 
-      allSpots.forEach(spot => {
-            spotsArray.push(spot.toJSON());
-      });
+//       allSpots.forEach(spot => {
+//             spotsArray.push(spot.toJSON());
+//       });
 
-      spotsArray.forEach(spot => {
+//       spotsArray.forEach(spot => {
 
-            if (spot.Reviews.length) {
+//             if (spot.Reviews.length) {
 
-                  let totalStars = 0;
-                  let count = 0
-                  const starsArray = [];
+//                   let totalStars = 0;
+//                   let count = 0
+//                   const starsArray = [];
 
-                  spot.Reviews.forEach(reviews => {
-                        count++;
-                        starsArray.push(reviews.stars);
-                  });
+//                   spot.Reviews.forEach(reviews => {
+//                         count++;
+//                         starsArray.push(reviews.stars);
+//                   });
 
-                  const initialValue = 0;
-                  totalStars = starsArray.reduce(
-                        (accumulator, currentValue) => accumulator + currentValue,
-                        initialValue
-                  );
+//                   const initialValue = 0;
+//                   totalStars = starsArray.reduce(
+//                         (accumulator, currentValue) => accumulator + currentValue,
+//                         initialValue
+//                   );
 
-                  spot.avgRating = totalStars/count;
+//                   spot.avgRating = totalStars/count;
 
-            } else spot.avgRating = 0;
+//             } else spot.avgRating = 0;
 
-            delete spot.Reviews;
+//             delete spot.Reviews;
 
-            spot.SpotImages.forEach(images => {
+//             spot.SpotImages.forEach(images => {
 
-                  if(images.preview === true) {
-                        spot.previewImage = images.url
-                  };
-            });
+//                   if(images.preview === true) {
+//                         spot.previewImage = images.url
+//                   };
+//             });
 
-            if(!spot.previewImage) {
-                  spot.previewImage = "There is no preview image"
-            };
+//             if(!spot.previewImage) {
+//                   spot.previewImage = "There is no preview image"
+//             };
 
-            delete spot.SpotImages;
+//             delete spot.SpotImages;
 
-      });
+//       });
 
-      return res.json({Spots: spotsArray});
-});
+//       return res.json({Spots: spotsArray});
+// });
 
 router.get("/current", requireAuth, async (req, res, next) => {
 
@@ -430,30 +430,30 @@ router.get("/", async (req, res, next) => {
 
       let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice, type, city, state, country} = req.query;
 
-      if (!page) page = 1;
-      if (!size) size = 20;
+      // if (!page) page = 1;
+      // if (!size) size = 20;
 
-      let pagination = {};
+      // let pagination = {};
 
-      if (size >= 1 && page >= 1 && size <= 20 && page <= 10) {
-            pagination.limit = size;
-            pagination.offset = size * (page - 1)
-      } else if (page < 1) {
-            res.status(400);
-            return res.json({
-                  "message": "Bad Request",
-                  "errors": "Page must be greater than or equal to 1"
-            });
-      } else if (size < 1) {
-            res.status(400);
-            return res.json({
-                  "message": "Bad Request",
-                  "errors": "Size must be greater than or equal to 1"
-            });
-      } else {
-            pagination.limit = 20;
-            pagination.offset = 0;
-      };
+      // if (size >= 1 && page >= 1 && size <= 20 && page <= 10) {
+      //       pagination.limit = size;
+      //       pagination.offset = size * (page - 1)
+      // } else if (page < 1) {
+      //       res.status(400);
+      //       return res.json({
+      //             "message": "Bad Request",
+      //             "errors": "Page must be greater than or equal to 1"
+      //       });
+      // } else if (size < 1) {
+      //       res.status(400);
+      //       return res.json({
+      //             "message": "Bad Request",
+      //             "errors": "Size must be greater than or equal to 1"
+      //       });
+      // } else {
+      //       pagination.limit = 20;
+      //       pagination.offset = 0;
+      // };
 
       let filters = {};
 
@@ -497,7 +497,7 @@ router.get("/", async (req, res, next) => {
 
       const allSpots = await Spot.findAll({
             include: [{model: Review}, {model: SpotImage}],
-            ...pagination,
+            // ...pagination,
             where: {...filters}
       });
 
