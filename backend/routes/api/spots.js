@@ -480,14 +480,19 @@ router.get("/", async (req, res, next) => {
       };
       if (city !== undefined) {
             filters.city = {[Op.iLike]: `%${city}`};
+            // filters.city = city;
       };
       if (state !== undefined) {
-            // filters.state = state;
             filters.state = {[Op.iLike]: `%${state}`};
+            // filters.state = state;
       };
       if (country !== undefined) {
-            // filters.country = country;
-            filters.country = {[Op.iLike]: `%${country}`};
+            if (country.toLowerCase() == 'usa' || country.toLowerCase() == 'united states' || country.toLowerCase() == 'america') {
+                  filters.country = 'USA'
+            } else {
+                  filters.country = {[Op.iLike]: `%${country}`};
+                  // filters.country = country;
+            }
       }
 
       const allSpots = await Spot.findAll({
