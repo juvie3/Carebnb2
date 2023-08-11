@@ -479,13 +479,15 @@ router.get("/", async (req, res, next) => {
             filters.category = type;
       };
       if (city !== undefined) {
-            filters.city = city;
+            filters.city = {[Op.iLike]: `%${city}`};
       };
       if (state !== undefined) {
-            filters.state = state;
+            // filters.state = state;
+            filters.state = {[Op.iLike]: `%${state}`};
       };
       if (country !== undefined) {
-            filters.country = country;
+            // filters.country = country;
+            filters.country = {[Op.iLike]: `%${country}`};
       }
 
       const allSpots = await Spot.findAll({
