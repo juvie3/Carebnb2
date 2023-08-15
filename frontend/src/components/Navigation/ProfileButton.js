@@ -14,7 +14,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-  const history = useHistory();
+  const history = useHistory();   // this is diff
 
   const openMenu = () => {
     if (showMenu) return;
@@ -35,13 +35,13 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const closeMenu = () => setShowMenu(false);
+  const closeMenu = () => setShowMenu(false);  //this is diff
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    history.push('/')
-    closeMenu();
+    history.push('/')   // this is diff
+    closeMenu();  // this is diff
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");

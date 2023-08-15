@@ -261,3 +261,7 @@ nav {
       text-align: center;
       width: 125px;
 }
+
+.hidden {
+      visibility: hidden;
+}
