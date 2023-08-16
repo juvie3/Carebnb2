@@ -487,7 +487,7 @@ router.get("/", async (req, res, next) => {
             // filters.state = state;
       };
       if (country !== undefined) {
-            if (country.toLowerCase() == 'usa' || country.toLowerCase() == 'united states' || country.toLowerCase() == 'america') {
+            if (country.toLowerCase() == 'usa' || country.toLowerCase() == 'us' || country.toLowerCase() == 'united states' || country.toLowerCase() == 'america') {
                   filters.country = 'USA'
             } else {
                   filters.country = {[Op.iLike]: `%${country}`};
