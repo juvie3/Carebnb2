@@ -3,7 +3,7 @@
 
 
 <!--!!START SILENT -->
-# Carebnb
+# Carebnb - My First Full-Stack Project
 <!--!!END -->
 <!--!!ADD -->
 <!-- # `<name of application here>` -->
