@@ -17,8 +17,6 @@ Thank you for taking the time to check out my website. This was my implementatio
 
 Please allow a few minutes for the server to start up. Again, thank you so very much; I truly do appreciate your time.
 
-![carebnb-gif](images/carebnb.gif)
-
 ### Technologies Used:
 - React
 - Redux
@@ -28,6 +26,9 @@ Please allow a few minutes for the server to start up. Again, thank you so very 
 - PostgresSQL
 - Node
 - Languages: Javascript, JSX, HTML, CSS
+
+![carebnb-gif](images/carebnb.gif)
+##
 
 ## Database Schema Design
 
